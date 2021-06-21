@@ -1,0 +1,9 @@
+#!/bin/sh
+
+while read file
+do
+    case "$1" in
+    "r")        convert -rotate 90 "$file" "$file" ;;
+    "w")        feh --bg-scale "$file" ;;
+    esac
+done
