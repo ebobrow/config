@@ -15,23 +15,30 @@ nnoremap <silent><leader>H :wincmd H<CR>
 
 nnoremap <C-j> <cmd>:cnext<CR>
 nnoremap <C-k> <cmd>:cprev<CR>
-nnoremap <C-l> <cmd>:cafter<CR>
-nnoremap <C-h> <cmd>:cbefore<CR>
-nnoremap <C-q> :call ToggleQFList()<CR>
-let g:qf_open = 0
+nnoremap <C-h> :tabp<CR>
+nnoremap <C-l> :tabn<CR>
+nnoremap <C-q> :call ToggleQuickfixList()<CR>
 
-fun! ToggleQFList()
-    if g:qf_open == 1
-        let g:qf_open = 0
-        cclose
-    else
-        let g:qf_open = 1
-        copen
-    end
-endfun
+fun! GetBufferList() 
+    redir =>buflist 
+    silent! ls 
+    redir END 
+    return buflist 
+endfunction
 
-nnoremap ]b :bn<CR>
-nnoremap [b :bp<CR>
+fun! ToggleQuickfixList()
+    for bufnum in map(filter(split(GetBufferList(), '\n'), 'v:val =~ "Quickfix List"'), 'str2nr(matchstr(v:val, "\\d\\+"))') 
+        if bufwinnr(bufnum) != -1
+            cclose
+            return
+        endif
+    endfor
+    let winnr = winnr()
+    copen
+    if winnr() != winnr
+        wincmd p
+    endif
+endfunction
 
 nnoremap <leader>y "+y
 vnoremap <leader>y "+y
@@ -46,10 +53,10 @@ vnoremap <leader>d "_d
 nnoremap <silent><C-z> :ToggleTerminal<CR>
 tnoremap <silent> <C-z> <C-\><C-n>:ToggleTerminal<Enter>
 tnoremap <C-^> <C-\><C-n><C-^>
+tnoremap <C-h> <C-\><C-n>:tabp<CR>
+tnoremap <C-l> <C-\><C-n>:tabn<CR>
 
 nnoremap S :%s//g<Left><Left>
 vnoremap S :s//g<Left><Left>
 
 nnoremap Y y$
-
-nnoremap ]t :Ggrep TODO<CR>

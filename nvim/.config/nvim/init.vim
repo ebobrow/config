@@ -3,6 +3,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'neovim/nvim-lspconfig'
     Plug 'hrsh7th/nvim-compe'
     Plug 'glepnir/lspsaga.nvim'
+    Plug 'nvim-lua/lsp_extensions.nvim'
 
     "" Telescope
     Plug 'tpope/vim-fugitive'
@@ -13,6 +14,7 @@ call plug#begin('~/.vim/plugged')
     "" statusline
     Plug 'glepnir/galaxyline.nvim' , { 'branch': 'main' }
     Plug 'kyazdani42/nvim-web-devicons'
+    Plug 'mkitt/tabline.vim'
 
     "" Misc
     Plug 'gruvbox-community/gruvbox'
@@ -40,10 +42,12 @@ set scl=yes
 set inccommand=split
 set title
 set autowriteall
+set noshowmode
+set list
+set listchars+=trail:·
 
 set path+=**
 
-set wildignore+=*_build/*
 set wildignore+=**/node_modules/*
 set wildignore+=**/.git/*
 set wildignore+=**/target/*
@@ -69,6 +73,8 @@ autocmd BufWritePost ~/dmenu/* !sudo make install
 
 " Disable autocomment
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+autocmd InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *.rs lua require'lsp_extensions'.inlay_hints{ prefix = ' » ', enabled = {"ChainingHint", "ParameterHint", "TypeHint"} }
 
 augroup highlight_yank
     autocmd!

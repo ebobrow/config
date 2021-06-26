@@ -59,14 +59,16 @@ nvim_lsp.tsserver.setup{}
 nvim_lsp.pyright.setup{}
 -- nvim_lsp.rls.setup{}
 nvim_lsp.rust_analyzer.setup {
+    --[
     settings = {
         ["rust-analyzer"] = {
             rustcSource = "discover",
             updates = {
                 channel = "nightly"
-            }
+            },
         }
     }
+    --]]
 }
 nvim_lsp.vimls.setup{}
 nvim_lsp.sumneko_lua.setup {
