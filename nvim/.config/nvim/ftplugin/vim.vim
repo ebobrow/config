@@ -1,1 +1,1 @@
-nnoremap H :help <c-r><c-w><CR>
+nnoremap <leader>q :help <c-r><c-w><CR>

@@ -20,9 +20,9 @@ nnoremap <silent><leader>F :lua vim.lsp.buf.formatting()<CR>
 
 autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 100)
 autocmd BufWritePre *.ts lua vim.lsp.buf.formatting_sync(nil, 100)
-autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 100)
+" autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 100)
 
-set completeopt=menuone,noselect
+set completeopt=menuone,noselect,noinsert
 let g:compe = {}
 let g:compe.enabled = v:true
 let g:compe.autocomplete = v:true
@@ -43,8 +43,8 @@ let g:compe.source.buffer = v:true
 let g:compe.source.calc = v:true
 let g:compe.source.nvim_lsp = v:true
 let g:compe.source.nvim_lua = v:true
-let g:compe.source.vsnip = v:true
-let g:compe.source.ultisnips = v:true
+let g:compe.source.vsnip = v:false
+let g:compe.source.ultisnips = v:false
 
 inoremap <silent><expr> <C-Space> compe#complete()
 inoremap <silent><expr> <CR>      compe#confirm('<CR>')

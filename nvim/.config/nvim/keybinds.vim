@@ -4,20 +4,20 @@ inoremap jk <Esc>
 noremap <C-c> <Esc>
 nnoremap <leader><CR> :so ~/.config/nvim/init.vim<CR>
 
-nnoremap <silent><leader>j :wincmd j<CR>
-nnoremap <silent><leader>k :wincmd k<CR>
-nnoremap <silent><leader>l :wincmd l<CR>
-nnoremap <silent><leader>h :wincmd h<CR>
-nnoremap <silent><leader>J :wincmd J<CR>
-nnoremap <silent><leader>K :wincmd K<CR>
-nnoremap <silent><leader>L :wincmd L<CR>
-nnoremap <silent><leader>H :wincmd H<CR>
+nnoremap <silent> <leader>j :wincmd j<CR>
+nnoremap <silent> <leader>k :wincmd k<CR>
+nnoremap <silent> <leader>l :wincmd l<CR>
+nnoremap <silent> <leader>h :wincmd h<CR>
+nnoremap <silent> <leader>J :wincmd J<CR>
+nnoremap <silent> <leader>K :wincmd K<CR>
+nnoremap <silent> <leader>L :wincmd L<CR>
+nnoremap <silent> <leader>H :wincmd H<CR>
 
-nnoremap <C-j> <cmd>:cnext<CR>
-nnoremap <C-k> <cmd>:cprev<CR>
-nnoremap <C-h> :tabp<CR>
-nnoremap <C-l> :tabn<CR>
-nnoremap <C-q> :call ToggleQuickfixList()<CR>
+nnoremap <silent> <C-j> <cmd>:cnext<CR>
+nnoremap <silent> <C-k> <cmd>:cprev<CR>
+nnoremap <silent> <C-h> :tabp<CR>
+nnoremap <silent> <C-l> :tabn<CR>
+nnoremap <silent> <C-q> :call ToggleQuickfixList()<CR>
 
 fun! GetBufferList() 
     redir =>buflist 

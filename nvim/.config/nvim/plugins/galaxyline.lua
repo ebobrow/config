@@ -80,8 +80,8 @@ gls.mid[1] ={
     FileIcon = {
         provider = 'FileIcon',
         condition = condition.buffer_not_empty,
-        highlight = {require('galaxyline.provider_fileinfo').get_file_icon_color,colors.bg},
-        -- highlight = 'StatusLine'
+        -- highlight = {require('galaxyline.provider_fileinfo').get_file_icon_color,colors.bg},
+        highlight = 'StatusLine'
     },
 }
 
@@ -97,7 +97,8 @@ gls.right[1] = {
     DiagnosticError = {
         provider = 'DiagnosticError',
         icon = '  ',
-        highlight = {colors.red,colors.bg}
+        -- highlight = {colors.red,colors.bg}
+        highlight = 'StatusLine'
     }
 }
 

@@ -3,7 +3,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'neovim/nvim-lspconfig'
     Plug 'hrsh7th/nvim-compe'
     Plug 'glepnir/lspsaga.nvim'
-    Plug 'nvim-lua/lsp_extensions.nvim'
+    " Plug 'nvim-lua/lsp_extensions.nvim'
+    Plug 'ebobrow/lsp_extensions.nvim', { 'branch': 'multiple-hints-per-line' }
+    Plug 'rust-lang/rust.vim'
 
     "" Telescope
     Plug 'tpope/vim-fugitive'
@@ -45,6 +47,7 @@ set autowriteall
 set noshowmode
 set list
 set listchars+=trail:·
+set shortmess+=c
 
 set path+=**
 
@@ -76,9 +79,19 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 autocmd InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *.rs lua require'lsp_extensions'.inlay_hints{ prefix = ' » ', enabled = {"ChainingHint", "ParameterHint", "TypeHint"} }
 
+let g:rustfmt_autosave = 1
+let g:rustc_path = "usr/bin/rustc"
+let g:rust_fold = 1
+
 augroup highlight_yank
     autocmd!
     autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank()
+augroup END
+
+augroup CursorLine
+    autocmd!
+    autocmd WinEnter * set cul
+    autocmd WinLeave * set nocul
 augroup END
 
 luafile $HOME/.config/nvim/plugins/gitsigns.lua
