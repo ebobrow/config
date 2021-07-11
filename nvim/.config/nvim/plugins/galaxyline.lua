@@ -13,7 +13,7 @@ local colors = {
     red = '#fb4934',
     grey = '#282828'
 }
-gl.short_line_list = {'vim-plug', 'term', 'netrw'}
+gl.short_line_list = {'packer', 'term', 'netrw'}
 
 local fileName = function()
     local file = vim.fn['fnamemodify'](vim.fn.expand("%"), ":~:.")

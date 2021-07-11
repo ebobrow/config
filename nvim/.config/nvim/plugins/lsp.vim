@@ -20,7 +20,7 @@ nnoremap <silent><leader>F :lua vim.lsp.buf.formatting()<CR>
 
 autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 100)
 autocmd BufWritePre *.ts lua vim.lsp.buf.formatting_sync(nil, 100)
-" autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 100)
+autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 100)
 
 set completeopt=menuone,noselect,noinsert
 let g:compe = {}

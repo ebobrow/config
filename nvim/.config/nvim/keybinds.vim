@@ -4,6 +4,16 @@ inoremap jk <Esc>
 noremap <C-c> <Esc>
 nnoremap <leader><CR> :so ~/.config/nvim/init.vim<CR>
 
+" Mouse is good for resizing splits, but nothing else
+nnoremap <leader>m :call ToggleMouse()<CR>
+fun! ToggleMouse()
+    if &mouse == 'a'
+        set mouse=
+    else
+        set mouse=a
+    endif
+endfunction
+
 nnoremap <silent> <leader>j :wincmd j<CR>
 nnoremap <silent> <leader>k :wincmd k<CR>
 nnoremap <silent> <leader>l :wincmd l<CR>
