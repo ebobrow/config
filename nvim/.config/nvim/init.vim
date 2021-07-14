@@ -20,6 +20,8 @@ set list
 set listchars+=trail:·
 set shortmess+=c
 
+set statusline=%y%=%f\ %m%r%=%l:%c\ [%p%%]
+
 set path+=**
 
 set wildignore+=**/node_modules/*
@@ -44,6 +46,7 @@ syntax enable
 autocmd BufWritePost ~/.Xresources !xrdb %
 autocmd BufWritePost ~/st/* !sudo make install
 autocmd BufWritePost ~/dmenu/* !sudo make install
+autocmd BufWritePost packer.lua source <afile> | PackerCompile
 
 " Disable autocomment
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
@@ -59,11 +62,10 @@ augroup cursor_line
     autocmd WinLeave * set nocul
 augroup END
 
-luafile $HOME/.config/nvim/plugins/packer.lua
-luafile $HOME/.config/nvim/plugins/gitsigns.lua
-luafile $HOME/.config/nvim/plugins/galaxyline.lua
-source $HOME/.config/nvim/plugins/lsp.vim
-source $HOME/.config/nvim/plugins/telescope.vim
+luafile $HOME/.config/nvim/plug-config/packer.lua
+luafile $HOME/.config/nvim/plug-config/gitsigns.lua
+source $HOME/.config/nvim/plug-config/lsp.vim
+source $HOME/.config/nvim/plug-config/telescope.vim
 
 source $HOME/.config/nvim/colors.vim
 source $HOME/.config/nvim/keybinds.vim

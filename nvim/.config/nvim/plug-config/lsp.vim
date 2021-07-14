@@ -8,7 +8,7 @@ nnoremap <silent> <C-d> <cmd>lua require('lspsaga.action').smart_scroll_with_sag
 " scroll up hover doc
 nnoremap <silent> <C-u> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>
 
-nnoremap <silent> gR <cmd>lua vim.lsp.buf.rename()<CR>
+nnoremap <silent> gR "+yiw:Lspsaga rename<CR><C-r>+
 
 nnoremap <silent> ]d :Lspsaga diagnostic_jump_next<CR>
 nnoremap <silent> [d :Lspsaga diagnostic_jump_prev<CR>
@@ -57,9 +57,8 @@ local nvim_lsp = require'lspconfig'
 
 nvim_lsp.tsserver.setup{}
 nvim_lsp.pyright.setup{}
--- nvim_lsp.rls.setup{}
 nvim_lsp.rust_analyzer.setup {
-    --[
+    --[[
     settings = {
         ["rust-analyzer"] = {
             rustcSource = "discover",
@@ -68,7 +67,7 @@ nvim_lsp.rust_analyzer.setup {
             },
         }
     }
-    --]]
+--]]
 }
 nvim_lsp.vimls.setup{}
 nvim_lsp.sumneko_lua.setup {
@@ -95,10 +94,12 @@ nvim_lsp.sumneko_lua.setup {
     },
 }
 
+--[[
 vim.fn.sign_define("LspDiagnosticsSignError", {texthl = "LspDiagnosticsSignError", text = "", numhl = "LspDiagnosticsSignError"})
 vim.fn.sign_define("LspDiagnosticsSignWarning", {texthl = "LspDiagnosticsSignWarning", text = "", numhl = "LspDiagnosticsSignWarning"})
 vim.fn.sign_define("LspDiagnosticsSignInformation", {texthl = "LspDiagnosticsSignInformation", text = "", numhl = "LspDiagnosticsSignInformation"})
 vim.fn.sign_define("LspDiagnosticsSignHint", {texthl = "LspDiagnosticsSignHint", text = "", numhl = "LspDiagnosticsSignHint"})
+--]]
 
 local t = function(str)
   return vim.api.nvim_replace_termcodes(str, true, true, true)
