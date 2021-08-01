@@ -57,9 +57,6 @@ augroup highlight_yank
 augroup END
 
 luafile $HOME/.config/nvim/plug-config/packer.lua
-luafile $HOME/.config/nvim/plug-config/gitsigns.lua
 source $HOME/.config/nvim/plug-config/lsp.vim
-source $HOME/.config/nvim/plug-config/telescope.vim
 
-source $HOME/.config/nvim/colors.vim
 source $HOME/.config/nvim/keybinds.vim

@@ -59,17 +59,87 @@ return require('packer').startup(function()
     use 'tpope/vim-fugitive'
     use {
         'nvim-telescope/telescope.nvim',
-        requires = { 'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons' }
+        requires = { 'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons' },
+        config = function()
+            -- TODO: Make separate file (like https://github.com/tjdevries/config_manager/tree/master/xdg_config/nvim/lua/tj/telescope)
+            vim.api.nvim_set_keymap('n', '<leader>f', '<cmd>Telescope git_files<CR>', {})
+            vim.api.nvim_set_keymap('n', '<leader>b', '<cmd>Telescope buffers<CR>', {})
+            vim.api.nvim_set_keymap('n', '<leader>rg', '<cmd>Telescope live_grep<CR>', {})
+
+            vim.api.nvim_set_keymap('n', '<leader>gr', '<cmd>Telescope lsp_references<CR>', {})
+            vim.api.nvim_set_keymap('n', '<leader>xx', '<cmd>Telescope quickfix<cr>', {})
+            vim.api.nvim_set_keymap('n', '<leader>xd', '<cmd>Telescope lsp_document_diagnostics<CR>', {})
+            vim.api.nvim_set_keymap('n', '<leader>xw', '<cmd>Telescope lsp_workspace_diagnostics<CR>', {})
+
+            vim.api.nvim_set_keymap('n', '<leader>gc', '<cmd>Telescope git_commits<CR>', {})
+            vim.api.nvim_set_keymap('n', '<leader>gg', '<cmd>Telescope git_status<CR>', {})
+
+            vim.api.nvim_set_keymap('n', '<leader>T', '<cmd>Telescope builtin<CR>', {})
+
+            local actions = require("telescope.actions")
+
+            require('telescope').setup{
+                defaults = {
+                    mappings = {
+                        i = {
+                            ["<C-j>"] = actions.move_selection_next,
+                            ["<C-k>"] = actions.move_selection_previous,
+                        },
+                        n = {
+                            ["<C-j>"] = actions.move_selection_next,
+                            ["<C-k>"] = actions.move_selection_previous,
+                        },
+                    },
+                }
+            }
+        end
     }
     use 'mkitt/tabline.vim'
-    use 'ii14/onedark.nvim'
+    use {
+        'ii14/onedark.nvim',
+        config = function()
+            vim.cmd [[let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"]]
+            vim.cmd [[let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"]]
+
+            vim.cmd [[colorscheme onedark]]
+            vim.api.nvim_set_option('background', 'dark')
+
+            vim.cmd [[highlight Normal guibg=none]]
+
+            vim.api.nvim_set_option('termguicolors', true)
+        end
+    }
     use 'tpope/vim-commentary'
-    use { 'rrethy/vim-hexokinase', run = 'make hexokinase' }
+    use {
+        'rrethy/vim-hexokinase',
+        run = 'make hexokinase'
+    }
     use {
         'lewis6991/gitsigns.nvim',
         requires = {
             'nvim-lua/plenary.nvim'
-        }
+        },
+        config = function()
+            require('gitsigns').setup {
+                keymaps = {
+                    ['n ]c'] = { expr = true, "&diff ? ']c' : '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>zz'"},
+                    ['n [c'] = { expr = true, "&diff ? '[c' : '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>zz'"},
+
+                    ['n <leader>gs'] = '<cmd>lua require"gitsigns".stage_hunk()<CR>',
+                    ['n <leader>gu'] = '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>',
+                    ['n <leader>gr'] = '<cmd>lua require"gitsigns".reset_hunk()<CR>',
+                    ['n <leader>gR'] = '<cmd>lua require"gitsigns".reset_buffer()<CR>',
+                    ['n <leader>gp'] = '<cmd>lua require"gitsigns".preview_hunk()<CR>',
+                    ['n <leader>gb'] = '<cmd>lua require"gitsigns".blame_line(true)<CR>',
+                    ['n <leader>gS'] = '<cmd>lua require"gitsigns".stage_buffer()<CR>',
+                    ['n <leader>gU'] = '<cmd>lua require"gitsigns".reset_buffer_index()<CR>',
+
+                     -- Text objects
+                    ['o ig'] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>',
+                    ['x ig'] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>'
+                }
+            }
+        end
     }
     use {
         "AndrewRadev/splitjoin.vim",
