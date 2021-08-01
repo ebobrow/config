@@ -314,12 +314,12 @@ c.colors.tabs.even.bg = 'black'
 
 # Background color of selected odd tabs.
 # Type: QtColor
-c.colors.tabs.selected.odd.bg = '#83a598'
+c.colors.tabs.selected.odd.bg = '#689d6a'
 c.colors.tabs.selected.odd.fg = '#282c34'
 
 # Background color of selected even tabs.
 # Type: QtColor
-c.colors.tabs.selected.even.bg = '#83a598'
+c.colors.tabs.selected.even.bg = '#689d6a'
 c.colors.tabs.selected.even.fg = '#282c34'
 
 # Background color of pinned unselected odd tabs.
@@ -332,12 +332,12 @@ c.colors.tabs.pinned.even.bg = 'black'
 
 # Background color of pinned selected odd tabs.
 # Type: QtColor
-c.colors.tabs.pinned.selected.odd.bg = '#83a598'
+c.colors.tabs.pinned.selected.odd.bg = '#689d6a'
 c.colors.tabs.pinned.selected.odd.fg = '#282c34'
 
 # Background color of pinned selected even tabs.
 # Type: QtColor
-c.colors.tabs.pinned.selected.even.bg = '#83a598'
+c.colors.tabs.pinned.selected.even.bg = '#689d6a'
 c.colors.tabs.pinned.selected.even.fg = '#282c34'
 
 c.editor.command = ['st', '-e', 'nvim', '{file}']

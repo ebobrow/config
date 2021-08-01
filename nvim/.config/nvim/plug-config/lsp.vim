@@ -21,6 +21,7 @@ nnoremap <silent><leader>F :lua vim.lsp.buf.formatting()<CR>
 autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 100)
 autocmd BufWritePre *.ts lua vim.lsp.buf.formatting_sync(nil, 100)
 autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 100)
+autocmd BufWritePre *.hs lua vim.lsp.buf.formatting_sync(nil, 100)
 
 set completeopt=menuone,noselect,noinsert
 let g:compe = {}
@@ -56,7 +57,6 @@ lua << EOF
 local nvim_lsp = require'lspconfig'
 
 nvim_lsp.tsserver.setup{}
-nvim_lsp.pyright.setup{}
 nvim_lsp.rust_analyzer.setup {
     --[[
     settings = {
@@ -70,6 +70,16 @@ nvim_lsp.rust_analyzer.setup {
 --]]
 }
 nvim_lsp.vimls.setup{}
+nvim_lsp.hls.setup {
+    root_dir = nvim_lsp.util.root_pattern("*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml", ".git"),
+    --[[
+    settings = {
+      haskell = {
+        formattingProvider = "floskell"
+      }
+    }
+--]]
+}
 nvim_lsp.sumneko_lua.setup {
     cmd = {"/home/elliotbobrow/lua-language-server/bin/Linux/lua-language-server", "-E", "/home/elliotbobrow/lua-language-server/main.lua"};
     settings = {

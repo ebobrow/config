@@ -11,7 +11,7 @@ return require('packer').startup(function()
             require'lspsaga'.init_lsp_saga {
                 use_saga_diagnostic_sign = false,
                 code_action_prompt = {
-                    enable = true,
+                    enable = false,
                     sign = true,
                     sign_priority = 20,
                     virtual_text = false,
@@ -23,10 +23,12 @@ return require('packer').startup(function()
                     open = 'o', vsplit = 's',split = 'i',quit = 'q',scroll_down = '<C-f>', scroll_up = '<C-b>' -- quit can be a table
                 },
                 code_action_keys = {
-                    quit = 'q',exec = '<CR>'
+                    quit = 'q',
+                    exec = '<CR>'
                 },
                 rename_action_keys = {
-                    quit = '<C-c>',exec = '<CR>'  -- quit can be a table
+                    quit = '<C-c>',
+                    exec = '<CR>'  -- quit can be a table
                 },
                 definition_preview_icon = '  ',
                 border_style = "single",
@@ -41,17 +43,26 @@ return require('packer').startup(function()
             require'rust-tools'.setup {}
         end
     }
-
     use {
-        'tpope/vim-fugitive',
-        cmd = { "G", "Ggrep" }
+        'nvim-treesitter/nvim-treesitter',
+        run = ":TSUpdate",
+        config = function()
+            require'nvim-treesitter.configs'.setup {
+                ensure_installed = { "rust", "toml", "html", "typescript", "tsx", "lua", "haskell" },
+                highlight = {
+                    enable = true,
+                },
+            }
+        end
     }
+
+    use 'tpope/vim-fugitive'
     use {
         'nvim-telescope/telescope.nvim',
         requires = { 'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons' }
     }
     use 'mkitt/tabline.vim'
-    use 'gruvbox-community/gruvbox'
+    use 'ii14/onedark.nvim'
     use 'tpope/vim-commentary'
     use { 'rrethy/vim-hexokinase', run = 'make hexokinase' }
     use {

@@ -41,7 +41,7 @@ set nowrap
 set cursorline
 
 filetype plugin indent on
-syntax enable
+syntax on
 
 autocmd BufWritePost ~/.Xresources !xrdb %
 autocmd BufWritePost ~/st/* !sudo make install
@@ -54,12 +54,6 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 augroup highlight_yank
     autocmd!
     autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank {on_visual=false, timeout=200}
-augroup END
-
-augroup cursor_line
-    autocmd!
-    autocmd WinEnter * set cul
-    autocmd WinLeave * set nocul
 augroup END
 
 luafile $HOME/.config/nvim/plug-config/packer.lua
