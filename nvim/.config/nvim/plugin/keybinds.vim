@@ -1,8 +1,7 @@
 com! W w
-nnoremap <leader>n :nohl<CR>
+nnoremap <expr> <CR> {-> v:hlsearch ? ":nohl\<CR>" : "\<CR>"}()
 inoremap jk <Esc>
 noremap <C-c> <Esc>
-nnoremap <leader><CR> :so ~/.config/nvim/init.vim<CR>
 
 " Mouse is good for resizing splits, but nothing else
 nnoremap <leader>m :call ToggleMouse()<CR>
