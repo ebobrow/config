@@ -29,16 +29,11 @@ local on_attach = function()
   buf_nnoremap { "[d", require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev }
   buf_nnoremap { "<leader>cd", require'lspsaga.diagnostic'.show_line_diagnostics }
 
-  -- buf_nnoremap { "<leader>ca", function()
-  --     require'telescope.builtin'.lsp_code_actions(require'telescope.themes'.get_dropdown {
-  --         previewer = false
-  --     })
-  -- end
-  -- }
-  telescope_mapper("<leader>ca", "code_actions")
-  telescope_mapper("<leader>gr", "lsp_references")
-  telescope_mapper('<leader>xd', 'lsp_document_diagnostics')
-  telescope_mapper('<leader>xw', 'lsp_workspace_diagnostics')
+  -- TODO: These don't work
+  -- telescope_mapper("<leader>ca", "lsp_code_actions")
+  -- telescope_mapper("<leader>gr", "lsp_references")
+  -- telescope_mapper('<leader>xd', 'lsp_document_diagnostics')
+  -- telescope_mapper('<leader>xw', 'lsp_workspace_diagnostics')
 
   buf_nnoremap { "<leader>F", vim.lsp.buf.formatting }
 

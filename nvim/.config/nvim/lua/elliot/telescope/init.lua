@@ -26,12 +26,7 @@ require "telescope".setup {
 local M = {}
 
 function M.lsp_code_actions()
-  local opts = themes.get_dropdown {
-    winblend = 10,
-    border = true,
-    previewer = false,
-    shorten_path = false,
-  }
+  local opts = themes.get_dropdown {}
 
   require("telescope.builtin").lsp_code_actions(opts)
 end

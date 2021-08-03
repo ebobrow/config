@@ -77,6 +77,8 @@ return require('packer').startup(function()
       vim.api.nvim_set_option('background', 'dark')
 
       vim.cmd [[highlight Normal guibg=none]]
+      vim.cmd [[highlight NormalFloat guibg=none]]
+      vim.cmd [[highlight link FloatBorder Normal]]
 
       vim.api.nvim_set_option('termguicolors', true)
     end

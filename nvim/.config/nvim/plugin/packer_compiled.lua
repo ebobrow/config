@@ -110,7 +110,7 @@ _G.packer_plugins = {
     path = "/home/elliotbobrow/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
   },
   ["onedark.nvim"] = {
-    config = { '\27LJ\1\2³\2\0\0\3\0\v\0\0294\0\0\0007\0\1\0%\1\2\0>\0\2\0014\0\0\0007\0\1\0%\1\3\0>\0\2\0014\0\0\0007\0\1\0%\1\4\0>\0\2\0014\0\0\0007\0\5\0007\0\6\0%\1\a\0%\2\b\0>\0\3\0014\0\0\0007\0\1\0%\1\t\0>\0\2\0014\0\0\0007\0\5\0007\0\6\0%\1\n\0)\2\2\0>\0\3\1G\0\1\0\18termguicolors highlight Normal guibg=none\tdark\15background\20nvim_set_option\bapi\24colorscheme onedark+let &t_8b = "\\<Esc>[48;2;%lu;%lu;%lum"+let &t_8f = "\\<Esc>[38;2;%lu;%lu;%lum"\bcmd\bvim\0' },
+    config = { '\27LJ\1\2–\3\0\0\3\0\r\0%4\0\0\0007\0\1\0%\1\2\0>\0\2\0014\0\0\0007\0\1\0%\1\3\0>\0\2\0014\0\0\0007\0\1\0%\1\4\0>\0\2\0014\0\0\0007\0\5\0007\0\6\0%\1\a\0%\2\b\0>\0\3\0014\0\0\0007\0\1\0%\1\t\0>\0\2\0014\0\0\0007\0\1\0%\1\n\0>\0\2\0014\0\0\0007\0\1\0%\1\v\0>\0\2\0014\0\0\0007\0\5\0007\0\6\0%\1\f\0)\2\2\0>\0\3\1G\0\1\0\18termguicolors&highlight link FloatBorder Normal%highlight NormalFloat guibg=none highlight Normal guibg=none\tdark\15background\20nvim_set_option\bapi\24colorscheme onedark+let &t_8b = "\\<Esc>[48;2;%lu;%lu;%lum"+let &t_8f = "\\<Esc>[38;2;%lu;%lu;%lum"\bcmd\bvim\0' },
     loaded = true,
     path = "/home/elliotbobrow/.local/share/nvim/site/pack/packer/start/onedark.nvim"
   },
@@ -182,7 +182,7 @@ try_loadstring("\27LJ\1\2ý\3\0\0\3\0\f\0\0154\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\
 time([[Config for lspsaga.nvim]], false)
 -- Config for: onedark.nvim
 time([[Config for onedark.nvim]], true)
-try_loadstring('\27LJ\1\2³\2\0\0\3\0\v\0\0294\0\0\0007\0\1\0%\1\2\0>\0\2\0014\0\0\0007\0\1\0%\1\3\0>\0\2\0014\0\0\0007\0\1\0%\1\4\0>\0\2\0014\0\0\0007\0\5\0007\0\6\0%\1\a\0%\2\b\0>\0\3\0014\0\0\0007\0\1\0%\1\t\0>\0\2\0014\0\0\0007\0\5\0007\0\6\0%\1\n\0)\2\2\0>\0\3\1G\0\1\0\18termguicolors highlight Normal guibg=none\tdark\15background\20nvim_set_option\bapi\24colorscheme onedark+let &t_8b = "\\<Esc>[48;2;%lu;%lu;%lum"+let &t_8f = "\\<Esc>[38;2;%lu;%lu;%lum"\bcmd\bvim\0', "config", "onedark.nvim")
+try_loadstring('\27LJ\1\2–\3\0\0\3\0\r\0%4\0\0\0007\0\1\0%\1\2\0>\0\2\0014\0\0\0007\0\1\0%\1\3\0>\0\2\0014\0\0\0007\0\1\0%\1\4\0>\0\2\0014\0\0\0007\0\5\0007\0\6\0%\1\a\0%\2\b\0>\0\3\0014\0\0\0007\0\1\0%\1\t\0>\0\2\0014\0\0\0007\0\1\0%\1\n\0>\0\2\0014\0\0\0007\0\1\0%\1\v\0>\0\2\0014\0\0\0007\0\5\0007\0\6\0%\1\f\0)\2\2\0>\0\3\1G\0\1\0\18termguicolors&highlight link FloatBorder Normal%highlight NormalFloat guibg=none highlight Normal guibg=none\tdark\15background\20nvim_set_option\bapi\24colorscheme onedark+let &t_8b = "\\<Esc>[48;2;%lu;%lu;%lum"+let &t_8f = "\\<Esc>[38;2;%lu;%lu;%lum"\bcmd\bvim\0', "config", "onedark.nvim")
 time([[Config for onedark.nvim]], false)
 -- Config for: gitsigns.nvim
 time([[Config for gitsigns.nvim]], true)
