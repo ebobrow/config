@@ -62,6 +62,10 @@ function M.grep_prompt()
   })
 end
 
+function M.buffers()
+  require("telescope.builtin").buffers(themes.get_ivy {})
+end
+
 return setmetatable({}, {
   __index = function(_, k)
     local has_custom, custom = pcall(require, string.format("elliot.telescope.custom.%s", k))
