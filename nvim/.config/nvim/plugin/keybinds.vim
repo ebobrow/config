@@ -28,11 +28,14 @@ nnoremap <silent> <C-h> :tabp<CR>
 nnoremap <silent> <C-l> :tabn<CR>
 nnoremap <silent> <C-q> :call ToggleQuickfixList()<CR>
 
-fun! GetBufferList() 
-    redir =>buflist 
-    silent! ls 
-    redir END 
-    return buflist 
+nnoremap n nzz
+nnoremap N Nzz
+
+fun! GetBufferList()
+    redir =>buflist
+    silent! ls
+    redir END
+    return buflist
 endfunction
 
 fun! ToggleQuickfixList()
@@ -59,8 +62,7 @@ vnoremap <leader>P "_dP
 nnoremap <leader>d "_d
 vnoremap <leader>d "_d
 
-nnoremap <silent><C-z> :ToggleTerminal<CR>
-tnoremap <silent> <C-z> <C-\><C-n>:ToggleTerminal<Enter>
+nnoremap <leader>t :tabnew +term<CR>
 tnoremap <C-^> <C-\><C-n><C-^>
 tnoremap <C-h> <C-\><C-n>:tabp<CR>
 tnoremap <C-l> <C-\><C-n>:tabn<CR>

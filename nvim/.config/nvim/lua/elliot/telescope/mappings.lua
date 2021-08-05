@@ -15,6 +15,7 @@ end
 map_tele('<leader>f', 'files')
 map_tele('<leader>b', 'buffers')
 map_tele('<leader>rg', 'live_grep')
+map_tele('<leader>rp', 'grep_prompt')
 
 map_tele('<leader>xx', 'quickfix')
 map_tele('<leader>xd', 'lsp_document_diagnostics')
