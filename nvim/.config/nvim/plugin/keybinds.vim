@@ -28,9 +28,6 @@ nnoremap <silent> <C-h> :tabp<CR>
 nnoremap <silent> <C-l> :tabn<CR>
 nnoremap <silent> <C-q> :call ToggleQuickfixList()<CR>
 
-nnoremap n nzz
-nnoremap N Nzz
-
 fun! GetBufferList()
     redir =>buflist
     silent! ls

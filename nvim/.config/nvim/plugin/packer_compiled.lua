@@ -74,7 +74,7 @@ _G.packer_plugins = {
     path = "/home/elliotbobrow/.local/share/nvim/site/pack/packer/start/astronauta.nvim"
   },
   ["gitsigns.nvim"] = {
-    config = { "\27LJ\1\2é\6\0\0\4\0\n\0\r4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\b\0003\2\4\0003\3\3\0:\3\5\0023\3\6\0:\3\a\2:\2\t\1>\0\2\1G\0\1\0\fkeymaps\1\0\0\tn [c\1\2\1\0J&diff ? '[c' : '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>zz'\texpr\2\tn ]c\1\0\n\17n <leader>gU9<cmd>lua require \"gitsigns\".reset_buffer_index()<CR>\17n <leader>gr1<cmd>lua require \"gitsigns\".reset_hunk()<CR>\17n <leader>gb5<cmd>lua require \"gitsigns\".blame_line(true)<CR>\to ig;:<C-U>lua require \"gitsigns.actions\".select_hunk()<CR>\tx ig;:<C-U>lua require \"gitsigns.actions\".select_hunk()<CR>\17n <leader>gp3<cmd>lua require \"gitsigns\".preview_hunk()<CR>\17n <leader>gS3<cmd>lua require \"gitsigns\".stage_buffer()<CR>\17n <leader>gu6<cmd>lua require \"gitsigns\".undo_stage_hunk()<CR>\17n <leader>gs1<cmd>lua require \"gitsigns\".stage_hunk()<CR>\17n <leader>gR3<cmd>lua require \"gitsigns\".reset_buffer()<CR>\1\2\1\0J&diff ? ']c' : '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>zz'\texpr\2\nsetup\rgitsigns\frequire\0" },
+    config = { "\27LJ\1\2å\6\0\0\4\0\n\0\r4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\b\0003\2\4\0003\3\3\0:\3\5\0023\3\6\0:\3\a\2:\2\t\1>\0\2\1G\0\1\0\fkeymaps\1\0\0\tn [c\1\2\1\0H&diff ? '[c' : '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>'\texpr\2\tn ]c\1\0\n\17n <leader>gU9<cmd>lua require \"gitsigns\".reset_buffer_index()<CR>\17n <leader>gr1<cmd>lua require \"gitsigns\".reset_hunk()<CR>\17n <leader>gb5<cmd>lua require \"gitsigns\".blame_line(true)<CR>\to ig;:<C-U>lua require \"gitsigns.actions\".select_hunk()<CR>\tx ig;:<C-U>lua require \"gitsigns.actions\".select_hunk()<CR>\17n <leader>gp3<cmd>lua require \"gitsigns\".preview_hunk()<CR>\17n <leader>gS3<cmd>lua require \"gitsigns\".stage_buffer()<CR>\17n <leader>gu6<cmd>lua require \"gitsigns\".undo_stage_hunk()<CR>\17n <leader>gs1<cmd>lua require \"gitsigns\".stage_hunk()<CR>\17n <leader>gR3<cmd>lua require \"gitsigns\".reset_buffer()<CR>\1\2\1\0H&diff ? ']c' : '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>'\texpr\2\nsetup\rgitsigns\frequire\0" },
     loaded = true,
     path = "/home/elliotbobrow/.local/share/nvim/site/pack/packer/start/gitsigns.nvim"
   },
@@ -101,7 +101,7 @@ _G.packer_plugins = {
     path = "/home/elliotbobrow/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
   },
   ["onedark.nvim"] = {
-    config = { '\27LJ\1\2–\3\0\0\3\0\r\0%4\0\0\0007\0\1\0%\1\2\0>\0\2\0014\0\0\0007\0\1\0%\1\3\0>\0\2\0014\0\0\0007\0\1\0%\1\4\0>\0\2\0014\0\0\0007\0\5\0007\0\6\0%\1\a\0%\2\b\0>\0\3\0014\0\0\0007\0\1\0%\1\t\0>\0\2\0014\0\0\0007\0\1\0%\1\n\0>\0\2\0014\0\0\0007\0\1\0%\1\v\0>\0\2\0014\0\0\0007\0\5\0007\0\6\0%\1\f\0)\2\2\0>\0\3\1G\0\1\0\18termguicolors&highlight link FloatBorder Normal%highlight NormalFloat guibg=none highlight Normal guibg=none\tdark\15background\20nvim_set_option\bapi\24colorscheme onedark+let &t_8b = "\\<Esc>[48;2;%lu;%lu;%lum"+let &t_8f = "\\<Esc>[38;2;%lu;%lu;%lum"\bcmd\bvim\0' },
+    config = { '\27LJ\1\2‡\2\0\0\3\0\n\0\0254\0\0\0007\0\1\0%\1\2\0>\0\2\0014\0\0\0007\0\1\0%\1\3\0>\0\2\0014\0\0\0007\0\1\0%\1\4\0>\0\2\0014\0\0\0007\0\5\0007\0\6\0%\1\a\0%\2\b\0>\0\3\0014\0\0\0007\0\5\0007\0\6\0%\1\t\0)\2\2\0>\0\3\1G\0\1\0\18termguicolors\tdark\15background\20nvim_set_option\bapi\24colorscheme onedark+let &t_8b = "\\<Esc>[48;2;%lu;%lu;%lum"+let &t_8f = "\\<Esc>[38;2;%lu;%lu;%lum"\bcmd\bvim\0' },
     loaded = true,
     path = "/home/elliotbobrow/.local/share/nvim/site/pack/packer/start/onedark.nvim"
   },
@@ -118,7 +118,7 @@ _G.packer_plugins = {
     path = "/home/elliotbobrow/.local/share/nvim/site/pack/packer/start/popup.nvim"
   },
   ["rust-tools.nvim"] = {
-    config = { "\27LJ\1\2<\0\0\2\0\3\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0002\1\0\0>\0\2\1G\0\1\0\nsetup\15rust-tools\frequire\0" },
+    config = { "\27LJ\1\2n\0\0\3\1\a\0\r+\0\0\0>\0\1\0014\0\0\0007\0\1\0007\0\2\0003\1\3\0004\2\0\0007\2\4\0027\2\5\0027\2\6\2;\2\2\1>\0\2\1G\0\1\0\0À\nhover\bbuf\blsp\1\2\1\0\6K\vbuffer\3\0\rnnoremap\vkeymap\bvimµ\1\1\0\5\0\r\0\0194\0\0\0%\1\1\0>\0\2\0024\1\0\0%\2\2\0>\1\2\0027\1\3\0013\2\a\0003\3\5\0003\4\4\0:\4\6\3:\3\b\0023\3\n\0001\4\t\0:\4\v\3:\3\f\2>\1\2\0010\0\0€G\0\1\0\vserver\14on_attach\1\0\0\0\ntools\1\0\0\18hover_actions\1\0\0\1\0\1\vborder\tnone\nsetup\15rust-tools\15elliot.lsp\frequire\0" },
     loaded = false,
     needs_bufread = true,
     path = "/home/elliotbobrow/.local/share/nvim/site/pack/packer/opt/rust-tools.nvim"
@@ -186,7 +186,7 @@ try_loadstring("\27LJ\1\2ý\3\0\0\3\0\f\0\0154\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\
 time([[Config for lspsaga.nvim]], false)
 -- Config for: onedark.nvim
 time([[Config for onedark.nvim]], true)
-try_loadstring('\27LJ\1\2–\3\0\0\3\0\r\0%4\0\0\0007\0\1\0%\1\2\0>\0\2\0014\0\0\0007\0\1\0%\1\3\0>\0\2\0014\0\0\0007\0\1\0%\1\4\0>\0\2\0014\0\0\0007\0\5\0007\0\6\0%\1\a\0%\2\b\0>\0\3\0014\0\0\0007\0\1\0%\1\t\0>\0\2\0014\0\0\0007\0\1\0%\1\n\0>\0\2\0014\0\0\0007\0\1\0%\1\v\0>\0\2\0014\0\0\0007\0\5\0007\0\6\0%\1\f\0)\2\2\0>\0\3\1G\0\1\0\18termguicolors&highlight link FloatBorder Normal%highlight NormalFloat guibg=none highlight Normal guibg=none\tdark\15background\20nvim_set_option\bapi\24colorscheme onedark+let &t_8b = "\\<Esc>[48;2;%lu;%lu;%lum"+let &t_8f = "\\<Esc>[38;2;%lu;%lu;%lum"\bcmd\bvim\0', "config", "onedark.nvim")
+try_loadstring('\27LJ\1\2‡\2\0\0\3\0\n\0\0254\0\0\0007\0\1\0%\1\2\0>\0\2\0014\0\0\0007\0\1\0%\1\3\0>\0\2\0014\0\0\0007\0\1\0%\1\4\0>\0\2\0014\0\0\0007\0\5\0007\0\6\0%\1\a\0%\2\b\0>\0\3\0014\0\0\0007\0\5\0007\0\6\0%\1\t\0)\2\2\0>\0\3\1G\0\1\0\18termguicolors\tdark\15background\20nvim_set_option\bapi\24colorscheme onedark+let &t_8b = "\\<Esc>[48;2;%lu;%lu;%lum"+let &t_8f = "\\<Esc>[38;2;%lu;%lu;%lum"\bcmd\bvim\0', "config", "onedark.nvim")
 time([[Config for onedark.nvim]], false)
 -- Config for: nvim-treesitter
 time([[Config for nvim-treesitter]], true)
@@ -194,7 +194,7 @@ try_loadstring("\27LJ\1\2°\1\0\0\3\0\b\0\v4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\4\
 time([[Config for nvim-treesitter]], false)
 -- Config for: gitsigns.nvim
 time([[Config for gitsigns.nvim]], true)
-try_loadstring("\27LJ\1\2é\6\0\0\4\0\n\0\r4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\b\0003\2\4\0003\3\3\0:\3\5\0023\3\6\0:\3\a\2:\2\t\1>\0\2\1G\0\1\0\fkeymaps\1\0\0\tn [c\1\2\1\0J&diff ? '[c' : '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>zz'\texpr\2\tn ]c\1\0\n\17n <leader>gU9<cmd>lua require \"gitsigns\".reset_buffer_index()<CR>\17n <leader>gr1<cmd>lua require \"gitsigns\".reset_hunk()<CR>\17n <leader>gb5<cmd>lua require \"gitsigns\".blame_line(true)<CR>\to ig;:<C-U>lua require \"gitsigns.actions\".select_hunk()<CR>\tx ig;:<C-U>lua require \"gitsigns.actions\".select_hunk()<CR>\17n <leader>gp3<cmd>lua require \"gitsigns\".preview_hunk()<CR>\17n <leader>gS3<cmd>lua require \"gitsigns\".stage_buffer()<CR>\17n <leader>gu6<cmd>lua require \"gitsigns\".undo_stage_hunk()<CR>\17n <leader>gs1<cmd>lua require \"gitsigns\".stage_hunk()<CR>\17n <leader>gR3<cmd>lua require \"gitsigns\".reset_buffer()<CR>\1\2\1\0J&diff ? ']c' : '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>zz'\texpr\2\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
+try_loadstring("\27LJ\1\2å\6\0\0\4\0\n\0\r4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\b\0003\2\4\0003\3\3\0:\3\5\0023\3\6\0:\3\a\2:\2\t\1>\0\2\1G\0\1\0\fkeymaps\1\0\0\tn [c\1\2\1\0H&diff ? '[c' : '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>'\texpr\2\tn ]c\1\0\n\17n <leader>gU9<cmd>lua require \"gitsigns\".reset_buffer_index()<CR>\17n <leader>gr1<cmd>lua require \"gitsigns\".reset_hunk()<CR>\17n <leader>gb5<cmd>lua require \"gitsigns\".blame_line(true)<CR>\to ig;:<C-U>lua require \"gitsigns.actions\".select_hunk()<CR>\tx ig;:<C-U>lua require \"gitsigns.actions\".select_hunk()<CR>\17n <leader>gp3<cmd>lua require \"gitsigns\".preview_hunk()<CR>\17n <leader>gS3<cmd>lua require \"gitsigns\".stage_buffer()<CR>\17n <leader>gu6<cmd>lua require \"gitsigns\".undo_stage_hunk()<CR>\17n <leader>gs1<cmd>lua require \"gitsigns\".stage_hunk()<CR>\17n <leader>gR3<cmd>lua require \"gitsigns\".reset_buffer()<CR>\1\2\1\0H&diff ? ']c' : '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>'\texpr\2\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
 time([[Config for gitsigns.nvim]], false)
 
 -- Command lazy-loads
@@ -204,8 +204,8 @@ time([[Defining lazy-load commands]], false)
 
 -- Keymap lazy-loads
 time([[Defining lazy-load keymaps]], true)
-vim.cmd [[noremap <silent> gS <cmd>lua require("packer.load")({'splitjoin.vim'}, { keys = "gS", prefix = "" }, _G.packer_plugins)<cr>]]
 vim.cmd [[noremap <silent> gJ <cmd>lua require("packer.load")({'splitjoin.vim'}, { keys = "gJ", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[noremap <silent> gS <cmd>lua require("packer.load")({'splitjoin.vim'}, { keys = "gS", prefix = "" }, _G.packer_plugins)<cr>]]
 time([[Defining lazy-load keymaps]], false)
 
 vim.cmd [[augroup packer_load_aucmds]]

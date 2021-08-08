@@ -1,6 +1,8 @@
 vim.opt.completeopt = { "menuone", "noselect" }
 vim.opt.shortmess:append "c"
 
+vim.cmd [[highlight link CompeDocumentation Normal]]
+
 require'compe'.setup {
   enabled = true,
   autocomplete = true,

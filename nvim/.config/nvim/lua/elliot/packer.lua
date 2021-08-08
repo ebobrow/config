@@ -41,7 +41,20 @@ return require "packer".startup(function()
     "simrat39/rust-tools.nvim",
     ft = "rust",
     config = function()
-      require "rust-tools".setup {}
+      local on_attach = require "elliot.lsp"
+      require "rust-tools".setup {
+        tools = {
+          hover_actions = {
+            border = 'none',
+          }
+        },
+        server = {
+          on_attach = function()
+            on_attach()
+            vim.keymap.nnoremap { "K", vim.lsp.buf.hover, buffer = 0 }
+          end
+        }
+      }
     end
   }
   use {
@@ -81,10 +94,6 @@ return require "packer".startup(function()
       vim.cmd [[colorscheme onedark]]
       vim.api.nvim_set_option("background", "dark")
 
-      vim.cmd [[highlight Normal guibg=none]]
-      vim.cmd [[highlight NormalFloat guibg=none]]
-      vim.cmd [[highlight link FloatBorder Normal]]
-
       vim.api.nvim_set_option("termguicolors", true)
     end
   }
@@ -101,8 +110,8 @@ return require "packer".startup(function()
     config = function()
       require("gitsigns").setup {
         keymaps = {
-          ["n ]c"] = { expr = true, "&diff ? ']c' : '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>zz'"},
-          ["n [c"] = { expr = true, "&diff ? '[c' : '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>zz'"},
+          ["n ]c"] = { expr = true, "&diff ? ']c' : '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>'"},
+          ["n [c"] = { expr = true, "&diff ? '[c' : '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>'"},
 
           ["n <leader>gs"] = '<cmd>lua require "gitsigns".stage_hunk()<CR>',
           ["n <leader>gu"] = '<cmd>lua require "gitsigns".undo_stage_hunk()<CR>',
