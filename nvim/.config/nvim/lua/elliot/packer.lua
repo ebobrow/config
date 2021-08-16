@@ -1,5 +1,5 @@
 ---@diagnostic disable: undefined-global
-return require "packer".startup(function()
+return require"packer".startup(function()
   -- Packer can manage itself
   use "wbthomason/packer.nvim"
 
@@ -9,31 +9,33 @@ return require "packer".startup(function()
   use {
     "glepnir/lspsaga.nvim",
     config = function()
-      require "lspsaga".init_lsp_saga {
+      require"lspsaga".init_lsp_saga {
         use_saga_diagnostic_sign = false,
         code_action_prompt = {
           enable = false,
           sign = true,
           sign_priority = 20,
-          virtual_text = false,
+          virtual_text = false
         },
         finder_definition_icon = "  ",
         finder_reference_icon = "  ",
         max_preview_lines = 10, -- preview lines of lsp_finder and definition preview
         finder_action_keys = {
-          open = "o", vsplit = "s",split = "i",quit = "q",scroll_down = "<C-f>", scroll_up = "<C-b>" -- quit can be a table
-        },
-        code_action_keys = {
+          open = "o",
+          vsplit = "s",
+          split = "i",
           quit = "q",
-          exec = "<CR>"
+          scroll_down = "<C-f>",
+          scroll_up = "<C-b>" -- quit can be a table
         },
+        code_action_keys = { quit = "q", exec = "<CR>" },
         rename_action_keys = {
           quit = "<C-c>",
-          exec = "<CR>"  -- quit can be a table
+          exec = "<CR>" -- quit can be a table
         },
         definition_preview_icon = "  ",
         border_style = "single",
-        rename_prompt_prefix = ">",
+        rename_prompt_prefix = ">"
       }
     end
   }
@@ -42,12 +44,8 @@ return require "packer".startup(function()
     ft = "rust",
     config = function()
       local on_attach = require "elliot.lsp"
-      require "rust-tools".setup {
-        tools = {
-          hover_actions = {
-            border = 'none',
-          }
-        },
+      require"rust-tools".setup {
+        tools = { hover_actions = { border = 'none' } },
         server = {
           on_attach = function()
             on_attach()
@@ -61,11 +59,11 @@ return require "packer".startup(function()
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
     config = function()
-      require "nvim-treesitter.configs".setup {
-        ensure_installed = { "rust", "toml", "html", "typescript", "tsx", "lua", "haskell" },
-        highlight = {
-          enable = true,
+      require"nvim-treesitter.configs".setup {
+        ensure_installed = {
+          "rust", "toml", "html", "typescript", "tsx", "lua", "haskell"
         },
+        highlight = { enable = true }
       }
     end
   }
@@ -74,10 +72,8 @@ return require "packer".startup(function()
   use {
     "nvim-telescope/telescope.nvim",
     requires = {
-      "nvim-lua/popup.nvim",
-      "nvim-lua/plenary.nvim",
-      "kyazdani42/nvim-web-devicons",
-      "nvim-telescope/telescope-fzy-native.nvim"
+      "nvim-lua/popup.nvim", "nvim-lua/plenary.nvim",
+      "kyazdani42/nvim-web-devicons", "nvim-telescope/telescope-fzy-native.nvim"
     },
     config = function()
       require "elliot.telescope"
@@ -98,20 +94,21 @@ return require "packer".startup(function()
     end
   }
   use "tpope/vim-commentary"
-  use {
-    "rrethy/vim-hexokinase",
-    run = "make hexokinase"
-  }
+  use { "rrethy/vim-hexokinase", run = "make hexokinase" }
   use {
     "lewis6991/gitsigns.nvim",
-    requires = {
-      "nvim-lua/plenary.nvim"
-    },
+    requires = { "nvim-lua/plenary.nvim" },
     config = function()
       require("gitsigns").setup {
         keymaps = {
-          ["n ]c"] = { expr = true, "&diff ? ']c' : '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>'"},
-          ["n [c"] = { expr = true, "&diff ? '[c' : '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>'"},
+          ["n ]c"] = {
+            expr = true,
+            "&diff ? ']c' : '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>'"
+          },
+          ["n [c"] = {
+            expr = true,
+            "&diff ? '[c' : '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>'"
+          },
 
           ["n <leader>gs"] = '<cmd>lua require "gitsigns".stage_hunk()<CR>',
           ["n <leader>gu"] = '<cmd>lua require "gitsigns".undo_stage_hunk()<CR>',
@@ -129,14 +126,8 @@ return require "packer".startup(function()
       }
     end
   }
-  use {
-    "AndrewRadev/splitjoin.vim",
-    keys = { "gJ", "gS" },
-  }
-  use {
-    "dstein64/vim-startuptime",
-    cmd = "StartupTime",
-  }
+  use { "AndrewRadev/splitjoin.vim", keys = { "gJ", "gS" } }
+  use { "dstein64/vim-startuptime", cmd = "StartupTime" }
   use {
     "mhinz/vim-startify",
     config = function()
@@ -146,7 +137,7 @@ return require "packer".startup(function()
       vim.g.startify_lists = {
         { type = "sessions", header = { "   Sessions" } },
         { type = "dir", header = { "   Recents (" .. vim.fn.getcwd() .. ")" } },
-        { type = "files", header = { "   Recents" } },
+        { type = "files", header = { "   Recents" } }
       }
     end
   }
@@ -158,10 +149,7 @@ return require "packer".startup(function()
       -- TODO: Configure this
       require("todo-comments").setup {
         signs = false,
-        highlight = {
-          keyword = "fg",
-          after = ""
-        }
+        highlight = { keyword = "fg", after = "" }
       }
     end
   }
