@@ -22,8 +22,12 @@ local on_attach = function()
   buf_nnoremap { "<space>rr", "LspRestart" }
 
   buf_nnoremap { "K", require'lspsaga.hover'.render_hover_doc }
-  buf_nnoremap { "<C-d>", function() require'lspsaga.action'.smart_scroll_with_saga(1) end }
-  buf_nnoremap { "<C-u>", function() require'lspsaga.action'.smart_scroll_with_saga(-1) end }
+  buf_nnoremap {
+    "<C-d>", function() require'lspsaga.action'.smart_scroll_with_saga(1) end
+  }
+  buf_nnoremap {
+    "<C-u>", function() require'lspsaga.action'.smart_scroll_with_saga(-1) end
+  }
 
   buf_nnoremap { "]d", require'lspsaga.diagnostic'.lsp_jump_diagnostic_next }
   buf_nnoremap { "[d", require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev }
@@ -47,38 +51,52 @@ local on_attach = function()
   ]]
 end
 
-local nvim_lsp = require'lspconfig'
+local nvim_lsp = require 'lspconfig'
 
-nvim_lsp.tsserver.setup{ on_attach = on_attach }
+nvim_lsp.tsserver.setup { on_attach = on_attach }
 nvim_lsp.rust_analyzer.setup { on_attach = on_attach }
-nvim_lsp.vimls.setup{ on_attach = on_attach }
+nvim_lsp.vimls.setup { on_attach = on_attach }
 nvim_lsp.hls.setup {
-    root_dir = nvim_lsp.util.root_pattern("*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml", ".git"),
-    on_attach = on_attach,
+  root_dir = nvim_lsp.util.root_pattern("*.cabal", "stack.yaml",
+                                        "cabal.project", "package.yaml",
+                                        "hie.yaml", ".git"),
+  on_attach = on_attach
 }
 nvim_lsp.sumneko_lua.setup {
-    cmd = {"/home/elliotbobrow/lua-language-server/bin/Linux/lua-language-server", "-E", "/home/elliotbobrow/lua-language-server/main.lua"};
-    settings = {
-        Lua = {
-            runtime = {
-                version = 'LuaJIT',
-                path = vim.split(package.path, ';'),
-            },
-            diagnostics = {
-                globals = {'vim'},
-            },
-            workspace = {
-                library = {
-                    [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-                    [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
-                },
-            },
-            telemetry = {
-                enable = false,
-            },
-        },
-    },
-    on_attach = on_attach,
+  cmd = {
+    "/home/elliotbobrow/lua-language-server/bin/Linux/lua-language-server",
+    "-E", "/home/elliotbobrow/lua-language-server/main.lua"
+  },
+  settings = {
+    Lua = {
+      runtime = { version = 'LuaJIT', path = vim.split(package.path, ';') },
+      diagnostics = { globals = { 'vim' } },
+      workspace = {
+        library = {
+          [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+          [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true
+        }
+      },
+      telemetry = { enable = false }
+    }
+  },
+  on_attach = on_attach
+}
+require"lspconfig".efm.setup {
+  init_options = { documentFormatting = true },
+  cmd = { "/home/elliotbobrow/go/bin/efm-langserver" },
+  filetypes = { "lua" },
+  settings = {
+    rootMarkers = { ".git/" },
+    languages = {
+      lua = {
+        {
+          formatCommand = "lua-format -i --spaces-inside-table-braces --indent-width=2",
+          formatStdin = true
+        }
+      }
+    }
+  }
 }
 
 return on_attach

@@ -151,4 +151,18 @@ return require "packer".startup(function()
     end
   }
   use "tpope/vim-surround"
+  use {
+    "folke/todo-comments.nvim",
+    requires = "nvim-lua/plenary.nvim",
+    config = function()
+      -- TODO: Configure this
+      require("todo-comments").setup {
+        signs = false,
+        highlight = {
+          keyword = "fg",
+          after = ""
+        }
+      }
+    end
+  }
 end)

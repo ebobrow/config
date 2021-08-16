@@ -36,5 +36,4 @@ xinput set-prop 12 290 1
 
 ~/.fehbg &
 picom --experimental-backends -b
-sh /home/elliotbobrow/scripts/battery &
 exec xmonad

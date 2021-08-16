@@ -2,7 +2,7 @@ if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
     exec startx
 fi
 
-export PATH=/home/elliotbobrow/.local/bin:/home/elliotbobrow/.cargo/bin:/home/elliotbobrow/.emacs.d/bin:$PATH
+export PATH=/home/elliotbobrow/.local/bin:/home/elliotbobrow/.cargo/bin:/home/elliotbobrow/go/bin:$PATH
 
 # Enable colors and change prompt:
 autoload -U colors && colors
