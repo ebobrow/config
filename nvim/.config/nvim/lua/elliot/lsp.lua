@@ -1,6 +1,6 @@
 local inoremap = vim.keymap.inoremap
 local nnoremap = vim.keymap.nnoremap
-local telescope_mapper = require "elliot.telescope.mappings"
+-- local telescope_mapper = require "elliot.telescope.mappings"
 
 local buf_nnoremap = function(opts)
   opts.buffer = 0
@@ -18,10 +18,12 @@ local on_attach = function()
   buf_nnoremap { "gd", vim.lsp.buf.definition }
   buf_nnoremap { "gD", require'lspsaga.provider'.preview_definition }
   buf_nnoremap { "gr", vim.lsp.buf.references }
+  -- buf_nnoremap { "gR", vim.lsp.buf.rename }
 
   buf_nnoremap { "<space>rr", "LspRestart" }
 
-  buf_nnoremap { "K", require'lspsaga.hover'.render_hover_doc }
+  -- buf_nnoremap { "K", require'lspsaga.hover'.render_hover_doc }
+  buf_nnoremap { "K", vim.lsp.buf.hover }
   buf_nnoremap {
     "<C-d>", function() require'lspsaga.action'.smart_scroll_with_saga(1) end
   }
@@ -41,7 +43,7 @@ local on_attach = function()
 
   buf_nnoremap { "<leader>F", vim.lsp.buf.formatting }
 
-  vim.cmd [[nnoremap <silent> gR "+yiw:Lspsaga rename<CR><C-r>+]]
+  -- vim.cmd [[nnoremap <silent> gR "+yiw:Lspsaga rename<CR><C-r>+]]
 
   vim.cmd [[
       augroup lsp_buf_format

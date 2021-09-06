@@ -118,7 +118,7 @@ _G.packer_plugins = {
     path = "/home/elliotbobrow/.local/share/nvim/site/pack/packer/start/popup.nvim"
   },
   ["rust-tools.nvim"] = {
-    config = { "\27LJ\1\2n\0\0\3\1\a\0\r+\0\0\0>\0\1\0014\0\0\0007\0\1\0007\0\2\0003\1\3\0004\2\0\0007\2\4\0027\2\5\0027\2\6\2;\2\2\1>\0\2\1G\0\1\0\0À\nhover\bbuf\blsp\1\2\1\0\6K\vbuffer\3\0\rnnoremap\vkeymap\bvimµ\1\1\0\5\0\r\0\0194\0\0\0%\1\1\0>\0\2\0024\1\0\0%\2\2\0>\1\2\0027\1\3\0013\2\a\0003\3\5\0003\4\4\0:\4\6\3:\3\b\0023\3\n\0001\4\t\0:\4\v\3:\3\f\2>\1\2\0010\0\0€G\0\1\0\vserver\14on_attach\1\0\0\0\ntools\1\0\0\18hover_actions\1\0\0\1\0\1\vborder\tnone\nsetup\15rust-tools\15elliot.lsp\frequire\0" },
+    config = { "\27LJ\1\2¬\1\0\0\5\0\f\0\0174\0\0\0%\1\1\0>\0\2\0024\1\0\0%\2\2\0>\1\2\0027\1\3\0013\2\a\0003\3\5\0003\4\4\0:\4\6\3:\3\b\0023\3\t\0:\0\n\3:\3\v\2>\1\2\1G\0\1\0\vserver\14on_attach\1\0\0\ntools\1\0\0\18hover_actions\1\0\0\1\0\1\vborder\tnone\nsetup\15rust-tools\15elliot.lsp\frequire\0" },
     loaded = false,
     needs_bufread = true,
     path = "/home/elliotbobrow/.local/share/nvim/site/pack/packer/opt/rust-tools.nvim"
@@ -208,7 +208,7 @@ time([[Config for telescope.nvim]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
-pcall(vim.cmd, [[command! -nargs=* -range -bang -complete=file StartupTime lua require("packer.load")({'vim-startuptime'}, { cmd = "StartupTime", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file StartupTime lua require("packer.load")({'vim-startuptime'}, { cmd = "StartupTime", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]])
 time([[Defining lazy-load commands]], false)
 
 -- Keymap lazy-loads

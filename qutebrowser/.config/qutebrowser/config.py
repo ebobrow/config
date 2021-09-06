@@ -144,7 +144,7 @@ config.set('content.notifications.enabled', True, 'https://rust-lang.zulipchat.c
 #   - ask
 config.set('content.notifications.enabled', True, 'https://www.reddit.com')
 
-c.url.start_pages = 'https://www.jacopocolo.com/hexclock/'
+c.url.start_pages = 'https://start.duckduckgo.com'
 
 # List of user stylesheet filenames to use.
 # Type: List of File, or File

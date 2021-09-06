@@ -46,12 +46,7 @@ return require"packer".startup(function()
       local on_attach = require "elliot.lsp"
       require"rust-tools".setup {
         tools = { hover_actions = { border = 'none' } },
-        server = {
-          on_attach = function()
-            on_attach()
-            vim.keymap.nnoremap { "K", vim.lsp.buf.hover, buffer = 0 }
-          end
-        }
+        server = { on_attach = on_attach }
       }
     end
   }
@@ -91,6 +86,8 @@ return require"packer".startup(function()
       vim.api.nvim_set_option("background", "dark")
 
       vim.api.nvim_set_option("termguicolors", true)
+      -- vim.cmd [[hi Float guibg=#282C34]]
+      -- vim.cmd [[hi NormalFloat guibg=#282C34]]
     end
   }
   use "tpope/vim-commentary"
