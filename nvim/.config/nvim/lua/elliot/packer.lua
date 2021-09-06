@@ -5,7 +5,37 @@ return require"packer".startup(function()
 
   use "tjdevries/astronauta.nvim"
   use "neovim/nvim-lspconfig"
-  use "hrsh7th/nvim-compe"
+  use {
+    "hrsh7th/nvim-cmp",
+    requires = {
+      "hrsh7th/vim-vsnip", "hrsh7th/cmp-buffer", "hrsh7th/cmp-path",
+      "hrsh7th/cmp-nvim-lsp"
+    },
+    config = function()
+      vim.opt.completeopt = { "menuone", "noselect" }
+      vim.opt.shortmess:append "c"
+
+      vim.cmd [[highlight link CmpDocumentation Normal]]
+      vim.cmd [[highlight link CmpDocumentationBorder Normal]]
+
+      local cmp = require("cmp")
+      cmp.setup {
+        snippet = {
+          expand = function(args) vim.fn["vsnip#anonymous"](args.body) end
+        },
+        mapping = {
+          ["<C-l>"] = cmp.mapping.confirm({ select = true }),
+          ["<C-j>"] = cmp.mapping.select_next_item(),
+          ["<C-k>"] = cmp.mapping.select_prev_item(),
+          ["<C-h>"] = cmp.mapping.close()
+        },
+        documentation = { border = "single" },
+        sources = {
+          { name = "buffer" }, { name = "path" }, { name = "nvim_lsp" }
+        }
+      }
+    end
+  }
   use {
     "glepnir/lspsaga.nvim",
     config = function()
@@ -126,7 +156,7 @@ return require"packer".startup(function()
   use { "AndrewRadev/splitjoin.vim", keys = { "gJ", "gS" } }
   use { "dstein64/vim-startuptime", cmd = "StartupTime" }
   use {
-    "mhinz/vim-startify",
+    "mhinz/vim-startify", -- TODO: Do I need this?
     config = function()
       vim.g.startify_session_persistence = 1
       vim.g.startify_change_to_dir = 0
@@ -143,7 +173,6 @@ return require"packer".startup(function()
     "folke/todo-comments.nvim",
     requires = "nvim-lua/plenary.nvim",
     config = function()
-      -- TODO: Configure this
       require("todo-comments").setup {
         signs = false,
         highlight = { keyword = "fg", after = "" }
