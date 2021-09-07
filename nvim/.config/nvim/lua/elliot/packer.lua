@@ -7,10 +7,7 @@ return require"packer".startup(function()
   use "neovim/nvim-lspconfig"
   use {
     "hrsh7th/nvim-cmp",
-    requires = {
-      "hrsh7th/vim-vsnip", "hrsh7th/cmp-buffer", "hrsh7th/cmp-path",
-      "hrsh7th/cmp-nvim-lsp"
-    },
+    requires = { "hrsh7th/vim-vsnip", "hrsh7th/cmp-path", "hrsh7th/cmp-nvim-lsp" },
     config = function()
       vim.opt.completeopt = { "menuone", "noselect" }
       vim.opt.shortmess:append "c"
@@ -24,15 +21,14 @@ return require"packer".startup(function()
           expand = function(args) vim.fn["vsnip#anonymous"](args.body) end
         },
         mapping = {
+          ["<C-Space>"] = cmp.mapping.complete(),
           ["<C-l>"] = cmp.mapping.confirm({ select = true }),
           ["<C-j>"] = cmp.mapping.select_next_item(),
           ["<C-k>"] = cmp.mapping.select_prev_item(),
-          ["<C-h>"] = cmp.mapping.close()
+          ["<C-h>"] = cmp.mapping.abort()
         },
         documentation = { border = "single" },
-        sources = {
-          { name = "buffer" }, { name = "path" }, { name = "nvim_lsp" }
-        }
+        sources = { { name = "path" }, { name = "nvim_lsp" } }
       }
     end
   }
@@ -161,11 +157,7 @@ return require"packer".startup(function()
       vim.g.startify_session_persistence = 1
       vim.g.startify_change_to_dir = 0
       vim.g.startify_enable_special = 0
-      vim.g.startify_lists = {
-        { type = "sessions", header = { "   Sessions" } },
-        { type = "dir", header = { "   Recents (" .. vim.fn.getcwd() .. ")" } },
-        { type = "files", header = { "   Recents" } }
-      }
+      vim.g.startify_disable_at_vimenter = 1
     end
   }
   use "tpope/vim-surround"
