@@ -110,7 +110,7 @@ _G.packer_plugins = {
     path = "/home/elliotbobrow/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
   },
   ["onedark.nvim"] = {
-    config = { '\27LJ\1\2‡\2\0\0\3\0\n\0\0254\0\0\0007\0\1\0%\1\2\0>\0\2\0014\0\0\0007\0\1\0%\1\3\0>\0\2\0014\0\0\0007\0\1\0%\1\4\0>\0\2\0014\0\0\0007\0\5\0007\0\6\0%\1\a\0%\2\b\0>\0\3\0014\0\0\0007\0\5\0007\0\6\0%\1\t\0)\2\2\0>\0\3\1G\0\1\0\18termguicolors\tdark\15background\20nvim_set_option\bapi\24colorscheme onedark+let &t_8b = "\\<Esc>[48;2;%lu;%lu;%lum"+let &t_8f = "\\<Esc>[38;2;%lu;%lu;%lum"\bcmd\bvim\0' },
+    config = { '\27LJ\1\2Ú\3\0\0\3\0\f\0#4\0\0\0007\0\1\0%\1\2\0>\0\2\0014\0\0\0007\0\1\0%\1\3\0>\0\2\0014\0\0\0007\0\1\0%\1\4\0>\0\2\0014\0\0\0007\0\5\0007\0\6\0%\1\a\0)\2\2\0>\0\3\0014\0\0\0007\0\1\0%\1\b\0>\0\2\0014\0\0\0007\0\1\0%\1\t\0>\0\2\0014\0\0\0007\0\1\0%\1\n\0>\0\2\0014\0\0\0007\0\1\0%\1\v\0>\0\2\1G\0\1\0000hi LspDiagnosticsVirtualTextHint guibg=none7hi LspDiagnosticsVirtualTextInformation guibg=none3hi LspDiagnosticsVirtualTextWarning guibg=none1hi LspDiagnosticsVirtualTextError guibg=none\18termguicolors\20nvim_set_option\bapi\24colorscheme onedark+let &t_8b = "\\<Esc>[48;2;%lu;%lu;%lum"+let &t_8f = "\\<Esc>[38;2;%lu;%lu;%lum"\bcmd\bvim\0' },
     loaded = true,
     path = "/home/elliotbobrow/.local/share/nvim/site/pack/packer/start/onedark.nvim"
   },
@@ -127,7 +127,7 @@ _G.packer_plugins = {
     path = "/home/elliotbobrow/.local/share/nvim/site/pack/packer/start/popup.nvim"
   },
   ["rust-tools.nvim"] = {
-    config = { "\27LJ\1\2¬\1\0\0\5\0\f\0\0174\0\0\0%\1\1\0>\0\2\0024\1\0\0%\2\2\0>\1\2\0027\1\3\0013\2\a\0003\3\5\0003\4\4\0:\4\6\3:\3\b\0023\3\t\0:\0\n\3:\3\v\2>\1\2\1G\0\1\0\vserver\14on_attach\1\0\0\ntools\1\0\0\18hover_actions\1\0\0\1\0\1\vborder\tnone\nsetup\15rust-tools\15elliot.lsp\frequire\0" },
+    config = { "\27LJ\1\2Õ\1\0\0\5\0\14\0\0194\0\0\0%\1\1\0>\0\2\0024\1\0\0%\2\2\0>\1\2\0027\1\3\0013\2\t\0003\3\5\0003\4\4\0:\4\6\0033\4\a\0:\4\b\3:\3\n\0023\3\v\0:\0\f\3:\3\r\2>\1\2\1G\0\1\0\vserver\14on_attach\1\0\0\ntools\1\0\0\16inlay_hints\1\0\1\14highlight\fNonText\18hover_actions\1\0\0\1\0\1\vborder\tnone\nsetup\15rust-tools\15elliot.lsp\frequire\0" },
     loaded = false,
     needs_bufread = true,
     path = "/home/elliotbobrow/.local/share/nvim/site/pack/packer/opt/rust-tools.nvim"
@@ -168,11 +168,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/elliotbobrow/.local/share/nvim/site/pack/packer/start/vim-hexokinase"
   },
-  ["vim-startify"] = {
-    config = { "\27LJ\1\2º\1\0\0\2\0\6\0\0174\0\0\0007\0\1\0'\1\1\0:\1\2\0004\0\0\0007\0\1\0'\1\0\0:\1\3\0004\0\0\0007\0\1\0'\1\0\0:\1\4\0004\0\0\0007\0\1\0'\1\1\0:\1\5\0G\0\1\0!startify_disable_at_vimenter\28startify_enable_special\27startify_change_to_dir!startify_session_persistence\6g\bvim\0" },
-    loaded = true,
-    path = "/home/elliotbobrow/.local/share/nvim/site/pack/packer/start/vim-startify"
-  },
   ["vim-startuptime"] = {
     commands = { "StartupTime" },
     loaded = false,
@@ -190,10 +185,6 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: vim-startify
-time([[Config for vim-startify]], true)
-try_loadstring("\27LJ\1\2º\1\0\0\2\0\6\0\0174\0\0\0007\0\1\0'\1\1\0:\1\2\0004\0\0\0007\0\1\0'\1\0\0:\1\3\0004\0\0\0007\0\1\0'\1\0\0:\1\4\0004\0\0\0007\0\1\0'\1\1\0:\1\5\0G\0\1\0!startify_disable_at_vimenter\28startify_enable_special\27startify_change_to_dir!startify_session_persistence\6g\bvim\0", "config", "vim-startify")
-time([[Config for vim-startify]], false)
 -- Config for: telescope.nvim
 time([[Config for telescope.nvim]], true)
 try_loadstring("\27LJ\1\2V\0\0\2\0\3\0\a4\0\0\0%\1\1\0>\0\2\0014\0\0\0%\1\2\0>\0\2\1G\0\1\0\30elliot.telescope.mappings\21elliot.telescope\frequire\0", "config", "telescope.nvim")
@@ -212,7 +203,7 @@ try_loadstring("\27LJ\1\2p\0\0\3\0\6\0\t4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\00
 time([[Config for todo-comments.nvim]], false)
 -- Config for: onedark.nvim
 time([[Config for onedark.nvim]], true)
-try_loadstring('\27LJ\1\2‡\2\0\0\3\0\n\0\0254\0\0\0007\0\1\0%\1\2\0>\0\2\0014\0\0\0007\0\1\0%\1\3\0>\0\2\0014\0\0\0007\0\1\0%\1\4\0>\0\2\0014\0\0\0007\0\5\0007\0\6\0%\1\a\0%\2\b\0>\0\3\0014\0\0\0007\0\5\0007\0\6\0%\1\t\0)\2\2\0>\0\3\1G\0\1\0\18termguicolors\tdark\15background\20nvim_set_option\bapi\24colorscheme onedark+let &t_8b = "\\<Esc>[48;2;%lu;%lu;%lum"+let &t_8f = "\\<Esc>[38;2;%lu;%lu;%lum"\bcmd\bvim\0', "config", "onedark.nvim")
+try_loadstring('\27LJ\1\2Ú\3\0\0\3\0\f\0#4\0\0\0007\0\1\0%\1\2\0>\0\2\0014\0\0\0007\0\1\0%\1\3\0>\0\2\0014\0\0\0007\0\1\0%\1\4\0>\0\2\0014\0\0\0007\0\5\0007\0\6\0%\1\a\0)\2\2\0>\0\3\0014\0\0\0007\0\1\0%\1\b\0>\0\2\0014\0\0\0007\0\1\0%\1\t\0>\0\2\0014\0\0\0007\0\1\0%\1\n\0>\0\2\0014\0\0\0007\0\1\0%\1\v\0>\0\2\1G\0\1\0000hi LspDiagnosticsVirtualTextHint guibg=none7hi LspDiagnosticsVirtualTextInformation guibg=none3hi LspDiagnosticsVirtualTextWarning guibg=none1hi LspDiagnosticsVirtualTextError guibg=none\18termguicolors\20nvim_set_option\bapi\24colorscheme onedark+let &t_8b = "\\<Esc>[48;2;%lu;%lu;%lum"+let &t_8f = "\\<Esc>[38;2;%lu;%lu;%lum"\bcmd\bvim\0', "config", "onedark.nvim")
 time([[Config for onedark.nvim]], false)
 -- Config for: gitsigns.nvim
 time([[Config for gitsigns.nvim]], true)

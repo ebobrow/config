@@ -71,7 +71,10 @@ return require"packer".startup(function()
     config = function()
       local on_attach = require "elliot.lsp"
       require"rust-tools".setup {
-        tools = { hover_actions = { border = 'none' } },
+        tools = {
+          hover_actions = { border = 'none' },
+          inlay_hints = { highlight = "NonText" }
+        },
         server = { on_attach = on_attach }
       }
     end
@@ -109,11 +112,14 @@ return require"packer".startup(function()
       vim.cmd [[let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"]]
 
       vim.cmd [[colorscheme onedark]]
-      vim.api.nvim_set_option("background", "dark")
 
       vim.api.nvim_set_option("termguicolors", true)
       -- vim.cmd [[hi Float guibg=#282C34]]
       -- vim.cmd [[hi NormalFloat guibg=#282C34]]
+      vim.cmd [[hi LspDiagnosticsVirtualTextError guibg=none]]
+      vim.cmd [[hi LspDiagnosticsVirtualTextWarning guibg=none]]
+      vim.cmd [[hi LspDiagnosticsVirtualTextInformation guibg=none]]
+      vim.cmd [[hi LspDiagnosticsVirtualTextHint guibg=none]]
     end
   }
   use "tpope/vim-commentary"
@@ -151,15 +157,6 @@ return require"packer".startup(function()
   }
   use { "AndrewRadev/splitjoin.vim", keys = { "gJ", "gS" } }
   use { "dstein64/vim-startuptime", cmd = "StartupTime" }
-  use {
-    "mhinz/vim-startify", -- TODO: Do I need this?
-    config = function()
-      vim.g.startify_session_persistence = 1
-      vim.g.startify_change_to_dir = 0
-      vim.g.startify_enable_special = 0
-      vim.g.startify_disable_at_vimenter = 1
-    end
-  }
   use "tpope/vim-surround"
   use {
     "folke/todo-comments.nvim",

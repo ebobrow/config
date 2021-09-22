@@ -37,10 +37,8 @@ function M.lsp_code_actions()
 end
 
 function M.files()
-  if not pcall(function()
-    require("telescope.builtin").git_files(themes.get_ivy {})
-  end) then
-    require("telescope.builtin").find_files(themes.get_ivy { hidden = true })
+  if not pcall(require("telescope.builtin").git_files) then
+    require("telescope.builtin").find_files { hidden = true }
   end
 end
 
@@ -56,7 +54,7 @@ function M.grep_prompt()
   })
 end
 
-function M.buffers() require("telescope.builtin").buffers(themes.get_ivy {}) end
+function M.buffers() require("telescope.builtin").buffers() end
 
 return setmetatable({}, {
   __index = function(_, k)
