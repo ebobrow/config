@@ -7,15 +7,20 @@ return require"packer".startup(function()
   use "neovim/nvim-lspconfig"
   use {
     "hrsh7th/nvim-cmp",
-    requires = { "hrsh7th/vim-vsnip", "hrsh7th/cmp-path", "hrsh7th/cmp-nvim-lsp" },
+    requires = {
+      "hrsh7th/cmp-path", "hrsh7th/cmp-nvim-lsp", "onsails/lspkind-nvim"
+    },
     config = function()
-      vim.opt.completeopt = { "menuone", "noselect" }
+      vim.opt.completeopt = { "menu", "menuone", "noinsert" }
       vim.opt.shortmess:append "c"
 
       vim.cmd [[highlight link CmpDocumentation Normal]]
       vim.cmd [[highlight link CmpDocumentationBorder Normal]]
 
       local cmp = require("cmp")
+      local lspkind = require "lspkind"
+      lspkind.init()
+
       cmp.setup {
         snippet = {
           expand = function(args) vim.fn["vsnip#anonymous"](args.body) end
@@ -23,13 +28,41 @@ return require"packer".startup(function()
         mapping = {
           ["<C-Space>"] = cmp.mapping.complete(),
           ["<C-l>"] = cmp.mapping.confirm({ select = true }),
-          ["<C-j>"] = cmp.mapping.select_next_item(),
-          ["<C-k>"] = cmp.mapping.select_prev_item(),
+          ["<C-j>"] = cmp.mapping.select_next_item {
+            behavior = cmp.SelectBehavior.Select
+          },
+          ["<C-k>"] = cmp.mapping.select_prev_item {
+            behavior = cmp.SelectBehavior.Select
+          },
           ["<C-h>"] = cmp.mapping.abort()
         },
         documentation = { border = "single" },
-        sources = { { name = "path" }, { name = "nvim_lsp" } }
+        sources = { { name = "nvim_lsp" }, { name = "path" } },
+        experimental = { ghost_text = true, native_menu = false },
+        formatting = {
+          format = lspkind.cmp_format {
+            with_text = true,
+            menu = { nvim_lsp = "[LSP]", path = "[path]" }
+          }
+        }
       }
+    end
+  }
+  use {
+    "hrsh7th/vim-vsnip",
+    config = function()
+      vim.api.nvim_set_keymap("i", "<Tab>",
+                              "vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>'",
+                              { expr = true })
+      vim.api.nvim_set_keymap("s", "<Tab>",
+                              "vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>'",
+                              { expr = true })
+      vim.api.nvim_set_keymap("i", "<S-Tab>",
+                              "vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'",
+                              { expr = true })
+      vim.api.nvim_set_keymap("s", "<S-Tab>",
+                              "vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'",
+                              { expr = true })
     end
   }
   use {
