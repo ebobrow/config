@@ -106,7 +106,7 @@ return require"packer".startup(function()
       require"rust-tools".setup {
         tools = {
           hover_actions = { border = 'none' },
-          inlay_hints = { highlight = "NonText" }
+          inlay_hints = { highlight = "Comment" }
         },
         server = { on_attach = on_attach }
       }
@@ -199,6 +199,31 @@ return require"packer".startup(function()
         signs = false,
         highlight = { keyword = "fg", after = "" }
       }
+    end
+  }
+  use {
+    "ThePrimeagen/harpoon",
+    requires = "nvim-lua/plenary.nvim",
+    config = function()
+      require("harpoon").setup()
+      vim.api.nvim_set_keymap("n", "<leader>H",
+                              ":lua require('harpoon.ui').nav_file(1)<CR>",
+                              { noremap = true })
+      vim.api.nvim_set_keymap("n", "<leader>J",
+                              ":lua require('harpoon.ui').nav_file(2)<CR>",
+                              { noremap = true })
+      vim.api.nvim_set_keymap("n", "<leader>K",
+                              ":lua require('harpoon.ui').nav_file(3)<CR>",
+                              { noremap = true })
+      vim.api.nvim_set_keymap("n", "<leader>L",
+                              ":lua require('harpoon.ui').nav_file(4)<CR>",
+                              { noremap = true })
+      vim.api.nvim_set_keymap("n", "<leader>m",
+                              ":lua require('harpoon.mark').add_file()<CR>",
+                              { noremap = true })
+      vim.api.nvim_set_keymap("n", "<leader>t",
+                              ":lua require('harpoon.term').gotoTerminal(1)<CR>",
+                              { noremap = true })
     end
   }
 end)

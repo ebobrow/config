@@ -17,10 +17,10 @@ nnoremap <silent> <leader>j :wincmd j<CR>
 nnoremap <silent> <leader>k :wincmd k<CR>
 nnoremap <silent> <leader>l :wincmd l<CR>
 nnoremap <silent> <leader>h :wincmd h<CR>
-nnoremap <silent> <leader>J :wincmd J<CR>
-nnoremap <silent> <leader>K :wincmd K<CR>
-nnoremap <silent> <leader>L :wincmd L<CR>
-nnoremap <silent> <leader>H :wincmd H<CR>
+" nnoremap <silent> <leader>J :wincmd J<CR>
+" nnoremap <silent> <leader>K :wincmd K<CR>
+" nnoremap <silent> <leader>L :wincmd L<CR>
+" nnoremap <silent> <leader>H :wincmd H<CR>
 
 nnoremap <silent> <C-j> <cmd>:cnext<CR>
 nnoremap <silent> <C-k> <cmd>:cprev<CR>
@@ -62,12 +62,17 @@ vnoremap <leader>P "_dP
 nnoremap <leader>d "_d
 vnoremap <leader>d "_d
 
-nnoremap <leader>t :tabnew +term<CR>
-tnoremap <C-^> <C-\><C-n><C-^>
-tnoremap <C-h> <C-\><C-n>:tabp<CR>
-tnoremap <C-l> <C-\><C-n>:tabn<CR>
+" nnoremap <leader>t :tabnew +term<CR>
+" tnoremap <C-^> <C-\><C-n><C-^>
+" tnoremap <C-h> <C-\><C-n>:tabp<CR>
+" tnoremap <C-l> <C-\><C-n>:tabn<CR>
 
 nnoremap S :%s//g<Left><Left>
 vnoremap S :s//g<Left><Left>
 
 nnoremap Y y$
+
+imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
