@@ -22,25 +22,23 @@ opt.showmode = false
 opt.list = true
 opt.listchars = { tab = "» ", trail = "·" }
 
-function GitStatus()
-  local status = vim.fn.eval("get(b:, 'gitsigns_head')")
-  if status == 0 then return "" end
+-- function GitStatus()
+--   local status = vim.fn.eval("get(b:, 'gitsigns_head')")
+--   if status == 0 then return "" end
 
-  local git_icon = require("nvim-web-devicons").get_icon(".gitattributes")
-  return git_icon .. " " .. status
-end
+--   local git_icon = require("nvim-web-devicons").get_icon(".gitattributes")
+--   return git_icon .. " " .. status
+-- end
 
-function FileIcon()
-  local bufname = vim.api.nvim_buf_get_name(0)
-  local extension = vim.fn.fnamemodify(bufname, ":e")
+-- function FileIcon()
+--   local bufname = vim.api.nvim_buf_get_name(0)
+--   local extension = vim.fn.fnamemodify(bufname, ":e")
 
-  return require("nvim-web-devicons").get_icon(bufname.name, extension,
-                                               { default = true })
-end
+--   return require("nvim-web-devicons").get_icon(bufname.name, extension,
+--                                                { default = true })
+-- end
 
-opt.statusline = "%{luaeval('GitStatus()')}" .. "%=" ..
-                     "%{luaeval('FileIcon()')} %f %m%r" .. "%=" ..
-                     "%l:%c [%p%%]%y"
+opt.statusline = "%f %m%r" .. "%=" .. "%l:%c [%p%%]%y"
 
 opt.tabstop = 4
 opt.shiftwidth = 4

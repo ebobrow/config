@@ -206,16 +206,16 @@ return require"packer".startup(function()
     requires = "nvim-lua/plenary.nvim",
     config = function()
       require("harpoon").setup()
-      vim.api.nvim_set_keymap("n", "<leader>H",
+      vim.api.nvim_set_keymap("n", "<leader>1",
                               ":lua require('harpoon.ui').nav_file(1)<CR>",
                               { noremap = true })
-      vim.api.nvim_set_keymap("n", "<leader>J",
+      vim.api.nvim_set_keymap("n", "<leader>2",
                               ":lua require('harpoon.ui').nav_file(2)<CR>",
                               { noremap = true })
-      vim.api.nvim_set_keymap("n", "<leader>K",
+      vim.api.nvim_set_keymap("n", "<leader>3",
                               ":lua require('harpoon.ui').nav_file(3)<CR>",
                               { noremap = true })
-      vim.api.nvim_set_keymap("n", "<leader>L",
+      vim.api.nvim_set_keymap("n", "<leader>4",
                               ":lua require('harpoon.ui').nav_file(4)<CR>",
                               { noremap = true })
       vim.api.nvim_set_keymap("n", "<leader>m",
@@ -223,6 +223,9 @@ return require"packer".startup(function()
                               { noremap = true })
       vim.api.nvim_set_keymap("n", "<leader>t",
                               ":lua require('harpoon.term').gotoTerminal(1)<CR>",
+                              { noremap = true })
+      vim.api.nvim_set_keymap("n", "<leader>Q",
+                              ":lua require('harpoon.ui').toggle_quick_menu()<CR>",
                               { noremap = true })
     end
   }

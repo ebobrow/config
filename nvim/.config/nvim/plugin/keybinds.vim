@@ -17,10 +17,10 @@ nnoremap <silent> <leader>j :wincmd j<CR>
 nnoremap <silent> <leader>k :wincmd k<CR>
 nnoremap <silent> <leader>l :wincmd l<CR>
 nnoremap <silent> <leader>h :wincmd h<CR>
-" nnoremap <silent> <leader>J :wincmd J<CR>
-" nnoremap <silent> <leader>K :wincmd K<CR>
-" nnoremap <silent> <leader>L :wincmd L<CR>
-" nnoremap <silent> <leader>H :wincmd H<CR>
+nnoremap <silent> <leader>J :wincmd J<CR>
+nnoremap <silent> <leader>K :wincmd K<CR>
+nnoremap <silent> <leader>L :wincmd L<CR>
+nnoremap <silent> <leader>H :wincmd H<CR>
 
 nnoremap <silent> <C-j> <cmd>:cnext<CR>
 nnoremap <silent> <C-k> <cmd>:cprev<CR>
