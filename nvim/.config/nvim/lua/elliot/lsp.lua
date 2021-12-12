@@ -46,7 +46,7 @@ local on_attach = function()
 
   buf_nnoremap { "<leader>F", vim.lsp.buf.formatting }
 
-  -- vim.cmd [[nnoremap <silent> gR "+yiw:Lspsaga rename<CR><C-r>+]]
+  vim.cmd [[nnoremap <silent> gR "ryiw:Lspsaga rename<CR><C-r>r]]
 
   vim.cmd [[
       augroup lsp_buf_format
