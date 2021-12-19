@@ -84,8 +84,6 @@ alias ls="ls --color=auto"
 alias cp="cp -v"
 alias mv="mv -v"
 
-alias gs="git status"
-
 eval "$(starship init zsh)"
 
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
