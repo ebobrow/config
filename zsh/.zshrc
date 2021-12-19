@@ -71,8 +71,6 @@ if [[ "$TERM" == (alacritty*|st*|nome*|konsole*|putty*|rxvt*|screen*|tmux*|xterm
     add-zsh-hook -Uz preexec xterm_title_preexec
 fi
 
-export BROWSER="qutebrowser"
-
 # fzf
 # source /usr/share/fzf/key-bindings.zsh
 # source /usr/share/fzf/completion.zsh

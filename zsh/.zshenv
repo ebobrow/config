@@ -1,6 +1,6 @@
 export PATH=$HOME/scripts:$PATH
 export EDITOR='nvim'
-export BROWSER='brave'
+export BROWSER="qutebrowser"
 
 export LF_ICONS="\
 tw=:\

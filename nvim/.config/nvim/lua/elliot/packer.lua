@@ -106,7 +106,8 @@ return require"packer".startup(function()
       require"rust-tools".setup {
         tools = {
           hover_actions = { border = 'none' },
-          inlay_hints = { highlight = "Comment" }
+          inlay_hints = { highlight = "Comment" },
+          autoSetHints = false
         },
         server = { on_attach = on_attach }
       }
@@ -155,7 +156,10 @@ return require"packer".startup(function()
       vim.cmd [[hi LspDiagnosticsVirtualTextHint guibg=none]]
     end
   }
-  use "tpope/vim-commentary"
+  use {
+    "numToStr/Comment.nvim",
+    config = function() require("Comment").setup() end
+  }
   use { "rrethy/vim-hexokinase", run = "make hexokinase" }
   use {
     "lewis6991/gitsigns.nvim",

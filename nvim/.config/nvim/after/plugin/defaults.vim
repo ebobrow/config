@@ -7,4 +7,4 @@ autocmd BufWritePost ~/dmenu/* !sudo make install
 autocmd BufWritePost packer.lua source <afile> | PackerCompile
 
 " Disable autocomment
-" autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
