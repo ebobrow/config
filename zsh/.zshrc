@@ -80,6 +80,8 @@ alias auri="paru -Slq | fzf --multi --preview 'paru -Si {1}' | xargs -ro paru -S
 alias aurr="paru -Qq | fzf --multi --preview 'paru -Qi {1}' | xargs -ro paru -Rns"
 alias pacup="sudo pacman -Syu"
 
+alias gs="git status"
+
 alias ls="ls --color=auto"
 alias cp="cp -v"
 alias mv="mv -v"

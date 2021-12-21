@@ -34,13 +34,11 @@ local on_attach = function()
     "<C-u>", function() require'lspsaga.action'.smart_scroll_with_saga(-1) end
   }
 
-  -- TODO: These aren't working
-  -- buf_nnoremap { "]d", require'lspsaga.diagnostic'.lsp_jump_diagnostic_next }
-  -- buf_nnoremap { "[d", require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev }
-  -- buf_nnoremap { "<leader>cd", require'lspsaga.diagnostic'.show_line_diagnostics }
-  buf_nnoremap { "]d", vim.lsp.diagnostic.goto_next }
-  buf_nnoremap { "[d", vim.lsp.diagnostic.goto_prev }
-  buf_nnoremap { "<leader>cd", vim.diagnostic.show }
+  buf_nnoremap { "]d", function() vim.cmd [[ Lspsaga diagnostic_jump_next ]] end }
+  buf_nnoremap { "[d", function() vim.cmd [[ Lspsaga diagnostic_jump_prev ]] end }
+  buf_nnoremap {
+    "<leader>cd", function() vim.cmd [[ Lspsaga show_line_diagnostics ]] end
+  }
 
   -- TODO: These don't work
   -- telescope_mapper("<leader>ca", "lsp_code_actions")
