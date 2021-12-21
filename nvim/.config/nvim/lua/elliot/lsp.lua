@@ -21,6 +21,7 @@ local on_attach = function()
   buf_nnoremap { "gd", vim.lsp.buf.definition }
   buf_nnoremap { "gD", require'lspsaga.provider'.preview_definition }
   buf_nnoremap { "gr", vim.lsp.buf.references }
+  buf_nnoremap { "gR", function() vim.cmd [[ Lspsaga rename ]] end }
   -- buf_nnoremap { "gR", vim.lsp.buf.rename }
 
   buf_nnoremap { "<space>rr", "LspRestart" }
@@ -47,8 +48,6 @@ local on_attach = function()
   -- telescope_mapper('<leader>xw', 'lsp_workspace_diagnostics')
 
   buf_nnoremap { "<leader>F", vim.lsp.buf.formatting }
-
-  vim.cmd [[nnoremap <silent> gR "ryiw:Lspsaga rename<CR><C-r>r]]
 
   vim.cmd [[
       augroup lsp_buf_format
