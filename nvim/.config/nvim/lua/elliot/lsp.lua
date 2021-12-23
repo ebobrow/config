@@ -15,7 +15,7 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
-local on_attach = function()
+local on_attach = function(client)
   buf_inoremap { "<c-s>", vim.lsp.buf.signature_help }
 
   buf_nnoremap { "gd", vim.lsp.buf.definition }
@@ -55,6 +55,19 @@ local on_attach = function()
           autocmd BufWritePre <buffer> :lua vim.lsp.buf.formatting_sync()
       augroup END
   ]]
+
+  if client.resolved_capabilities.document_highlight then
+    vim.cmd [[ hi LspReferenceText guibg=#3b3f47 ]] -- This is just some random color
+    vim.cmd [[ highlight link LspReferenceRead LspReferenceText ]]
+    vim.cmd [[ highlight link LspReferenceWrite LspReferenceText ]]
+    vim.cmd [[
+      augroup lsp_document_highlight
+        autocmd! * <buffer>
+        autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+      augroup END
+    ]]
+  end
 end
 
 local nvim_lsp = require 'lspconfig'

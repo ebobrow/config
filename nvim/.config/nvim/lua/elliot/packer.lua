@@ -156,10 +156,7 @@ return require"packer".startup(function()
       vim.cmd [[hi LspDiagnosticsVirtualTextHint guibg=none]]
     end
   }
-  use {
-    "numToStr/Comment.nvim",
-    config = function() require("Comment").setup() end
-  }
+  use "tpope/vim-commentary"
   use { "rrethy/vim-hexokinase", run = "make hexokinase" }
   use {
     "lewis6991/gitsigns.nvim",
