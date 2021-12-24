@@ -12,6 +12,18 @@ local buf_inoremap = function(opts)
   inoremap(opts)
 end
 
+local references = vim.lsp.handlers["textDocument/references"]
+vim.lsp.handlers["textDocument/references"] =
+    function(err, result, ctx, config)
+      if #result <= 2 then
+        -- Result[1] is the only reference
+        -- Result[2] is definition
+        vim.lsp.util.jump_to_location(result[1])
+      else
+        references(err, result, ctx, config)
+      end
+    end
+
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
