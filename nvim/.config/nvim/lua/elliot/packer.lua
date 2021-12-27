@@ -178,7 +178,7 @@ return require"packer".startup(function()
           ["n <leader>gr"] = '<cmd>lua require "gitsigns".reset_hunk()<CR>',
           ["n <leader>gR"] = '<cmd>lua require "gitsigns".reset_buffer()<CR>',
           ["n <leader>gp"] = '<cmd>lua require "gitsigns".preview_hunk()<CR>',
-          ["n <leader>gb"] = '<cmd>lua require "gitsigns".blame_line(true)<CR>',
+          ["n <leader>gb"] = '<cmd>Gitsigns blame_line<CR>',
           ["n <leader>gS"] = '<cmd>lua require "gitsigns".stage_buffer()<CR>',
           ["n <leader>gU"] = '<cmd>lua require "gitsigns".reset_buffer_index()<CR>',
 

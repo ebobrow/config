@@ -21,6 +21,7 @@ opt.autowriteall = true
 opt.showmode = false
 opt.list = true
 opt.listchars = { tab = "» ", trail = "·" }
+opt.updatetime = 1000
 
 opt.statusline = "%f %m%r" .. "%=" .. "%l:%c [%p%%]%y"
 
