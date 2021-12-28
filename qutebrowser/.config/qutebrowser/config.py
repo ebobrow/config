@@ -204,7 +204,7 @@ c.colors.webpage.darkmode.enabled = False
 # font setting, it's replaced with the fonts listed here. If set to an
 # empty value, a system-specific monospace default is used.
 # Type: List of Font, or Font
-c.fonts.default_family = 'SauceCodePro Nerd Font'
+c.fonts.default_family = 'FiraCode Nerd Font'
 # Text color of the completion widget. May be a single color to use for
 # all columns or a list of three colors, one for each column.
 # Type: List of QtColor, or QtColor

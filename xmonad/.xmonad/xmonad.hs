@@ -31,7 +31,7 @@ import XMonad.Util.EZConfig (additionalKeysP)
 import XMonad.Util.NamedScratchpad
 import XMonad.Util.Run
 
-myTerminal = "st"
+myTerminal = "kitty"
 
 myWorkspaces = map show [1 .. 9]
 
@@ -57,7 +57,7 @@ myLayoutHook = boringWindows $ maximizeWithPadding 0 $ minimize (flex ||| tabs)
             configurableNavigation noNavigateBorders $
               addTabs shrinkText myTabTheme $
                 subLayout [] (Simplest ||| Accordion) $
-                  mySpacing 4 $
+                  mySpacing 0 $
                     ResizableTall 1 (1 / 20) (1 / 2) []
     tabs =
       renamed [Replace "Tabs"] $
@@ -67,7 +67,7 @@ myLayoutHook = boringWindows $ maximizeWithPadding 0 $ minimize (flex ||| tabs)
 
 myTabTheme =
   def
-    { fontName = "xft:mononoki Nerd Font:size=9",
+    { fontName = "xft:FiraCode Nerd Font:size=9",
       activeColor = myFocusedBorderColor,
       inactiveColor = "#313846",
       -- inactiveColor = "#32302f",
@@ -88,7 +88,7 @@ myBorderWidth = 1
 
 myXPConfig =
   def
-    { font = "xft:mononoki Nerd Font:size=9",
+    { font = "xft:FiraCode Nerd Font:size=9",
       bgColor = "#32302f",
       fgColor = "#d0d0d0",
       bgHLight = "#c792ea",
@@ -161,7 +161,7 @@ myKeys =
     ("M-r w", spawn "networkmanager_dmenu"),
     ("M-s w", spawn "sxiv -t ~/wallpapers"),
     ("M-p", shellPrompt myXPConfig),
-    ("M-S-<Return>", spawn "st -e mux")
+    ("M-S-<Return>", spawn myTerminal + "-e mux")
   ]
 
 myFocusFollowsMouse = False

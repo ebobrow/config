@@ -34,6 +34,6 @@ fi
 
 xinput set-prop 12 290 1
 
-~/.fehbg &
-picom --experimental-backends -b
+#~/.fehbg &
+picom -b
 exec xmonad
