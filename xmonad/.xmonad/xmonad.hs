@@ -1,10 +1,7 @@
 import Data.Char (isSpace)
 import qualified Data.Map as M
-import System.Exit
-import System.IO
 import XMonad hiding ((|||))
-import XMonad.Actions.CycleRecentWS
-import XMonad.Actions.Minimize
+import XMonad.Actions.SpawnOn
 import XMonad.Actions.WithAll (killAll)
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
@@ -13,8 +10,8 @@ import XMonad.Layout.Accordion
 import XMonad.Layout.BoringWindows hiding (Replace)
 import XMonad.Layout.LayoutCombinators
 import XMonad.Layout.Maximize
-import XMonad.Layout.Minimize
 import XMonad.Layout.NoBorders
+import XMonad.Layout.PerWorkspace
 import XMonad.Layout.Renamed
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.Simplest
@@ -28,7 +25,6 @@ import XMonad.Prompt.Shell (shellPrompt)
 import qualified XMonad.StackSet as W
 import XMonad.Util.Cursor
 import XMonad.Util.EZConfig (additionalKeysP)
-import XMonad.Util.NamedScratchpad
 import XMonad.Util.Run
 
 myTerminal = "kitty"
@@ -43,11 +39,11 @@ myManageHook =
       className =? "Gimp" --> doFloat,
       className =? "Download" --> doFloat,
       className =? "Progress" --> doFloat,
-      isFullscreen --> doFullFloat
+      isFullscreen --> doFullFloat,
+      className =? "qutebrowser" --> doShift "2"
     ]
-    <+> namedScratchpadManageHook myScratchpads
 
-myLayoutHook = boringWindows $ maximizeWithPadding 0 $ minimize (flex ||| tabs)
+myLayoutHook = onWorkspace "2" tabs $ boringWindows (maximizeWithPadding 0 (flex ||| tabs))
   where
     mySpacing i = spacingRaw False (Border i i i i) False (Border i i i i) True
     flex =
@@ -70,8 +66,7 @@ myTabTheme =
     { fontName = "xft:FiraCode Nerd Font:size=9",
       activeColor = myFocusedBorderColor,
       inactiveColor = "#282C34",
-      -- inactiveColor = "#32302f",
-      activeBorderColor =  myFocusedBorderColor,
+      activeBorderColor = myFocusedBorderColor,
       inactiveBorderColor = "#282c34",
       activeTextColor = "#282c34",
       inactiveTextColor = "#ABB2BF"
@@ -79,11 +74,8 @@ myTabTheme =
 
 myNormalBorderColor = "black"
 
--- myFocusedBorderColor = "#83a598"
--- myFocusedBorderColor = "#689d6a"
 myFocusedBorderColor = "#56B6C2"
 
--- Width of the window border in pixels.
 myBorderWidth = 1
 
 myXPConfig =
@@ -118,48 +110,15 @@ calcPrompt c ans =
 
 myKeys =
   [ ("M-<Return>", spawn myTerminal),
-    --, ("M-S-<Return>", spawn "dmenu_run")
     ("M-w", kill),
     ("M-S-w", killAll),
     ("M-<Tab>", sendMessage NextLayout),
-    ( "M-x",
-      sequence_ [sendMessage ToggleStruts, toggleWindowSpacingEnabled]
-    ),
-    ("M-s t", namedScratchpadAction myScratchpads "terminal"),
-    ("M-M1-<Tab>", cycleRecentWS [xK_Alt_L] xK_Tab xK_grave),
     ("M-f", withFocused (sendMessage . maximizeRestore)),
-    ("M-m", withFocused minimizeWindow),
-    ("M-S-m", withLastMinimized maximizeWindowAndFocus),
-    ("M-j", focusDown),
-    ("M-k", focusUp),
-    ("M-g", withFocused (sendMessage . UnMerge)),
-    ("M-S-j", windows W.swapDown),
-    ("M-S-k", windows W.swapUp),
-    ("M-h", sendMessage Shrink),
-    ("M-l", sendMessage Expand),
-    ("M-S-h", sendMessage MirrorShrink),
-    ("M-S-l", sendMessage MirrorExpand),
-    ("M-C-j", sendMessage $ pullGroup D),
-    ("M-C-k", sendMessage $ pullGroup U),
-    ("M-C-h", sendMessage $ pullGroup L),
-    ("M-C-l", sendMessage $ pullGroup R),
-    ("M-t", withFocused $ windows . W.sink),
-    ("M-,", sendMessage (IncMasterN 1)),
-    ("M-.", sendMessage (IncMasterN (-1))),
-    ("M-S-q", io exitSuccess),
-    ("M-q", restart "xmonad" True),
     ("M-S-.", incWindowSpacing 4),
     ("M-S-,", decWindowSpacing 4),
-    ("M-;", onGroup W.focusUp'),
-    ("M-'", onGroup W.focusDown'),
     -- Programs
     ("M-b", spawn "qutebrowser"),
-    ("M-r x", spawn "signout"),
-    ("M-r a", spawn "alarm"),
-    ("M-r e", spawn "dmenuunicode"),
     ("M-r q", calcPrompt myXPConfig "qalc"),
-    ("M-r w", spawn "networkmanager_dmenu"),
-    ("M-s w", spawn "sxiv -t ~/wallpapers"),
     ("M-p", shellPrompt myXPConfig),
     ("M-S-<Return>", spawn "kitty -e mux")
   ]
@@ -176,20 +135,10 @@ myMouseBindings XConfig {XMonad.modMask = modMask} =
       ((modMask, button3), \w -> focus w >> mouseResizeWindow w)
     ]
 
--- you may also bind events to the mouse scroll wheel (button4 and button5)
 myStartupHook = do
   setDefaultCursor xC_left_ptr
-
-myScratchpads = [NS "terminal" spawnTerm findTerm manageTerm]
-  where
-    spawnTerm = "st -n scratchpad"
-    findTerm = resource =? "scratchpad"
-    manageTerm = customFloating $ W.RationalRect l t w h
-      where
-        h = 0.9
-        w = 0.9
-        t = 0.95 - h
-        l = 0.95 - w
+  spawnOn "1" "kitty -e mux"
+  spawnOn "2" "qutebrowser"
 
 main = do
   xmproc <- spawnPipe "xmobar ~/.xmonad/xmobar.conf"
