@@ -205,6 +205,7 @@ c.colors.webpage.darkmode.enabled = False
 # empty value, a system-specific monospace default is used.
 # Type: List of Font, or Font
 c.fonts.default_family = 'FiraCode Nerd Font'
+c.fonts.default_size = '9pt'
 # Text color of the completion widget. May be a single color to use for
 # all columns or a list of three colors, one for each column.
 # Type: List of QtColor, or QtColor
@@ -240,9 +241,9 @@ c.colors.completion.item.selected.fg = '#9cc4ff'
 
 # Background color of the selected completion item.
 # Type: QssColor
-c.colors.completion.item.selected.bg = 'black'
-c.colors.completion.item.selected.border.top = 'black'
-c.colors.completion.item.selected.border.bottom = 'black'
+c.colors.completion.item.selected.bg = '#282C34'
+c.colors.completion.item.selected.border.top = '#282C34'
+c.colors.completion.item.selected.border.bottom = '#282C34'
 
 # Foreground color of the matched text in the selected completion item.
 # Type: QtColor
@@ -304,41 +305,48 @@ c.colors.statusbar.insert.fg = 'white'
 # Type: QssColor
 # c.colors.tabs.bar.bg = '#1c1f34'
 
+bg = "#282C34"
+fg = "#ABB2BF"
+hi = "#98C379"
 # Background color of unselected odd tabs.
 # Type: QtColor
-c.colors.tabs.odd.bg = 'black'
+c.colors.tabs.odd.bg = bg
+c.colors.tabs.odd.fg = fg
 
 # Background color of unselected even tabs.
 # Type: QtColor
-c.colors.tabs.even.bg = 'black'
+c.colors.tabs.even.bg = bg
+c.colors.tabs.even.fg = fg
 
 # Background color of selected odd tabs.
 # Type: QtColor
-c.colors.tabs.selected.odd.bg = '#689d6a'
-c.colors.tabs.selected.odd.fg = '#282c34'
+c.colors.tabs.selected.odd.bg = hi
+c.colors.tabs.selected.odd.fg = bg
 
 # Background color of selected even tabs.
 # Type: QtColor
-c.colors.tabs.selected.even.bg = '#689d6a'
-c.colors.tabs.selected.even.fg = '#282c34'
+c.colors.tabs.selected.even.bg = hi
+c.colors.tabs.selected.even.fg = bg
 
 # Background color of pinned unselected odd tabs.
 # Type: QtColor
-c.colors.tabs.pinned.odd.bg = 'black'
+c.colors.tabs.pinned.odd.bg = bg
+c.colors.tabs.pinned.odd.fg = fg
 
 # Background color of pinned unselected even tabs.
 # Type: QtColor
-c.colors.tabs.pinned.even.bg = 'black'
+c.colors.tabs.pinned.even.bg = bg
+c.colors.tabs.pinned.even.fg = fg
 
 # Background color of pinned selected odd tabs.
 # Type: QtColor
-c.colors.tabs.pinned.selected.odd.bg = '#689d6a'
-c.colors.tabs.pinned.selected.odd.fg = '#282c34'
+c.colors.tabs.pinned.selected.odd.bg = hi
+c.colors.tabs.pinned.selected.odd.fg = bg
 
 # Background color of pinned selected even tabs.
 # Type: QtColor
-c.colors.tabs.pinned.selected.even.bg = '#689d6a'
-c.colors.tabs.pinned.selected.even.fg = '#282c34'
+c.colors.tabs.pinned.selected.even.bg = hi
+c.colors.tabs.pinned.selected.even.fg = bg
 
 c.editor.command = ['st', '-e', 'nvim', '{file}']
 

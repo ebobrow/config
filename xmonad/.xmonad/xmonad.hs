@@ -69,12 +69,12 @@ myTabTheme =
   def
     { fontName = "xft:FiraCode Nerd Font:size=9",
       activeColor = myFocusedBorderColor,
-      inactiveColor = "#313846",
+      inactiveColor = "#282C34",
       -- inactiveColor = "#32302f",
-      activeBorderColor = myFocusedBorderColor,
+      activeBorderColor =  myFocusedBorderColor,
       inactiveBorderColor = "#282c34",
       activeTextColor = "#282c34",
-      inactiveTextColor = "#d0d0d0"
+      inactiveTextColor = "#ABB2BF"
     }
 
 myNormalBorderColor = "black"
@@ -161,7 +161,7 @@ myKeys =
     ("M-r w", spawn "networkmanager_dmenu"),
     ("M-s w", spawn "sxiv -t ~/wallpapers"),
     ("M-p", shellPrompt myXPConfig),
-    ("M-S-<Return>", spawn myTerminal + "-e mux")
+    ("M-S-<Return>", spawn "kitty -e mux")
   ]
 
 myFocusFollowsMouse = False
