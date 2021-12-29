@@ -6,19 +6,11 @@ import XMonad.Actions.WithAll (killAll)
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
-import XMonad.Layout.Accordion
-import XMonad.Layout.BoringWindows hiding (Replace)
-import XMonad.Layout.LayoutCombinators
 import XMonad.Layout.Maximize
 import XMonad.Layout.NoBorders
 import XMonad.Layout.PerWorkspace
 import XMonad.Layout.Renamed
-import XMonad.Layout.ResizableTile
-import XMonad.Layout.Simplest
-import XMonad.Layout.Spacing
-import XMonad.Layout.SubLayouts
 import XMonad.Layout.Tabbed
-import XMonad.Layout.WindowNavigation
 import XMonad.Prompt
 import XMonad.Prompt.Input
 import XMonad.Prompt.Shell (shellPrompt)
@@ -43,23 +35,10 @@ myManageHook =
       className =? "qutebrowser" --> doShift "2"
     ]
 
-myLayoutHook = onWorkspace "2" tabs $ boringWindows (maximizeWithPadding 0 (flex ||| tabs))
+myLayoutHook = onWorkspace "2" tabs tall
   where
-    mySpacing i = spacingRaw False (Border i i i i) False (Border i i i i) True
-    flex =
-      renamed [Replace "Flex"] $
-        avoidStruts $
-          smartBorders $
-            configurableNavigation noNavigateBorders $
-              addTabs shrinkText myTabTheme $
-                subLayout [] (Simplest ||| Accordion) $
-                  mySpacing 0 $
-                    ResizableTall 1 (1 / 20) (1 / 2) []
-    tabs =
-      renamed [Replace "Tabs"] $
-        noBorders $
-          avoidStruts $
-            tabbed shrinkText myTabTheme
+    tabs = noBorders $ avoidStruts $ tabbed shrinkText myTabTheme
+    tall = maximizeWithPadding 0 $ avoidStruts $ smartBorders $ Tall 1 (3 / 100) (1 / 2)
 
 myTabTheme =
   def
@@ -112,10 +91,7 @@ myKeys =
   [ ("M-<Return>", spawn myTerminal),
     ("M-w", kill),
     ("M-S-w", killAll),
-    ("M-<Tab>", sendMessage NextLayout),
     ("M-f", withFocused (sendMessage . maximizeRestore)),
-    ("M-S-.", incWindowSpacing 4),
-    ("M-S-,", decWindowSpacing 4),
     -- Programs
     ("M-b", spawn "qutebrowser"),
     ("M-r q", calcPrompt myXPConfig "qalc"),
