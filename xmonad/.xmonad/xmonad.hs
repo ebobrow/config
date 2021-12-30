@@ -37,7 +37,7 @@ myManageHook =
 
 myLayoutHook = onWorkspace "2" tabs tall
   where
-    tabs = noBorders $ avoidStruts $ tabbed shrinkText myTabTheme
+    tabs = maximizeWithPadding 0 $ noBorders $ avoidStruts $ tabbed shrinkText myTabTheme
     tall = maximizeWithPadding 0 $ avoidStruts $ smartBorders $ Tall 1 (3 / 100) (1 / 2)
 
 myTabTheme =
