@@ -85,8 +85,16 @@ end
 local nvim_lsp = require 'lspconfig'
 
 -- nvim_lsp.tsserver.setup { on_attach = on_attach, capabilities = capabilities }
-nvim_lsp.rust_analyzer
-    .setup { on_attach = on_attach, capabilities = capabilities }
+nvim_lsp.rust_analyzer.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {
+    ["rust-analyzer"] = {
+      rustcSource = "discover",
+      updates = { channel = "nightly" }
+    }
+  }
+}
 nvim_lsp.vimls.setup { on_attach = on_attach, capabilities = capabilities }
 nvim_lsp.hls.setup {
   root_dir = nvim_lsp.util.root_pattern("*.cabal", "stack.yaml",
