@@ -1,1 +1,1 @@
-fromList [("Run: ",["firefox","picom","picom","killall","picom","st","kitty","st","st","st","kitty","kit","kitty","kitty","kitty","kitty","st","st","alacritty","alacritty","alacritty","alacritty","firefox"]),("qalc: ",["3410-2457","3153-2367"])]
+fromList [("Run: ",["firefox","firefox","xterm","firefox","firefox","firefox","picom","picom","killall","picom","st","kitty","st","st","st","kitty","kit","kitty","kitty","kitty","kitty","st","st","alacritty","alacritty","alacritty","alacritty","firefox"]),("qalc: ",["3410-2457","3153-2367"])]

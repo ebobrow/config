@@ -118,9 +118,7 @@ return require"packer".startup(function()
     run = ":TSUpdate",
     config = function()
       require"nvim-treesitter.configs".setup {
-        ensure_installed = {
-          "rust", "toml", "html", "typescript", "tsx", "lua", "haskell"
-        },
+        ensure_installed = { "rust", "toml", "lua", "haskell" },
         highlight = { enable = true }
       }
     end
@@ -230,4 +228,6 @@ return require"packer".startup(function()
                               { noremap = true })
     end
   }
+
+  use "tpope/vim-obsession"
 end)

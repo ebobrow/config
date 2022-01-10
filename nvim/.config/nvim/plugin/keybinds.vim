@@ -67,8 +67,8 @@ vnoremap <leader>d "_d
 " tnoremap <C-h> <C-\><C-n>:tabp<CR>
 " tnoremap <C-l> <C-\><C-n>:tabn<CR>
 
-nnoremap S :%s//g<Left><Left>
-vnoremap S :s//g<Left><Left>
+" nnoremap S :%s//g<Left><Left>
+" vnoremap S :s//g<Left><Left>
 
 nnoremap Y y$
 

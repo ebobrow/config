@@ -51,12 +51,6 @@ myTabTheme =
       inactiveTextColor = "#ABB2BF"
     }
 
-myNormalBorderColor = "black"
-
-myFocusedBorderColor = "#56B6C2"
-
-myBorderWidth = 1
-
 myXPConfig =
   def
     { font = "xft:FiraCode Nerd Font:size=9",
@@ -76,6 +70,10 @@ myXPConfig =
       alwaysHighlight = True,
       maxComplRows = Nothing
     }
+
+myNormalBorderColor = "black"
+myFocusedBorderColor = "#56B6C2"
+myBorderWidth = 1
 
 calcPrompt c ans =
   inputPrompt c (trim ans) ?+ \input ->
@@ -113,7 +111,7 @@ myMouseBindings XConfig {XMonad.modMask = modMask} =
 
 myStartupHook = do
   setDefaultCursor xC_left_ptr
-  spawnOn "1" "kitty -e mux"
+  spawnOn "1" "kitty -e tmux"
   spawnOn "2" "qutebrowser"
 
 main = do
