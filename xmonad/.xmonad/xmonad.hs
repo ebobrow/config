@@ -94,7 +94,9 @@ myKeys =
     ("M-b", spawn "qutebrowser"),
     ("M-r q", calcPrompt myXPConfig "qalc"),
     ("M-p", shellPrompt myXPConfig),
-    ("M-S-<Return>", spawn "kitty -e mux")
+    ("M-S-<Return>", spawn "kitty -e mux"),
+    ("M-s", spawn "scrot 'scrots/%Y-%m-%d_%I:%M:%S_$wx$h.png'"),
+    ("M-S-s", spawn "sxiv scrots")
   ]
 
 myFocusFollowsMouse = False
@@ -111,7 +113,7 @@ myMouseBindings XConfig {XMonad.modMask = modMask} =
 
 myStartupHook = do
   setDefaultCursor xC_left_ptr
-  spawnOn "1" "kitty -e tmux"
+  spawnOn "1" "kitty -e mux"
   spawnOn "2" "qutebrowser"
 
 main = do

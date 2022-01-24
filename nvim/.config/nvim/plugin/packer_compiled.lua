@@ -203,11 +203,6 @@ _G.packer_plugins = {
     path = "/home/elliotbobrow/.local/share/nvim/site/pack/packer/start/vim-hexokinase",
     url = "https://github.com/rrethy/vim-hexokinase"
   },
-  ["vim-obsession"] = {
-    loaded = true,
-    path = "/home/elliotbobrow/.local/share/nvim/site/pack/packer/start/vim-obsession",
-    url = "https://github.com/tpope/vim-obsession"
-  },
   ["vim-startuptime"] = {
     commands = { "StartupTime" },
     loaded = false,
