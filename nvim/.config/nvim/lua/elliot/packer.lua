@@ -148,10 +148,10 @@ return require"packer".startup(function()
       vim.api.nvim_set_option("termguicolors", true)
       -- vim.cmd [[hi Float guibg=#282C34]]
       -- vim.cmd [[hi NormalFloat guibg=#282C34]]
-      vim.cmd [[hi LspDiagnosticsVirtualTextError guibg=none]]
-      vim.cmd [[hi LspDiagnosticsVirtualTextWarning guibg=none]]
-      vim.cmd [[hi LspDiagnosticsVirtualTextInformation guibg=none]]
-      vim.cmd [[hi LspDiagnosticsVirtualTextHint guibg=none]]
+      -- vim.cmd [[hi LspDiagnosticsVirtualTextError guibg=none]]
+      -- vim.cmd [[hi LspDiagnosticsVirtualTextWarning guibg=none]]
+      -- vim.cmd [[hi LspDiagnosticsVirtualTextInformation guibg=none]]
+      -- vim.cmd [[hi LspDiagnosticsVirtualTextHint guibg=none]]
     end
   }
   use "tpope/vim-commentary"
@@ -207,25 +207,25 @@ return require"packer".startup(function()
       require("harpoon").setup()
       vim.api.nvim_set_keymap("n", "<leader>1",
                               ":lua require('harpoon.ui').nav_file(1)<CR>",
-                              { noremap = true })
+                              { noremap = true, silent = true })
       vim.api.nvim_set_keymap("n", "<leader>2",
                               ":lua require('harpoon.ui').nav_file(2)<CR>",
-                              { noremap = true })
+                              { noremap = true, silent = true })
       vim.api.nvim_set_keymap("n", "<leader>3",
                               ":lua require('harpoon.ui').nav_file(3)<CR>",
-                              { noremap = true })
+                              { noremap = true, silent = true })
       vim.api.nvim_set_keymap("n", "<leader>4",
                               ":lua require('harpoon.ui').nav_file(4)<CR>",
-                              { noremap = true })
+                              { noremap = true, silent = true })
       vim.api.nvim_set_keymap("n", "<leader>m",
                               ":lua require('harpoon.mark').add_file()<CR>",
                               { noremap = true })
       vim.api.nvim_set_keymap("n", "<leader>t",
                               ":lua require('harpoon.term').gotoTerminal(1)<CR>",
-                              { noremap = true })
+                              { noremap = true, silent = true })
       vim.api.nvim_set_keymap("n", "<leader>Q",
                               ":lua require('harpoon.ui').toggle_quick_menu()<CR>",
-                              { noremap = true })
+                              { noremap = true, silent = true })
     end
   }
 

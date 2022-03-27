@@ -103,6 +103,7 @@ nvim_lsp.rust_analyzer.setup {
 --   on_attach = on_attach,
 --   capabilities = capabilities
 -- }
+nvim_lsp.pylsp.setup { on_attach = on_attach, capabilities = capabilities }
 nvim_lsp.sumneko_lua.setup {
   -- TODO: Move out of home directory?
   cmd = {
@@ -125,7 +126,7 @@ nvim_lsp.sumneko_lua.setup {
   on_attach = on_attach,
   capabilities = capabilities
 }
-require"lspconfig".efm.setup {
+nvim_lsp.efm.setup {
   init_options = { documentFormatting = true },
   cmd = { "/home/elliotbobrow/go/bin/efm-langserver" },
   filetypes = { "lua" },

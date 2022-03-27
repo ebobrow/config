@@ -37,4 +37,5 @@ xinput set-prop 12 290 1
 # ~/.fehbg &
 # TODO: Can't decide if I like this
 # picom -b
-exec xmonad
+# exec xmonad
+exec dwm

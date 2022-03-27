@@ -56,13 +56,12 @@ if [[ "$TERM" == (alacritty*|st*|nome*|konsole*|putty*|rxvt*|screen*|tmux*|xterm
 fi
 
 # fzf
-# source /usr/share/fzf/key-bindings.zsh
-# source /usr/share/fzf/completion.zsh
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
 alias paci="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
 alias pacr="pacman -Qq | fzf --multi --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rns"
 alias auri="paru -Slq | fzf --multi --preview 'paru -Si {1}' | xargs -ro paru -S"
 alias aurr="paru -Qq | fzf --multi --preview 'paru -Qi {1}' | xargs -ro paru -Rns"
-alias pacup="sudo pacman -Syu"
 
 alias gs="git status"
 
@@ -70,6 +69,8 @@ alias ls="ls --color=auto"
 alias cp="cp -v"
 alias mv="mv -v"
 alias x="startx"
+alias wifi="nmcli device wifi"
+alias swifi="sudo nmcli device wifi"
 
 eval "$(starship init zsh)"
 
