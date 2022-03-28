@@ -6,7 +6,5 @@
 
 config_version: 2
 settings:
-  fonts.default_size:
-    global: 9pt
-  fonts.web.size.default:
-    global: 13
+  tabs.show:
+    global: never
