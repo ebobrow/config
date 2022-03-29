@@ -85,7 +85,7 @@ _G.packer_plugins = {
     url = "https://github.com/hrsh7th/cmp-path"
   },
   ["gitsigns.nvim"] = {
-    config = { "\27LJ\2\nÑ\6\0\0\5\0\n\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\b\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0=\4\a\3=\3\t\2B\0\2\1K\0\1\0\fkeymaps\1\0\0\tn [c\1\2\1\0H&diff ? '[c' : '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>'\texpr\2\tn ]c\1\0\n\17n <leader>gS3<cmd>lua require \"gitsigns\".stage_buffer()<CR>\tx ig;:<C-U>lua require \"gitsigns.actions\".select_hunk()<CR>\to ig;:<C-U>lua require \"gitsigns.actions\".select_hunk()<CR>\17n <leader>gr1<cmd>lua require \"gitsigns\".reset_hunk()<CR>\17n <leader>gb!<cmd>Gitsigns blame_line<CR>\17n <leader>gp3<cmd>lua require \"gitsigns\".preview_hunk()<CR>\17n <leader>gs1<cmd>lua require \"gitsigns\".stage_hunk()<CR>\17n <leader>gu6<cmd>lua require \"gitsigns\".undo_stage_hunk()<CR>\17n <leader>gR3<cmd>lua require \"gitsigns\".reset_buffer()<CR>\17n <leader>gU9<cmd>lua require \"gitsigns\".reset_buffer_index()<CR>\1\2\1\0H&diff ? ']c' : '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>'\texpr\2\nsetup\rgitsigns\frequire\0" },
+    config = { "\27LJ\2\nÑ\6\0\0\5\0\n\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\b\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0=\4\a\3=\3\t\2B\0\2\1K\0\1\0\fkeymaps\1\0\0\tn [c\1\2\1\0H&diff ? '[c' : '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>'\texpr\2\tn ]c\1\0\n\17n <leader>gR3<cmd>lua require \"gitsigns\".reset_buffer()<CR>\17n <leader>gs1<cmd>lua require \"gitsigns\".stage_hunk()<CR>\17n <leader>gu6<cmd>lua require \"gitsigns\".undo_stage_hunk()<CR>\17n <leader>gp3<cmd>lua require \"gitsigns\".preview_hunk()<CR>\17n <leader>gb!<cmd>Gitsigns blame_line<CR>\17n <leader>gr1<cmd>lua require \"gitsigns\".reset_hunk()<CR>\to ig;:<C-U>lua require \"gitsigns.actions\".select_hunk()<CR>\tx ig;:<C-U>lua require \"gitsigns.actions\".select_hunk()<CR>\17n <leader>gU9<cmd>lua require \"gitsigns\".reset_buffer_index()<CR>\17n <leader>gS3<cmd>lua require \"gitsigns\".stage_buffer()<CR>\1\2\1\0H&diff ? ']c' : '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>'\texpr\2\nsetup\rgitsigns\frequire\0" },
     loaded = true,
     path = "/home/elliotbobrow/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
@@ -102,13 +102,13 @@ _G.packer_plugins = {
     url = "https://github.com/onsails/lspkind-nvim"
   },
   ["lspsaga.nvim"] = {
-    config = { "\27LJ\2\ný\3\0\0\4\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\0025\3\b\0=\3\t\0025\3\n\0=\3\v\2B\0\2\1K\0\1\0\23rename_action_keys\1\0\2\tquit\n<C-c>\texec\t<CR>\21code_action_keys\1\0\2\tquit\6q\texec\t<CR>\23finder_action_keys\1\0\6\topen\6o\nsplit\6i\vvsplit\6s\16scroll_down\n<C-f>\tquit\6q\14scroll_up\n<C-b>\23code_action_prompt\1\0\4\venable\1\17virtual_text\1\18sign_priority\3\20\tsign\2\1\0\a\28definition_preview_icon\nï”¸  \26finder_reference_icon\nïŒ‘  \17border_style\vsingle\27finder_definition_icon\nïŒ‘  \29use_saga_diagnostic_sign\1\22max_preview_lines\3\n\25rename_prompt_prefix\6>\18init_lsp_saga\flspsaga\frequire\0" },
+    config = { "\27LJ\2\ný\3\0\0\4\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\0025\3\b\0=\3\t\0025\3\n\0=\3\v\2B\0\2\1K\0\1\0\23rename_action_keys\1\0\2\tquit\n<C-c>\texec\t<CR>\21code_action_keys\1\0\2\tquit\6q\texec\t<CR>\23finder_action_keys\1\0\6\16scroll_down\n<C-f>\vvsplit\6s\14scroll_up\n<C-b>\topen\6o\tquit\6q\nsplit\6i\23code_action_prompt\1\0\4\18sign_priority\3\20\tsign\2\17virtual_text\1\venable\1\1\0\a\22max_preview_lines\3\n\25rename_prompt_prefix\6>\29use_saga_diagnostic_sign\1\27finder_definition_icon\nïŒ‘  \17border_style\vsingle\26finder_reference_icon\nïŒ‘  \28definition_preview_icon\nï”¸  \18init_lsp_saga\flspsaga\frequire\0" },
     loaded = true,
     path = "/home/elliotbobrow/.local/share/nvim/site/pack/packer/start/lspsaga.nvim",
     url = "https://github.com/tami5/lspsaga.nvim"
   },
   ["nvim-cmp"] = {
-    config = { "\27LJ\2\n;\0\1\4\0\4\0\0066\1\0\0009\1\1\0019\1\2\0019\3\3\0B\1\2\1K\0\1\0\tbody\20vsnip#anonymous\afn\bvimú\6\1\0\n\0004\0T6\0\0\0009\0\1\0005\1\3\0=\1\2\0006\0\0\0009\0\1\0009\0\4\0\18\2\0\0009\0\5\0'\3\6\0B\0\3\0016\0\0\0009\0\a\0'\2\b\0B\0\2\0016\0\0\0009\0\a\0'\2\t\0B\0\2\0016\0\n\0'\2\v\0B\0\2\0026\1\n\0'\3\f\0B\1\2\0029\2\r\1B\2\1\0019\2\14\0005\4\18\0005\5\16\0003\6\15\0=\6\17\5=\5\19\0045\5\22\0009\6\20\0009\6\21\6B\6\1\2=\6\23\0059\6\20\0009\6\24\0065\b\25\0B\6\2\2=\6\26\0059\6\20\0009\6\27\0065\b\30\0009\t\28\0009\t\29\t=\t\31\bB\6\2\2=\6 \0059\6\20\0009\6!\0065\b\"\0009\t\28\0009\t\29\t=\t\31\bB\6\2\2=\6#\0059\6\20\0009\6$\6B\6\1\2=\6%\5=\5\20\0045\5&\0=\5'\0044\5\3\0005\6(\0>\6\1\0055\6)\0>\6\2\5=\5*\0045\5+\0=\5,\0045\0051\0009\6-\0015\b.\0005\t/\0=\t0\bB\6\2\2=\0062\5=\0053\4B\2\2\1K\0\1\0\15formatting\vformat\1\0\0\tmenu\1\0\2\tpath\v[path]\rnvim_lsp\n[LSP]\1\0\1\14with_text\2\15cmp_format\17experimental\1\0\2\16native_menu\1\15ghost_text\2\fsources\1\0\1\tname\tpath\1\0\1\tname\rnvim_lsp\18documentation\1\0\1\vborder\vsingle\n<C-h>\nabort\n<C-k>\1\0\0\21select_prev_item\n<C-j>\rbehavior\1\0\0\vSelect\19SelectBehavior\21select_next_item\n<C-l>\1\0\1\vselect\2\fconfirm\14<C-Space>\1\0\0\rcomplete\fmapping\fsnippet\1\0\0\vexpand\1\0\0\0\nsetup\tinit\flspkind\bcmp\frequire1highlight link CmpDocumentationBorder Normal+highlight link CmpDocumentation Normal\bcmd\6c\vappend\14shortmess\1\4\0\0\tmenu\fmenuone\rnoinsert\16completeopt\bopt\bvim\0" },
+    config = { "\27LJ\2\n;\0\1\4\0\4\0\0066\1\0\0009\1\1\0019\1\2\0019\3\3\0B\1\2\1K\0\1\0\tbody\20vsnip#anonymous\afn\bvimú\6\1\0\n\0004\0T6\0\0\0009\0\1\0005\1\3\0=\1\2\0006\0\0\0009\0\1\0009\0\4\0\18\2\0\0009\0\5\0'\3\6\0B\0\3\0016\0\0\0009\0\a\0'\2\b\0B\0\2\0016\0\0\0009\0\a\0'\2\t\0B\0\2\0016\0\n\0'\2\v\0B\0\2\0026\1\n\0'\3\f\0B\1\2\0029\2\r\1B\2\1\0019\2\14\0005\4\18\0005\5\16\0003\6\15\0=\6\17\5=\5\19\0045\5\22\0009\6\20\0009\6\21\6B\6\1\2=\6\23\0059\6\20\0009\6\24\0065\b\25\0B\6\2\2=\6\26\0059\6\20\0009\6\27\0065\b\30\0009\t\28\0009\t\29\t=\t\31\bB\6\2\2=\6 \0059\6\20\0009\6!\0065\b\"\0009\t\28\0009\t\29\t=\t\31\bB\6\2\2=\6#\0059\6\20\0009\6$\6B\6\1\2=\6%\5=\5\20\0045\5&\0=\5'\0044\5\3\0005\6(\0>\6\1\0055\6)\0>\6\2\5=\5*\0045\5+\0=\5,\0045\0051\0009\6-\0015\b.\0005\t/\0=\t0\bB\6\2\2=\0062\5=\0053\4B\2\2\1K\0\1\0\15formatting\vformat\1\0\0\tmenu\1\0\2\rnvim_lsp\n[LSP]\tpath\v[path]\1\0\1\14with_text\2\15cmp_format\17experimental\1\0\2\15ghost_text\2\16native_menu\1\fsources\1\0\1\tname\tpath\1\0\1\tname\rnvim_lsp\18documentation\1\0\1\vborder\vsingle\n<C-h>\nabort\n<C-k>\1\0\0\21select_prev_item\n<C-j>\rbehavior\1\0\0\vSelect\19SelectBehavior\21select_next_item\n<C-l>\1\0\1\vselect\2\fconfirm\14<C-Space>\1\0\0\rcomplete\fmapping\fsnippet\1\0\0\vexpand\1\0\0\0\nsetup\tinit\flspkind\bcmp\frequire1highlight link CmpDocumentationBorder Normal+highlight link CmpDocumentation Normal\bcmd\6c\vappend\14shortmess\1\4\0\0\tmenu\fmenuone\rnoinsert\16completeopt\bopt\bvim\0" },
     loaded = true,
     path = "/home/elliotbobrow/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
@@ -183,7 +183,7 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   ["todo-comments.nvim"] = {
-    config = { "\27LJ\2\np\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\14highlight\1\0\2\fkeyword\afg\nafter\5\1\0\1\nsigns\1\nsetup\18todo-comments\frequire\0" },
+    config = { "\27LJ\2\np\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\14highlight\1\0\2\nafter\5\fkeyword\afg\1\0\1\nsigns\1\nsetup\18todo-comments\frequire\0" },
     loaded = true,
     path = "/home/elliotbobrow/.local/share/nvim/site/pack/packer/start/todo-comments.nvim",
     url = "https://github.com/folke/todo-comments.nvim"
@@ -229,13 +229,13 @@ time([[Defining packer_plugins]], false)
 time([[Config for onedark.nvim]], true)
 try_loadstring("\27LJ\2\nß\1\0\0\4\0\b\0\0196\0\0\0009\0\1\0'\2\2\0B\0\2\0016\0\0\0009\0\1\0'\2\3\0B\0\2\0016\0\0\0009\0\1\0'\2\4\0B\0\2\0016\0\0\0009\0\5\0009\0\6\0'\2\a\0+\3\2\0B\0\3\1K\0\1\0\18termguicolors\20nvim_set_option\bapi\24colorscheme onedark+let &t_8b = \"\\<Esc>[48;2;%lu;%lu;%lum\"+let &t_8f = \"\\<Esc>[38;2;%lu;%lu;%lum\"\bcmd\bvim\0", "config", "onedark.nvim")
 time([[Config for onedark.nvim]], false)
--- Config for: todo-comments.nvim
-time([[Config for todo-comments.nvim]], true)
-try_loadstring("\27LJ\2\np\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\14highlight\1\0\2\fkeyword\afg\nafter\5\1\0\1\nsigns\1\nsetup\18todo-comments\frequire\0", "config", "todo-comments.nvim")
-time([[Config for todo-comments.nvim]], false)
+-- Config for: nvim-cmp
+time([[Config for nvim-cmp]], true)
+try_loadstring("\27LJ\2\n;\0\1\4\0\4\0\0066\1\0\0009\1\1\0019\1\2\0019\3\3\0B\1\2\1K\0\1\0\tbody\20vsnip#anonymous\afn\bvimú\6\1\0\n\0004\0T6\0\0\0009\0\1\0005\1\3\0=\1\2\0006\0\0\0009\0\1\0009\0\4\0\18\2\0\0009\0\5\0'\3\6\0B\0\3\0016\0\0\0009\0\a\0'\2\b\0B\0\2\0016\0\0\0009\0\a\0'\2\t\0B\0\2\0016\0\n\0'\2\v\0B\0\2\0026\1\n\0'\3\f\0B\1\2\0029\2\r\1B\2\1\0019\2\14\0005\4\18\0005\5\16\0003\6\15\0=\6\17\5=\5\19\0045\5\22\0009\6\20\0009\6\21\6B\6\1\2=\6\23\0059\6\20\0009\6\24\0065\b\25\0B\6\2\2=\6\26\0059\6\20\0009\6\27\0065\b\30\0009\t\28\0009\t\29\t=\t\31\bB\6\2\2=\6 \0059\6\20\0009\6!\0065\b\"\0009\t\28\0009\t\29\t=\t\31\bB\6\2\2=\6#\0059\6\20\0009\6$\6B\6\1\2=\6%\5=\5\20\0045\5&\0=\5'\0044\5\3\0005\6(\0>\6\1\0055\6)\0>\6\2\5=\5*\0045\5+\0=\5,\0045\0051\0009\6-\0015\b.\0005\t/\0=\t0\bB\6\2\2=\0062\5=\0053\4B\2\2\1K\0\1\0\15formatting\vformat\1\0\0\tmenu\1\0\2\rnvim_lsp\n[LSP]\tpath\v[path]\1\0\1\14with_text\2\15cmp_format\17experimental\1\0\2\15ghost_text\2\16native_menu\1\fsources\1\0\1\tname\tpath\1\0\1\tname\rnvim_lsp\18documentation\1\0\1\vborder\vsingle\n<C-h>\nabort\n<C-k>\1\0\0\21select_prev_item\n<C-j>\rbehavior\1\0\0\vSelect\19SelectBehavior\21select_next_item\n<C-l>\1\0\1\vselect\2\fconfirm\14<C-Space>\1\0\0\rcomplete\fmapping\fsnippet\1\0\0\vexpand\1\0\0\0\nsetup\tinit\flspkind\bcmp\frequire1highlight link CmpDocumentationBorder Normal+highlight link CmpDocumentation Normal\bcmd\6c\vappend\14shortmess\1\4\0\0\tmenu\fmenuone\rnoinsert\16completeopt\bopt\bvim\0", "config", "nvim-cmp")
+time([[Config for nvim-cmp]], false)
 -- Config for: gitsigns.nvim
 time([[Config for gitsigns.nvim]], true)
-try_loadstring("\27LJ\2\nÑ\6\0\0\5\0\n\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\b\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0=\4\a\3=\3\t\2B\0\2\1K\0\1\0\fkeymaps\1\0\0\tn [c\1\2\1\0H&diff ? '[c' : '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>'\texpr\2\tn ]c\1\0\n\17n <leader>gS3<cmd>lua require \"gitsigns\".stage_buffer()<CR>\tx ig;:<C-U>lua require \"gitsigns.actions\".select_hunk()<CR>\to ig;:<C-U>lua require \"gitsigns.actions\".select_hunk()<CR>\17n <leader>gr1<cmd>lua require \"gitsigns\".reset_hunk()<CR>\17n <leader>gb!<cmd>Gitsigns blame_line<CR>\17n <leader>gp3<cmd>lua require \"gitsigns\".preview_hunk()<CR>\17n <leader>gs1<cmd>lua require \"gitsigns\".stage_hunk()<CR>\17n <leader>gu6<cmd>lua require \"gitsigns\".undo_stage_hunk()<CR>\17n <leader>gR3<cmd>lua require \"gitsigns\".reset_buffer()<CR>\17n <leader>gU9<cmd>lua require \"gitsigns\".reset_buffer_index()<CR>\1\2\1\0H&diff ? ']c' : '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>'\texpr\2\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
+try_loadstring("\27LJ\2\nÑ\6\0\0\5\0\n\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\b\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0=\4\a\3=\3\t\2B\0\2\1K\0\1\0\fkeymaps\1\0\0\tn [c\1\2\1\0H&diff ? '[c' : '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>'\texpr\2\tn ]c\1\0\n\17n <leader>gR3<cmd>lua require \"gitsigns\".reset_buffer()<CR>\17n <leader>gs1<cmd>lua require \"gitsigns\".stage_hunk()<CR>\17n <leader>gu6<cmd>lua require \"gitsigns\".undo_stage_hunk()<CR>\17n <leader>gp3<cmd>lua require \"gitsigns\".preview_hunk()<CR>\17n <leader>gb!<cmd>Gitsigns blame_line<CR>\17n <leader>gr1<cmd>lua require \"gitsigns\".reset_hunk()<CR>\to ig;:<C-U>lua require \"gitsigns.actions\".select_hunk()<CR>\tx ig;:<C-U>lua require \"gitsigns.actions\".select_hunk()<CR>\17n <leader>gU9<cmd>lua require \"gitsigns\".reset_buffer_index()<CR>\17n <leader>gS3<cmd>lua require \"gitsigns\".stage_buffer()<CR>\1\2\1\0H&diff ? ']c' : '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>'\texpr\2\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
 time([[Config for gitsigns.nvim]], false)
 -- Config for: vim-vsnip
 time([[Config for vim-vsnip]], true)
@@ -249,18 +249,18 @@ time([[Config for harpoon]], false)
 time([[Config for nvim-treesitter]], true)
 try_loadstring("\27LJ\2\nœ\1\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\14highlight\1\0\1\venable\2\21ensure_installed\1\0\0\1\5\0\0\trust\ttoml\blua\fhaskell\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter")
 time([[Config for nvim-treesitter]], false)
+-- Config for: lspsaga.nvim
+time([[Config for lspsaga.nvim]], true)
+try_loadstring("\27LJ\2\ný\3\0\0\4\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\0025\3\b\0=\3\t\0025\3\n\0=\3\v\2B\0\2\1K\0\1\0\23rename_action_keys\1\0\2\tquit\n<C-c>\texec\t<CR>\21code_action_keys\1\0\2\tquit\6q\texec\t<CR>\23finder_action_keys\1\0\6\16scroll_down\n<C-f>\vvsplit\6s\14scroll_up\n<C-b>\topen\6o\tquit\6q\nsplit\6i\23code_action_prompt\1\0\4\18sign_priority\3\20\tsign\2\17virtual_text\1\venable\1\1\0\a\22max_preview_lines\3\n\25rename_prompt_prefix\6>\29use_saga_diagnostic_sign\1\27finder_definition_icon\nïŒ‘  \17border_style\vsingle\26finder_reference_icon\nïŒ‘  \28definition_preview_icon\nï”¸  \18init_lsp_saga\flspsaga\frequire\0", "config", "lspsaga.nvim")
+time([[Config for lspsaga.nvim]], false)
 -- Config for: telescope.nvim
 time([[Config for telescope.nvim]], true)
 try_loadstring("\27LJ\2\nV\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0016\0\0\0'\2\2\0B\0\2\1K\0\1\0\30elliot.telescope.mappings\21elliot.telescope\frequire\0", "config", "telescope.nvim")
 time([[Config for telescope.nvim]], false)
--- Config for: nvim-cmp
-time([[Config for nvim-cmp]], true)
-try_loadstring("\27LJ\2\n;\0\1\4\0\4\0\0066\1\0\0009\1\1\0019\1\2\0019\3\3\0B\1\2\1K\0\1\0\tbody\20vsnip#anonymous\afn\bvimú\6\1\0\n\0004\0T6\0\0\0009\0\1\0005\1\3\0=\1\2\0006\0\0\0009\0\1\0009\0\4\0\18\2\0\0009\0\5\0'\3\6\0B\0\3\0016\0\0\0009\0\a\0'\2\b\0B\0\2\0016\0\0\0009\0\a\0'\2\t\0B\0\2\0016\0\n\0'\2\v\0B\0\2\0026\1\n\0'\3\f\0B\1\2\0029\2\r\1B\2\1\0019\2\14\0005\4\18\0005\5\16\0003\6\15\0=\6\17\5=\5\19\0045\5\22\0009\6\20\0009\6\21\6B\6\1\2=\6\23\0059\6\20\0009\6\24\0065\b\25\0B\6\2\2=\6\26\0059\6\20\0009\6\27\0065\b\30\0009\t\28\0009\t\29\t=\t\31\bB\6\2\2=\6 \0059\6\20\0009\6!\0065\b\"\0009\t\28\0009\t\29\t=\t\31\bB\6\2\2=\6#\0059\6\20\0009\6$\6B\6\1\2=\6%\5=\5\20\0045\5&\0=\5'\0044\5\3\0005\6(\0>\6\1\0055\6)\0>\6\2\5=\5*\0045\5+\0=\5,\0045\0051\0009\6-\0015\b.\0005\t/\0=\t0\bB\6\2\2=\0062\5=\0053\4B\2\2\1K\0\1\0\15formatting\vformat\1\0\0\tmenu\1\0\2\tpath\v[path]\rnvim_lsp\n[LSP]\1\0\1\14with_text\2\15cmp_format\17experimental\1\0\2\16native_menu\1\15ghost_text\2\fsources\1\0\1\tname\tpath\1\0\1\tname\rnvim_lsp\18documentation\1\0\1\vborder\vsingle\n<C-h>\nabort\n<C-k>\1\0\0\21select_prev_item\n<C-j>\rbehavior\1\0\0\vSelect\19SelectBehavior\21select_next_item\n<C-l>\1\0\1\vselect\2\fconfirm\14<C-Space>\1\0\0\rcomplete\fmapping\fsnippet\1\0\0\vexpand\1\0\0\0\nsetup\tinit\flspkind\bcmp\frequire1highlight link CmpDocumentationBorder Normal+highlight link CmpDocumentation Normal\bcmd\6c\vappend\14shortmess\1\4\0\0\tmenu\fmenuone\rnoinsert\16completeopt\bopt\bvim\0", "config", "nvim-cmp")
-time([[Config for nvim-cmp]], false)
--- Config for: lspsaga.nvim
-time([[Config for lspsaga.nvim]], true)
-try_loadstring("\27LJ\2\ný\3\0\0\4\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\0025\3\b\0=\3\t\0025\3\n\0=\3\v\2B\0\2\1K\0\1\0\23rename_action_keys\1\0\2\tquit\n<C-c>\texec\t<CR>\21code_action_keys\1\0\2\tquit\6q\texec\t<CR>\23finder_action_keys\1\0\6\topen\6o\nsplit\6i\vvsplit\6s\16scroll_down\n<C-f>\tquit\6q\14scroll_up\n<C-b>\23code_action_prompt\1\0\4\venable\1\17virtual_text\1\18sign_priority\3\20\tsign\2\1\0\a\28definition_preview_icon\nï”¸  \26finder_reference_icon\nïŒ‘  \17border_style\vsingle\27finder_definition_icon\nïŒ‘  \29use_saga_diagnostic_sign\1\22max_preview_lines\3\n\25rename_prompt_prefix\6>\18init_lsp_saga\flspsaga\frequire\0", "config", "lspsaga.nvim")
-time([[Config for lspsaga.nvim]], false)
+-- Config for: todo-comments.nvim
+time([[Config for todo-comments.nvim]], true)
+try_loadstring("\27LJ\2\np\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\14highlight\1\0\2\nafter\5\fkeyword\afg\1\0\1\nsigns\1\nsetup\18todo-comments\frequire\0", "config", "todo-comments.nvim")
+time([[Config for todo-comments.nvim]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
@@ -269,8 +269,8 @@ time([[Defining lazy-load commands]], false)
 
 -- Keymap lazy-loads
 time([[Defining lazy-load keymaps]], true)
-vim.cmd [[noremap <silent> gJ <cmd>lua require("packer.load")({'splitjoin.vim'}, { keys = "gJ", prefix = "" }, _G.packer_plugins)<cr>]]
 vim.cmd [[noremap <silent> gS <cmd>lua require("packer.load")({'splitjoin.vim'}, { keys = "gS", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[noremap <silent> gJ <cmd>lua require("packer.load")({'splitjoin.vim'}, { keys = "gJ", prefix = "" }, _G.packer_plugins)<cr>]]
 time([[Defining lazy-load keymaps]], false)
 
 vim.cmd [[augroup packer_load_aucmds]]
