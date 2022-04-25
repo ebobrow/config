@@ -3,7 +3,6 @@ return require"packer".startup(function()
   -- Packer can manage itself
   use "wbthomason/packer.nvim"
 
-  use "tjdevries/astronauta.nvim"
   use "neovim/nvim-lspconfig"
   use {
     "hrsh7th/nvim-cmp",
@@ -36,7 +35,7 @@ return require"packer".startup(function()
           },
           ["<C-h>"] = cmp.mapping.abort()
         },
-        documentation = { border = "single" },
+        window = { documentation = { border = "single" } },
         sources = { { name = "nvim_lsp" }, { name = "path" } },
         experimental = { ghost_text = true, native_menu = false },
         formatting = {

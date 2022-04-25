@@ -15,7 +15,8 @@ c.tabs.position = "left"
 config.bind("<Ctrl-t>", "config-cycle tabs.show always never")
 c.url.start_pages = "https://start.duckduckgo.com"
 c.url.searchengines = {"DEFAULT": "https://duckduckgo.com/?q={}", "aw": "https://wiki.archlinux.org/?search={}",
-                       "aur": "https://aur.archlinux.org/packages/?K={}", "gh": "https://github.com/search?q={}"}
+                       "aur": "https://aur.archlinux.org/packages/?K={}", "gh": "https://github.com/search?q={}",
+                       "doc": "https://docs.rs/{}"}
 c.auto_save.session = True
 c.completion.height = "20%"
 
@@ -25,11 +26,11 @@ c.colors.webpage.darkmode.enabled = False
 c.fonts.default_family = "FiraCode Nerd Font"
 c.fonts.default_size = "9pt"
 
-col_gray1 = "#2e3440"
+col_gray1 = "#222222"
 col_gray2 = "#444444"
 col_gray3 = "#bbbbbb"
 col_gray4 = "#eeeeee"
-col_hi = "#bf616a"
+col_hi = "#005577"
 
 c.colors.completion.fg = col_gray3
 c.colors.completion.odd.bg = col_gray1

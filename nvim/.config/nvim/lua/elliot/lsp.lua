@@ -1,17 +1,3 @@
-local inoremap = vim.keymap.inoremap
-local nnoremap = vim.keymap.nnoremap
--- local telescope_mapper = require "elliot.telescope.mappings"
-
-local buf_nnoremap = function(opts)
-  opts.buffer = 0
-  nnoremap(opts)
-end
-
-local buf_inoremap = function(opts)
-  opts.buffer = 0
-  inoremap(opts)
-end
-
 local references = vim.lsp.handlers["textDocument/references"]
 vim.lsp.handlers["textDocument/references"] =
     function(err, result, ctx, config)
@@ -28,30 +14,31 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 local on_attach = function(client)
-  buf_inoremap { "<c-s>", vim.lsp.buf.signature_help }
+  vim.keymap.set("i", "<c-s>", vim.lsp.buf.signature_help)
 
-  buf_nnoremap { "gd", vim.lsp.buf.definition }
-  buf_nnoremap { "gD", require'lspsaga.provider'.preview_definition }
-  buf_nnoremap { "gr", vim.lsp.buf.references }
-  buf_nnoremap { "gR", function() vim.cmd [[ Lspsaga rename ]] end }
+  vim.keymap.set("n", "gd", vim.lsp.buf.definition)
+  vim.keymap.set("n", "gD", require'lspsaga.provider'.preview_definition)
+  vim.keymap.set("n", "gr", vim.lsp.buf.references)
+  vim.keymap.set("n", "gR", function() vim.cmd [[ Lspsaga rename ]] end)
   -- buf_nnoremap { "gR", vim.lsp.buf.rename }
 
-  buf_nnoremap { "<space>rr", "LspRestart" }
+  vim.keymap.set("n", "<space>rr", "LspRestart")
 
   -- buf_nnoremap { "K", require'lspsaga.hover'.render_hover_doc }
-  buf_nnoremap { "K", vim.lsp.buf.hover }
-  buf_nnoremap {
-    "<C-d>", function() require'lspsaga.action'.smart_scroll_with_saga(1) end
-  }
-  buf_nnoremap {
-    "<C-u>", function() require'lspsaga.action'.smart_scroll_with_saga(-1) end
-  }
+  vim.keymap.set("n", "K", vim.lsp.buf.hover)
+  vim.keymap.set("n", "<C-d>", function()
+    require'lspsaga.action'.smart_scroll_with_saga(1)
+  end)
+  vim.keymap.set("n", "<C-u>", function()
+    require'lspsaga.action'.smart_scroll_with_saga(-1)
+  end)
 
-  buf_nnoremap { "]d", function() vim.cmd [[ Lspsaga diagnostic_jump_next ]] end }
-  buf_nnoremap { "[d", function() vim.cmd [[ Lspsaga diagnostic_jump_prev ]] end }
-  buf_nnoremap {
-    "<leader>cd", function() vim.cmd [[ Lspsaga show_line_diagnostics ]] end
-  }
+  vim.keymap.set("n", "]d",
+                 function() vim.cmd [[ Lspsaga diagnostic_jump_next ]] end)
+  vim.keymap.set("n", "[d",
+                 function() vim.cmd [[ Lspsaga diagnostic_jump_prev ]] end)
+  vim.keymap.set("n", "<leader>cd",
+                 function() vim.cmd [[ Lspsaga show_line_diagnostics ]] end)
 
   -- TODO: These don't work
   -- telescope_mapper("<leader>ca", "lsp_code_actions")
@@ -59,7 +46,7 @@ local on_attach = function(client)
   -- telescope_mapper('<leader>xd', 'lsp_document_diagnostics')
   -- telescope_mapper('<leader>xw', 'lsp_workspace_diagnostics')
 
-  buf_nnoremap { "<leader>F", vim.lsp.buf.formatting }
+  vim.keymap.set("n", "<leader>F", vim.lsp.buf.formatting)
 
   vim.cmd [[
       augroup lsp_buf_format

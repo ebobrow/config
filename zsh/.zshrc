@@ -69,6 +69,7 @@ alias ls="ls --color=auto"
 alias cp="cp -v"
 alias mv="mv -v"
 alias x="startx"
+alias v="nvim"
 alias wifi="nmcli device wifi"
 alias swifi="sudo nmcli device wifi"
 
@@ -82,3 +83,4 @@ source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.
 #[ -f "/home/elliotbobrow/.ghcup/env" ] && source "/home/elliotbobrow/.ghcup/env" # ghcup-env
 
 alias luamake=/home/elliotbobrow/lua-language-server/3rd/luamake/luamake
+[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
