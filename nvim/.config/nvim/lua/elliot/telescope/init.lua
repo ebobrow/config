@@ -20,21 +20,25 @@ require"telescope".setup {
         ["<C-k>"] = actions.move_selection_previous
       }
     },
+    vimgrep_arguments = {
+      'rg', '--color=never', '--no-heading', '--with-filename', '--line-number',
+      '--column', '--smart-case', '-.'
+    },
     file_previewer = require("telescope.previewers").vim_buffer_cat.new,
     grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
     qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new
+  },
+  extensions = {
+    ["ui-select"] = { themes.get_cursor { layout_config = { width = 0.25 } } }
   }
 }
 
 require("telescope").load_extension("fzy_native")
+require("telescope").load_extension("ui-select")
 
 local M = {}
 
-function M.lsp_code_actions()
-  require("telescope.builtin").lsp_code_actions(themes.get_cursor {
-    layout_config = { width = 0.25 }
-  })
-end
+function M.lsp_code_actions() vim.lsp.buf.code_action() end
 
 function M.files()
   if not pcall(require("telescope.builtin").git_files) then

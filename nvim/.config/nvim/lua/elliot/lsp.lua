@@ -4,7 +4,7 @@ vim.lsp.handlers["textDocument/references"] =
       if #result <= 2 then
         -- Result[1] is the only reference
         -- Result[2] is definition
-        vim.lsp.util.jump_to_location(result[1])
+        vim.lsp.util.jump_to_location(result[1], "utf-8")
       else
         references(err, result, ctx, config)
       end
@@ -83,6 +83,7 @@ nvim_lsp.rust_analyzer.setup {
   }
 }
 -- nvim_lsp.vimls.setup { on_attach = on_attach, capabilities = capabilities }
+nvim_lsp.hls.setup { on_attach = on_attach, capabilities = capabilities }
 -- nvim_lsp.hls.setup {
 --   root_dir = nvim_lsp.util.root_pattern("*.cabal", "stack.yaml",
 --                                         "cabal.project", "package.yaml",

@@ -30,7 +30,7 @@ opt.shiftwidth = 4
 opt.expandtab = true
 opt.smartindent = true
 opt.wrap = false
-opt.cursorline = true
+opt.cursorline = false
 
 -- TODO: Why doesn't this work?
 -- opt.formatoptions = opt.formatoptions - "a" -- Auto formatting is BAD.

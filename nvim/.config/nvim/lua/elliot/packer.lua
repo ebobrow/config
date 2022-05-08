@@ -45,6 +45,8 @@ return require"packer".startup(function()
           }
         }
       }
+      cmp.setup.filetype({ "haskell", "lua" },
+                         { completion = { autocomplete = false } })
     end
   }
   use {
@@ -128,7 +130,9 @@ return require"packer".startup(function()
     "nvim-telescope/telescope.nvim",
     requires = {
       "nvim-lua/popup.nvim", "nvim-lua/plenary.nvim",
-      "kyazdani42/nvim-web-devicons", "nvim-telescope/telescope-fzy-native.nvim"
+      "kyazdani42/nvim-web-devicons",
+      "nvim-telescope/telescope-fzy-native.nvim",
+      "nvim-telescope/telescope-ui-select.nvim"
     },
     config = function()
       require "elliot.telescope"
@@ -137,20 +141,18 @@ return require"packer".startup(function()
   }
   use "mkitt/tabline.vim"
   use {
-    "ii14/onedark.nvim",
+    "navarasu/onedark.nvim",
     config = function()
-      vim.cmd [[let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"]]
-      vim.cmd [[let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"]]
+      require("onedark").load()
+      require("onedark").setup { transparent = true }
 
-      vim.cmd [[colorscheme onedark]]
+      vim.cmd [[unmap <leader>ts]]
 
-      vim.api.nvim_set_option("termguicolors", true)
-      -- vim.cmd [[hi Float guibg=#282C34]]
-      -- vim.cmd [[hi NormalFloat guibg=#282C34]]
-      -- vim.cmd [[hi LspDiagnosticsVirtualTextError guibg=none]]
-      -- vim.cmd [[hi LspDiagnosticsVirtualTextWarning guibg=none]]
-      -- vim.cmd [[hi LspDiagnosticsVirtualTextInformation guibg=none]]
-      -- vim.cmd [[hi LspDiagnosticsVirtualTextHint guibg=none]]
+      vim.cmd [[hi DiagnosticVirtualTextHint guibg=none]]
+      vim.cmd [[hi DiagnosticVirtualTextInfo guibg=none]]
+      vim.cmd [[hi DiagnosticVirtualTextWarn guibg=none]]
+      vim.cmd [[hi DiagnosticVirtualTextError guibg=none]]
+      vim.cmd [[hi MatchParen gui=underline guibg=none]]
     end
   }
   use "tpope/vim-commentary"
@@ -190,43 +192,22 @@ return require"packer".startup(function()
   use { "dstein64/vim-startuptime", cmd = "StartupTime" }
   use "tpope/vim-surround"
   use {
-    "folke/todo-comments.nvim",
-    requires = "nvim-lua/plenary.nvim",
-    config = function()
-      require("todo-comments").setup {
-        signs = false,
-        highlight = { keyword = "fg", after = "" }
-      }
-    end
-  }
-  use {
     "ThePrimeagen/harpoon",
     requires = "nvim-lua/plenary.nvim",
     config = function()
       require("harpoon").setup()
-      vim.api.nvim_set_keymap("n", "<leader>1",
-                              ":lua require('harpoon.ui').nav_file(1)<CR>",
-                              { noremap = true, silent = true })
-      vim.api.nvim_set_keymap("n", "<leader>2",
-                              ":lua require('harpoon.ui').nav_file(2)<CR>",
-                              { noremap = true, silent = true })
-      vim.api.nvim_set_keymap("n", "<leader>3",
-                              ":lua require('harpoon.ui').nav_file(3)<CR>",
-                              { noremap = true, silent = true })
-      vim.api.nvim_set_keymap("n", "<leader>4",
-                              ":lua require('harpoon.ui').nav_file(4)<CR>",
-                              { noremap = true, silent = true })
-      vim.api.nvim_set_keymap("n", "<leader>m",
-                              ":lua require('harpoon.mark').add_file()<CR>",
-                              { noremap = true })
-      vim.api.nvim_set_keymap("n", "<leader>t",
-                              ":lua require('harpoon.term').gotoTerminal(1)<CR>",
-                              { noremap = true, silent = true })
-      vim.api.nvim_set_keymap("n", "<leader>Q",
-                              ":lua require('harpoon.ui').toggle_quick_menu()<CR>",
-                              { noremap = true, silent = true })
+      for i = 1, 9 do
+        vim.api.nvim_set_keymap("n", "<leader>" .. i, string.format(
+                                    ":lua require('harpoon.ui').nav_file(%s)<CR>",
+                                    i), { noremap = true, silent = true })
+      end
+      vim.keymap.set("n", "<leader>m", require("harpoon.mark").add_file,
+                     { noremap = true })
+      vim.keymap.set("n", "<leader>t",
+                     function() require('harpoon.term').gotoTerminal(1) end,
+                     { noremap = true, silent = true })
+      vim.keymap.set("n", "<leader>Q", require('harpoon.ui').toggle_quick_menu,
+                     { noremap = true, silent = true })
     end
   }
-
-  -- use "tpope/vim-obsession"
 end)

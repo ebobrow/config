@@ -16,7 +16,8 @@ config.bind("<Ctrl-t>", "config-cycle tabs.show always never")
 c.url.start_pages = "https://start.duckduckgo.com"
 c.url.searchengines = {"DEFAULT": "https://duckduckgo.com/?q={}", "aw": "https://wiki.archlinux.org/?search={}",
                        "aur": "https://aur.archlinux.org/packages/?K={}", "gh": "https://github.com/search?q={}",
-                       "doc": "https://docs.rs/{}"}
+                       "doc": "https://docs.rs/{}",
+                       "hg": "https://hoogle.haskell.org/?hoogle={}"}
 c.auto_save.session = True
 c.completion.height = "20%"
 
