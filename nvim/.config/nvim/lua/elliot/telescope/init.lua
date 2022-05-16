@@ -28,9 +28,7 @@ require"telescope".setup {
     grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
     qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new
   },
-  extensions = {
-    ["ui-select"] = { themes.get_cursor { layout_config = { width = 0.25 } } }
-  }
+  extensions = { ["ui-select"] = { themes.get_cursor {} } }
 }
 
 require("telescope").load_extension("fzy_native")
