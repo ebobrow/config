@@ -127,7 +127,7 @@ nvim_lsp.efm.setup {
     }
   }
 }
-nvim_lsp.texlab.setup { on_attach = on_attach, capabilities = capabilities }
+-- nvim_lsp.texlab.setup { on_attach = on_attach, capabilities = capabilities }
 
 -- return { on_attach, capabilities }
 return on_attach

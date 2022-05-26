@@ -72,6 +72,7 @@ alias x="startx"
 alias v="nvim"
 alias wifi="nmcli device wifi"
 alias swifi="sudo nmcli device wifi"
+alias ht="cabal test --test-show-details=direct"
 
 eval "$(starship init zsh)"
 
