@@ -31,6 +31,7 @@ opt.expandtab = true
 opt.smartindent = true
 opt.wrap = false
 opt.cursorline = false
+opt.clipboard = "unnamedplus"
 
 -- TODO: Why doesn't this work?
 -- opt.formatoptions = opt.formatoptions - "a" -- Auto formatting is BAD.
