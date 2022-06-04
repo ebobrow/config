@@ -3,7 +3,7 @@ local map_tele = function(key, f)
 
   local mode = "n"
   local rhs = string.format("<cmd>lua require('elliot.telescope')['%s']{}<CR>",
-    f, map_key)
+                            f, map_key)
 
   local map_options = { noremap = true, silent = true }
 

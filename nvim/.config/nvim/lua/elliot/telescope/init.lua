@@ -4,7 +4,7 @@ local action_mt = require "telescope.actions.mt"
 local sorters = require "telescope.sorters"
 local themes = require "telescope.themes"
 
-require "telescope".setup {
+require"telescope".setup {
   defaults = {
     color_devicons = false,
     mappings = {
@@ -61,7 +61,7 @@ function M.buffers() require("telescope.builtin").buffers() end
 return setmetatable({}, {
   __index = function(_, k)
     local has_custom, custom = pcall(require, string.format(
-      "elliot.telescope.custom.%s", k))
+                                         "elliot.telescope.custom.%s", k))
 
     if M[k] then
       return M[k]

@@ -1,13 +1,14 @@
 local references = vim.lsp.handlers["textDocument/references"]
-vim.lsp.handlers["textDocument/references"] = function(err, result, ctx, config)
-  if #result <= 2 then
-    -- Result[1] is the only reference
-    -- Result[2] is definition
-    vim.lsp.util.jump_to_location(result[1], "utf-8")
-  else
-    references(err, result, ctx, config)
-  end
-end
+vim.lsp.handlers["textDocument/references"] =
+    function(err, result, ctx, config)
+      if #result <= 2 then
+        -- Result[1] is the only reference
+        -- Result[2] is definition
+        vim.lsp.util.jump_to_location(result[1], "utf-8")
+      else
+        references(err, result, ctx, config)
+      end
+    end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
@@ -16,7 +17,7 @@ local on_attach = function(client)
   vim.keymap.set("i", "<c-s>", vim.lsp.buf.signature_help)
 
   vim.keymap.set("n", "gd", vim.lsp.buf.definition)
-  vim.keymap.set("n", "gD", require 'lspsaga.provider'.preview_definition)
+  vim.keymap.set("n", "gD", require'lspsaga.provider'.preview_definition)
   vim.keymap.set("n", "gr", vim.lsp.buf.references)
   vim.keymap.set("n", "gR", function() vim.cmd [[ Lspsaga rename ]] end)
   -- buf_nnoremap { "gR", vim.lsp.buf.rename }
@@ -26,18 +27,18 @@ local on_attach = function(client)
   -- buf_nnoremap { "K", require'lspsaga.hover'.render_hover_doc }
   vim.keymap.set("n", "K", vim.lsp.buf.hover)
   vim.keymap.set("n", "<C-d>", function()
-    require 'lspsaga.action'.smart_scroll_with_saga(1)
+    require'lspsaga.action'.smart_scroll_with_saga(1)
   end)
   vim.keymap.set("n", "<C-u>", function()
-    require 'lspsaga.action'.smart_scroll_with_saga(-1)
+    require'lspsaga.action'.smart_scroll_with_saga(-1)
   end)
 
   vim.keymap.set("n", "]d",
-    function() vim.cmd [[ Lspsaga diagnostic_jump_next ]] end)
+                 function() vim.cmd [[ Lspsaga diagnostic_jump_next ]] end)
   vim.keymap.set("n", "[d",
-    function() vim.cmd [[ Lspsaga diagnostic_jump_prev ]] end)
+                 function() vim.cmd [[ Lspsaga diagnostic_jump_prev ]] end)
   vim.keymap.set("n", "<leader>cd",
-    function() vim.cmd [[ Lspsaga show_line_diagnostics ]] end)
+                 function() vim.cmd [[ Lspsaga show_line_diagnostics ]] end)
 
   -- TODO: These don't work
   -- telescope_mapper("<leader>ca", "lsp_code_actions")
@@ -87,13 +88,8 @@ nvim_lsp.hls.setup {
   capabilities = capabilities,
   settings = { haskell = { formattingProvider = "fourmolu" } }
 }
-nvim_lsp.pylsp.setup { on_attach = on_attach, capabilities = capabilities }
+-- nvim_lsp.pylsp.setup { on_attach = on_attach, capabilities = capabilities }
 nvim_lsp.sumneko_lua.setup {
-  -- TODO: Move out of home directory?
-  -- cmd = {
-  --   "/home/elliotbobrow/.nvim/lua-language-server/bin/lua-language-server",
-  --   "-E", "/home/elliotbobrow/.nvim/lua-language-server/bin/main.lua"
-  -- },
   settings = {
     Lua = {
       runtime = { version = 'LuaJIT', path = vim.split(package.path, ';') },
@@ -112,7 +108,6 @@ nvim_lsp.sumneko_lua.setup {
 }
 nvim_lsp.efm.setup {
   init_options = { documentFormatting = true },
-  cmd = { "/home/elliotbobrow/go/bin/efm-langserver" },
   filetypes = { "lua" },
   settings = {
     rootMarkers = { ".git/" },

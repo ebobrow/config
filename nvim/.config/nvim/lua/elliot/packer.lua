@@ -1,5 +1,5 @@
 ---@diagnostic disable: undefined-global
-return require "packer".startup(function()
+return require"packer".startup(function()
   -- Packer can manage itself
   use "wbthomason/packer.nvim"
 
@@ -46,30 +46,30 @@ return require "packer".startup(function()
         }
       }
       cmp.setup.filetype({ "haskell", "lua" },
-        { completion = { autocomplete = false } })
+                         { completion = { autocomplete = false } })
     end
   }
   use {
     "hrsh7th/vim-vsnip",
     config = function()
       vim.api.nvim_set_keymap("i", "<Tab>",
-        "vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>'",
-        { expr = true })
+                              "vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>'",
+                              { expr = true })
       vim.api.nvim_set_keymap("s", "<Tab>",
-        "vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>'",
-        { expr = true })
+                              "vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>'",
+                              { expr = true })
       vim.api.nvim_set_keymap("i", "<S-Tab>",
-        "vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'",
-        { expr = true })
+                              "vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'",
+                              { expr = true })
       vim.api.nvim_set_keymap("s", "<S-Tab>",
-        "vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'",
-        { expr = true })
+                              "vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'",
+                              { expr = true })
     end
   }
   use {
     "tami5/lspsaga.nvim",
     config = function()
-      require "lspsaga".init_lsp_saga {
+      require"lspsaga".init_lsp_saga {
         use_saga_diagnostic_sign = false,
         code_action_prompt = {
           enable = false,
@@ -104,7 +104,7 @@ return require "packer".startup(function()
     ft = "rust",
     config = function()
       local on_attach = require "elliot.lsp"
-      require "rust-tools".setup {
+      require"rust-tools".setup {
         tools = {
           hover_actions = { border = 'none' },
           inlay_hints = { highlight = "Comment" },
@@ -118,7 +118,7 @@ return require "packer".startup(function()
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
     config = function()
-      require "nvim-treesitter.configs".setup {
+      require"nvim-treesitter.configs".setup {
         ensure_installed = { "rust", "toml", "lua", "haskell" },
         highlight = { enable = true }
       }
@@ -198,16 +198,16 @@ return require "packer".startup(function()
       require("harpoon").setup()
       for i = 1, 9 do
         vim.api.nvim_set_keymap("n", "<leader>" .. i, string.format(
-          ":lua require('harpoon.ui').nav_file(%s)<CR>",
-          i), { noremap = true, silent = true })
+                                    ":lua require('harpoon.ui').nav_file(%s)<CR>",
+                                    i), { noremap = true, silent = true })
       end
       vim.keymap.set("n", "<leader>m", require("harpoon.mark").add_file,
-        { noremap = true })
+                     { noremap = true })
       vim.keymap.set("n", "<leader>t",
-        function() require('harpoon.term').gotoTerminal(1) end,
-        { noremap = true, silent = true })
+                     function() require('harpoon.term').gotoTerminal(1) end,
+                     { noremap = true, silent = true })
       vim.keymap.set("n", "<leader>Q", require('harpoon.ui').toggle_quick_menu,
-        { noremap = true, silent = true })
+                     { noremap = true, silent = true })
     end
   }
 end)
