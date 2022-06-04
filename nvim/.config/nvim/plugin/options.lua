@@ -21,16 +21,16 @@ opt.autowriteall = true
 opt.showmode = false
 opt.list = true
 opt.listchars = { tab = "» ", trail = "·" }
-opt.updatetime = 1000
+opt.updatetime = 100
 
-opt.statusline = "%f %m%r" .. "%=" .. "%l:%c [%p%%]%y"
+opt.statusline = " %f %m%r" .. "%=" .. "%l:%c [%p%%]%y"
 
 opt.tabstop = 4
 opt.shiftwidth = 4
 opt.expandtab = true
 opt.smartindent = true
 opt.wrap = false
-opt.cursorline = false
+opt.cursorline = true
 opt.clipboard = "unnamedplus"
 
 -- TODO: Why doesn't this work?

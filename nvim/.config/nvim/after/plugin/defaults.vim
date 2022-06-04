@@ -8,3 +8,5 @@ autocmd BufNewFile,BufRead  ~/repos/rust-clippy/*.fixed setfiletype rust
 
 " Disable autocomment
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+let g:tex_flavor = "latex"

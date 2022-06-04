@@ -119,7 +119,7 @@ return require"packer".startup(function()
     run = ":TSUpdate",
     config = function()
       require"nvim-treesitter.configs".setup {
-        ensure_installed = { "rust", "toml", "lua", "haskell" },
+        ensure_installed = { "rust", "toml", "lua", "haskell", "latex" },
         highlight = { enable = true }
       }
     end
@@ -141,51 +141,31 @@ return require"packer".startup(function()
   }
   use "mkitt/tabline.vim"
   use {
-    "navarasu/onedark.nvim",
+    "ellisonleao/gruvbox.nvim",
     config = function()
-      require("onedark").load()
-      require("onedark").setup { transparent = true }
+      vim.opt.background = "dark"
+      vim.cmd [[colorscheme gruvbox]]
 
-      vim.cmd [[unmap <leader>ts]]
-
-      vim.cmd [[hi DiagnosticVirtualTextHint guibg=none]]
-      vim.cmd [[hi DiagnosticVirtualTextInfo guibg=none]]
-      vim.cmd [[hi DiagnosticVirtualTextWarn guibg=none]]
-      vim.cmd [[hi DiagnosticVirtualTextError guibg=none]]
-      vim.cmd [[hi MatchParen gui=underline guibg=none]]
+      vim.cmd [[ hi MatchParen gui=underline guibg=none ]]
+      vim.cmd [[ hi LspReferenceText gui=none ]]
+      vim.cmd [[ hi LspReferenceRead gui=none ]]
+      vim.cmd [[ hi LspReferenceWrite gui=none ]]
     end
   }
   use "tpope/vim-commentary"
   use { "rrethy/vim-hexokinase", run = "make hexokinase" }
   use {
-    "lewis6991/gitsigns.nvim",
-    requires = { "nvim-lua/plenary.nvim" },
+    "mhinz/vim-signify",
     config = function()
-      require("gitsigns").setup {
-        keymaps = {
-          ["n ]c"] = {
-            expr = true,
-            "&diff ? ']c' : '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>'"
-          },
-          ["n [c"] = {
-            expr = true,
-            "&diff ? '[c' : '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>'"
-          },
-
-          ["n <leader>gs"] = '<cmd>lua require "gitsigns".stage_hunk()<CR>',
-          ["n <leader>gu"] = '<cmd>lua require "gitsigns".undo_stage_hunk()<CR>',
-          ["n <leader>gr"] = '<cmd>lua require "gitsigns".reset_hunk()<CR>',
-          ["n <leader>gR"] = '<cmd>lua require "gitsigns".reset_buffer()<CR>',
-          ["n <leader>gp"] = '<cmd>lua require "gitsigns".preview_hunk()<CR>',
-          ["n <leader>gb"] = '<cmd>Gitsigns blame_line<CR>',
-          ["n <leader>gS"] = '<cmd>lua require "gitsigns".stage_buffer()<CR>',
-          ["n <leader>gU"] = '<cmd>lua require "gitsigns".reset_buffer_index()<CR>',
-
-          -- Text objects
-          ["o ig"] = ':<C-U>lua require "gitsigns.actions".select_hunk()<CR>',
-          ["x ig"] = ':<C-U>lua require "gitsigns.actions".select_hunk()<CR>'
-        }
-      }
+      vim.keymap.set("n", "<leader>gp", ":SignifyHunkDiff<CR>",
+                     { noremap = true, silent = true })
+      vim.keymap.set("n", "<leader>gr", ":SignifyHunkUndo<CR>",
+                     { noremap = true, silent = true })
+      vim.cmd [[let g:signify_sign_add = '│']]
+      vim.cmd [[let g:signify_sign_delete = '_']]
+      vim.cmd [[let g:signify_sign_delete_first_line = '‾']]
+      vim.cmd [[let g:signify_sign_change = '│']]
+      vim.cmd [[let g:signify_sign_change_delete = '~']]
     end
   }
   use { "AndrewRadev/splitjoin.vim", keys = { "gJ", "gS" } }

@@ -56,9 +56,6 @@ local on_attach = function(client)
   ]]
 
   if client.resolved_capabilities.document_highlight then
-    vim.cmd [[ hi LspReferenceText guibg=#3b3f47 ]] -- This is just some random color
-    vim.cmd [[ highlight link LspReferenceRead LspReferenceText ]]
-    vim.cmd [[ highlight link LspReferenceWrite LspReferenceText ]]
     vim.cmd [[
       augroup lsp_document_highlight
         autocmd! * <buffer>
