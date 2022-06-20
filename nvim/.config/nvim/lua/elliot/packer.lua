@@ -13,8 +13,8 @@ return require"packer".startup(function()
       vim.opt.completeopt = { "menu", "menuone", "noinsert" }
       vim.opt.shortmess:append "c"
 
-      vim.cmd [[highlight link CmpDocumentation Normal]]
-      vim.cmd [[highlight link CmpDocumentationBorder Normal]]
+      -- vim.cmd [[highlight link CmpDocumentation Normal]]
+      -- vim.cmd [[highlight link CmpDocumentationBorder Normal]]
 
       local cmp = require("cmp")
       local lspkind = require "lspkind"
@@ -77,24 +77,6 @@ return require"packer".startup(function()
           sign_priority = 20,
           virtual_text = false
         },
-        finder_definition_icon = "  ",
-        finder_reference_icon = "  ",
-        max_preview_lines = 10, -- preview lines of lsp_finder and definition preview
-        finder_action_keys = {
-          open = "o",
-          vsplit = "s",
-          split = "i",
-          quit = "q",
-          scroll_down = "<C-f>",
-          scroll_up = "<C-b>" -- quit can be a table
-        },
-        code_action_keys = { quit = "q", exec = "<CR>" },
-        rename_action_keys = {
-          quit = "<C-c>",
-          exec = "<CR>" -- quit can be a table
-        },
-        definition_preview_icon = "  ",
-        border_style = "single",
         rename_prompt_prefix = ">"
       }
     end
@@ -119,13 +101,17 @@ return require"packer".startup(function()
     run = ":TSUpdate",
     config = function()
       require"nvim-treesitter.configs".setup {
-        ensure_installed = { "rust", "toml", "lua", "haskell", "latex" },
+        ensure_installed = { "rust", "toml", "lua", "haskell", "latex", "python" },
         highlight = { enable = true }
       }
     end
   }
 
   use "tpope/vim-fugitive"
+  use "tpope/vim-commentary"
+  use "tpope/vim-surround"
+  use "tpope/vim-repeat"
+  -- TODO: checkout vim-easyclip
   use {
     "nvim-telescope/telescope.nvim",
     requires = {
@@ -152,7 +138,6 @@ return require"packer".startup(function()
       vim.cmd [[ hi LspReferenceWrite gui=none ]]
     end
   }
-  use "tpope/vim-commentary"
   use { "rrethy/vim-hexokinase", run = "make hexokinase" }
   use {
     "mhinz/vim-signify",
@@ -170,7 +155,6 @@ return require"packer".startup(function()
   }
   use { "AndrewRadev/splitjoin.vim", keys = { "gJ", "gS" } }
   use { "dstein64/vim-startuptime", cmd = "StartupTime" }
-  use "tpope/vim-surround"
   use {
     "ThePrimeagen/harpoon",
     requires = "nvim-lua/plenary.nvim",

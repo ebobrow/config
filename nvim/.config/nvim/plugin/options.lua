@@ -14,6 +14,7 @@ opt.undofile = true
 opt.splitbelow = true
 opt.splitright = true
 opt.ignorecase = true
+opt.smartcase = true
 opt.scl = "yes"
 opt.inccommand = "split"
 opt.title = true
@@ -31,7 +32,7 @@ opt.expandtab = true
 opt.smartindent = true
 opt.wrap = false
 opt.cursorline = true
-opt.clipboard = "unnamedplus"
+-- opt.clipboard = "unnamedplus"
 
 -- TODO: Why doesn't this work?
 -- opt.formatoptions = opt.formatoptions - "a" -- Auto formatting is BAD.

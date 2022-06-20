@@ -11,7 +11,8 @@ autoload -U colors && colors
 # setopt interactive_comments
 
 # GRML
-zstyle ':prompt:grml:left:setup' items rc change-root path vcs percent
+grml_theme_add_token lambda 'λ '
+zstyle ':prompt:grml:left:setup' items rc change-root path vcs lambda
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' unstagedstr '!'

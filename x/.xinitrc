@@ -32,7 +32,15 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-# xinput set-prop 12 290 1
+# Sometimes this is 11?
+# xinput set-prop 10 323 1
+
+# Clipmenu
+systemctl --user import-environment DISPLAY
+clipmenud &
+
+# Night mode
+redshift -l 34.05223:-118.24368 -m randr &
 
 # exec xmonad
 dwmstatus &
