@@ -105,14 +105,10 @@ alias wifi="nmcli device wifi"
 alias swifi="sudo nmcli device wifi"
 alias ht="cabal test --test-show-details=direct"
 
-# eval "$(starship init zsh)"
-
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 # Load syntax highlighting; should be last.
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
-# TODO: I don't need this anymore?
-# alias luamake=/home/elliotbobrow/lua-language-server/3rd/luamake/luamake
 # [ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
 
 [ -f "/home/elliotbobrow/.ghcup/env" ] && source "/home/elliotbobrow/.ghcup/env" # ghcup-env

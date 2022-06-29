@@ -40,11 +40,9 @@ local on_attach = function(client)
   vim.keymap.set("n", "<leader>cd",
                  function() vim.cmd [[ Lspsaga show_line_diagnostics ]] end)
 
-  -- TODO: These don't work
-  -- telescope_mapper("<leader>ca", "lsp_code_actions")
-  -- telescope_mapper("<leader>gr", "lsp_references")
-  -- telescope_mapper('<leader>xd', 'lsp_document_diagnostics')
-  -- telescope_mapper('<leader>xw', 'lsp_workspace_diagnostics')
+  local map_tele = require("elliot.telescope.mappings")
+  map_tele("<leader>ca", "lsp_code_actions")
+  map_tele("<leader>gr", "lsp_references")
 
   vim.keymap.set("n", "<leader>F", vim.lsp.buf.formatting)
 
@@ -85,7 +83,7 @@ nvim_lsp.hls.setup {
   capabilities = capabilities,
   settings = { haskell = { formattingProvider = "fourmolu" } }
 }
--- nvim_lsp.pylsp.setup { on_attach = on_attach, capabilities = capabilities }
+nvim_lsp.pylsp.setup { on_attach = on_attach, capabilities = capabilities }
 nvim_lsp.sumneko_lua.setup {
   settings = {
     Lua = {

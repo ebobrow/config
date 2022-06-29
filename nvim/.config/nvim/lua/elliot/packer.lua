@@ -151,6 +151,7 @@ return require"packer".startup(function()
       vim.cmd [[let g:signify_sign_delete_first_line = '‾']]
       vim.cmd [[let g:signify_sign_change = '│']]
       vim.cmd [[let g:signify_sign_change_delete = '~']]
+      vim.cmd [[let g:signify_priority = 5]]
     end
   }
   use { "AndrewRadev/splitjoin.vim", keys = { "gJ", "gS" } }
