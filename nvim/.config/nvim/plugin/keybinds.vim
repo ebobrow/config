@@ -1,4 +1,5 @@
 com! W w
+com! WW noa w
 nnoremap <expr> <CR> {-> v:hlsearch ? ":nohl\<CR>" : "\<CR>"}()
 inoremap jk <Esc>
 noremap <C-c> <Esc>
@@ -27,6 +28,8 @@ nnoremap <silent> <C-k> <cmd>:cprev<CR>
 nnoremap <silent> <C-h> :tabp<CR>
 nnoremap <silent> <C-l> :tabn<CR>
 nnoremap <silent> <C-q> :call ToggleQuickfixList()<CR>
+
+nnoremap <silent> <leader>T :grep TODO<CR>:copen<CR>
 
 fun! GetBufferList()
     redir =>buflist
@@ -61,14 +64,6 @@ vnoremap <leader>P "_dP
 
 nnoremap <leader>d "_d
 vnoremap <leader>d "_d
-
-" nnoremap <leader>t :tabnew +term<CR>
-" tnoremap <C-^> <C-\><C-n><C-^>
-" tnoremap <C-h> <C-\><C-n>:tabp<CR>
-" tnoremap <C-l> <C-\><C-n>:tabn<CR>
-
-" nnoremap S :%s//g<Left><Left>
-" vnoremap S :s//g<Left><Left>
 
 nnoremap Y y$
 

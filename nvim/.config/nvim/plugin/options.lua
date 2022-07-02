@@ -26,6 +26,8 @@ opt.updatetime = 100
 
 opt.statusline = " %f %m%r" .. "%=" .. "%l:%c [%p%%]%y"
 
+opt.grepprg = "grep -n -r"
+
 opt.tabstop = 4
 opt.shiftwidth = 4
 opt.expandtab = true
@@ -34,15 +36,5 @@ opt.wrap = false
 opt.cursorline = true
 -- opt.clipboard = "unnamedplus"
 
--- TODO: Why doesn't this work?
--- opt.formatoptions = opt.formatoptions - "a" -- Auto formatting is BAD.
--- - "t" -- Don't auto format my code. I got linters for that.
--- + "c" -- In general, I like it when comments respect textwidth
--- + "q" -- Allow formatting comments w/ gq
--- - "o" -- O and o, don't continue comments
--- - "r" -- But do continue when pressing enter.
--- + "n" -- Indent past the formatlistpat, not underneath it.
--- + "j" -- Auto-remove comments if possible.
--- - "2" -- I'm not in gradeschool anymore
 opt.formatoptions:append("cqnj")
 opt.formatoptions:remove("ator2")

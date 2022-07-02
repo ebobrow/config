@@ -50,12 +50,6 @@ end
 
 function M.live_grep() require("telescope.builtin").live_grep(themes.get_ivy {}) end
 
-function M.grep_prompt()
-  require("telescope.builtin").grep_string(themes.get_ivy {
-    search = vim.fn.input "> "
-  })
-end
-
 function M.buffers() require("telescope.builtin").buffers() end
 
 return setmetatable({}, {

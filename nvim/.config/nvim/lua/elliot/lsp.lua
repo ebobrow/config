@@ -42,7 +42,7 @@ local on_attach = function(client)
 
   local map_tele = require("elliot.telescope.mappings")
   map_tele("<leader>ca", "lsp_code_actions")
-  map_tele("<leader>gr", "lsp_references")
+  map_tele("<leader>r", "lsp_references")
 
   vim.keymap.set("n", "<leader>F", vim.lsp.buf.formatting)
 
