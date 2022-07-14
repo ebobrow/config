@@ -139,18 +139,34 @@ return require"packer".startup(function()
   }
   use { "rrethy/vim-hexokinase", run = "make hexokinase" }
   use {
-    "mhinz/vim-signify",
+    "lewis6991/gitsigns.nvim",
+    requires = { "nvim-lua/plenary.nvim" },
     config = function()
-      vim.keymap.set("n", "<leader>gp", ":SignifyHunkDiff<CR>",
-                     { noremap = true, silent = true })
-      vim.keymap.set("n", "<leader>gr", ":SignifyHunkUndo<CR>",
-                     { noremap = true, silent = true })
-      vim.cmd [[let g:signify_sign_add = '│']]
-      vim.cmd [[let g:signify_sign_delete = '_']]
-      vim.cmd [[let g:signify_sign_delete_first_line = '‾']]
-      vim.cmd [[let g:signify_sign_change = '│']]
-      vim.cmd [[let g:signify_sign_change_delete = '~']]
-      vim.cmd [[let g:signify_priority = 5]]
+      require("gitsigns").setup {
+        keymaps = {
+          ["n ]c"] = {
+            expr = true,
+            "&diff ? ']c' : '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>'"
+          },
+          ["n [c"] = {
+            expr = true,
+            "&diff ? '[c' : '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>'"
+          },
+
+          ["n <leader>gs"] = '<cmd>lua require "gitsigns".stage_hunk()<CR>',
+          ["n <leader>gu"] = '<cmd>lua require "gitsigns".undo_stage_hunk()<CR>',
+          ["n <leader>gr"] = '<cmd>lua require "gitsigns".reset_hunk()<CR>',
+          ["n <leader>gR"] = '<cmd>lua require "gitsigns".reset_buffer()<CR>',
+          ["n <leader>gp"] = '<cmd>lua require "gitsigns".preview_hunk()<CR>',
+          ["n <leader>gb"] = '<cmd>Gitsigns blame_line<CR>',
+          ["n <leader>gS"] = '<cmd>lua require "gitsigns".stage_buffer()<CR>',
+          ["n <leader>gU"] = '<cmd>lua require "gitsigns".reset_buffer_index()<CR>',
+
+          -- Text objects
+          ["o ig"] = ':<C-U>lua require "gitsigns.actions".select_hunk()<CR>',
+          ["x ig"] = ':<C-U>lua require "gitsigns.actions".select_hunk()<CR>'
+        }
+      }
     end
   }
   use { "AndrewRadev/splitjoin.vim", keys = { "gJ", "gS" } }

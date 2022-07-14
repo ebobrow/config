@@ -29,8 +29,6 @@ nnoremap <silent> <C-h> :tabp<CR>
 nnoremap <silent> <C-l> :tabn<CR>
 nnoremap <silent> <C-q> :call ToggleQuickfixList()<CR>
 
-nnoremap <silent> <leader>T :grep TODO<CR>:copen<CR>
-
 fun! GetBufferList()
     redir =>buflist
     silent! ls

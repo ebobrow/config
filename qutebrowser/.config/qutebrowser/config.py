@@ -22,7 +22,7 @@ c.auto_save.session = True
 c.completion.height = "20%"
 
 # Colors
-c.colors.webpage.darkmode.enabled = True
+c.colors.webpage.darkmode.enabled = False
 
 c.fonts.default_family = "FiraCode Nerd Font"
 c.fonts.default_size = "9pt"

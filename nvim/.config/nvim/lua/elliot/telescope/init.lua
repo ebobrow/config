@@ -22,7 +22,7 @@ require"telescope".setup {
     },
     vimgrep_arguments = {
       'rg', '--color=never', '--no-heading', '--with-filename', '--line-number',
-      '--column', '--smart-case', '-.'
+      '--column', '--smart-case', '-.', '-g', '!.git/**'
     },
     file_previewer = require("telescope.previewers").vim_buffer_cat.new,
     grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,

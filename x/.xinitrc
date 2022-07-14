@@ -42,6 +42,6 @@ clipmenud &
 # Night mode
 redshift -l 34.05223:-118.24368 -m randr &
 
-# exec xmonad
+~/.fehbg &
 dwmstatus &
 exec startdwm
