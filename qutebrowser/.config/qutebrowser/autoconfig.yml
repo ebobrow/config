@@ -6,5 +6,93 @@
 
 config_version: 2
 settings:
+  auto_save.session:
+    global: true
+  bindings.commands:
+    global:
+      normal:
+        <Ctrl+t>: config-cycle tabs.show always never
+  colors.completion.category.bg:
+    global: '#282c34'
+  colors.completion.category.fg:
+    global: '#005577'
+  colors.completion.even.bg:
+    global: '#222222'
+  colors.completion.fg:
+    global: '#bbbbbb'
+  colors.completion.item.selected.bg:
+    global: '#005577'
+  colors.completion.item.selected.border.bottom:
+    global: '#005577'
+  colors.completion.item.selected.border.top:
+    global: '#005577'
+  colors.completion.item.selected.fg:
+    global: '#eeeeee'
+  colors.completion.item.selected.match.fg:
+    global: '#eeeeee'
+  colors.completion.match.fg:
+    global: '#005577'
+  colors.completion.odd.bg:
+    global: '#222222'
+  colors.tabs.even.bg:
+    global: '#222222'
+  colors.tabs.even.fg:
+    global: '#bbbbbb'
+  colors.tabs.odd.bg:
+    global: '#222222'
+  colors.tabs.odd.fg:
+    global: '#bbbbbb'
+  colors.tabs.selected.even.bg:
+    global: '#005577'
+  colors.tabs.selected.even.fg:
+    global: '#eeeeee'
+  colors.tabs.selected.odd.bg:
+    global: '#005577'
+  colors.tabs.selected.odd.fg:
+    global: '#eeeeee'
+  colors.webpage.darkmode.algorithm:
+    global: lightness-hsl
+  colors.webpage.darkmode.contrast:
+    global: -0.022
+  colors.webpage.darkmode.enabled:
+    global: true
+  colors.webpage.darkmode.grayscale.images:
+    global: 0.35
+  colors.webpage.darkmode.policy.images:
+    global: always
+  colors.webpage.darkmode.threshold.background:
+    global: 100
+  colors.webpage.darkmode.threshold.text:
+    global: 150
+  colors.webpage.preferred_color_scheme:
+    global: dark
+  completion.height:
+    global: 20%
+  completion.open_categories:
+    global:
+    - searchengines
+    - quickmarks
+    - bookmarks
+    - history
+    - filesystem
+  content.notifications.enabled:
+    https://www.reddit.com: true
+  content.user_stylesheets:
+    global:
+    - dark.css
+  fonts.default_family:
+    global: FiraCode Nerd Font
+  tabs.position:
+    global: left
   tabs.show:
     global: never
+  url.searchengines:
+    global:
+      DEFAULT: https://duckduckgo.com/?q={}
+      aur: https://aur.archlinux.org/packages/?K={}
+      aw: https://wiki.archlinux.org/?search={}
+      doc: https://docs.rs/{}
+      gh: https://github.com/search?q={}
+      hg: https://hoogle.haskell.org/?hoogle={}
+  url.start_pages:
+    global: https://start.duckduckgo.com

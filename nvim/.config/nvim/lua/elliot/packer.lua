@@ -132,12 +132,12 @@ return require"packer".startup(function()
       vim.cmd [[colorscheme gruvbox]]
 
       vim.cmd [[ hi MatchParen gui=underline guibg=none ]]
-      vim.cmd [[ hi LspReferenceText gui=none ]]
-      vim.cmd [[ hi LspReferenceRead gui=none ]]
-      vim.cmd [[ hi LspReferenceWrite gui=none ]]
+      vim.cmd [[ hi LspReferenceText guibg=#504945 gui=none ]]
+      vim.cmd [[ hi LspReferenceRead guibg=#504945 gui=none ]]
+      vim.cmd [[ hi LspReferenceWrite guibg=#504945 gui=none ]]
     end
   }
-  use { "rrethy/vim-hexokinase", run = "make hexokinase" }
+  -- use { "rrethy/vim-hexokinase", run = "make hexokinase" }
   use {
     "lewis6991/gitsigns.nvim",
     requires = { "nvim-lua/plenary.nvim" },

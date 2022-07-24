@@ -5,7 +5,7 @@ inoremap jk <Esc>
 noremap <C-c> <Esc>
 
 " Mouse is good for resizing splits, but nothing else
-nnoremap <leader>m :call ToggleMouse()<CR>
+nnoremap <leader>M :call ToggleMouse()<CR>
 fun! ToggleMouse()
     if &mouse == 'a'
         set mouse=
