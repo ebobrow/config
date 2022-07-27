@@ -7,11 +7,13 @@ noremap <C-c> <Esc>
 " Mouse is good for resizing splits, but nothing else
 nnoremap <leader>M :call ToggleMouse()<CR>
 fun! ToggleMouse()
-    if &mouse == 'a'
-        set mouse=
-    else
-        set mouse=a
-    endif
+  if &mouse == 'a'
+    echo "Mouse off"
+    set mouse=
+  else
+    echo "Mouse on"
+    set mouse=a
+  endif
 endfunction
 
 nnoremap <silent> <leader>j :wincmd j<CR>
@@ -30,24 +32,24 @@ nnoremap <silent> <C-l> :tabn<CR>
 nnoremap <silent> <C-q> :call ToggleQuickfixList()<CR>
 
 fun! GetBufferList()
-    redir =>buflist
-    silent! ls
-    redir END
-    return buflist
+  redir =>buflist
+  silent! ls
+  redir END
+  return buflist
 endfunction
 
 fun! ToggleQuickfixList()
-    for bufnum in map(filter(split(GetBufferList(), '\n'), 'v:val =~ "Quickfix List"'), 'str2nr(matchstr(v:val, "\\d\\+"))') 
-        if bufwinnr(bufnum) != -1
-            cclose
-            return
-        endif
-    endfor
-    let winnr = winnr()
-    copen
-    if winnr() != winnr
-        wincmd p
+  for bufnum in map(filter(split(GetBufferList(), '\n'), 'v:val =~ "Quickfix List"'), 'str2nr(matchstr(v:val, "\\d\\+"))') 
+    if bufwinnr(bufnum) != -1
+      cclose
+      return
     endif
+  endfor
+  let winnr = winnr()
+  copen
+  if winnr() != winnr
+    wincmd p
+  endif
 endfunction
 
 vnoremap J :m '>+1<CR>gv=gv

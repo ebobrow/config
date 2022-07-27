@@ -125,19 +125,30 @@ return require"packer".startup(function()
     end
   }
   use "mkitt/tabline.vim"
-  use {
-    "ellisonleao/gruvbox.nvim",
-    config = function()
-      vim.opt.background = "dark"
-      vim.cmd [[colorscheme gruvbox]]
+  -- use {
+  --   "ellisonleao/gruvbox.nvim",
+  --   config = function()
+  --     vim.opt.background = "dark"
+  --     vim.cmd [[colorscheme gruvbox]]
 
-      vim.cmd [[ hi MatchParen gui=underline guibg=none ]]
-      vim.cmd [[ hi LspReferenceText guibg=#504945 gui=none ]]
-      vim.cmd [[ hi LspReferenceRead guibg=#504945 gui=none ]]
-      vim.cmd [[ hi LspReferenceWrite guibg=#504945 gui=none ]]
+  --     vim.cmd [[ hi MatchParen gui=underline guibg=none ]]
+  --     vim.cmd [[ hi LspReferenceText guibg=#504945 gui=none ]]
+  --     vim.cmd [[ hi LspReferenceRead guibg=#504945 gui=none ]]
+  --     vim.cmd [[ hi LspReferenceWrite guibg=#504945 gui=none ]]
+  --   end
+  -- }
+  use {
+    "navarasu/onedark.nvim",
+    config = function()
+      require("onedark").setup {
+        style = "darker",
+        toggle_style_key = "<leader>o",
+        diagnostics = { background = false }
+      }
+      require("onedark").load()
     end
   }
-  -- use { "rrethy/vim-hexokinase", run = "make hexokinase" }
+  use { "rrethy/vim-hexokinase", run = "make hexokinase" }
   use {
     "lewis6991/gitsigns.nvim",
     requires = { "nvim-lua/plenary.nvim" },
