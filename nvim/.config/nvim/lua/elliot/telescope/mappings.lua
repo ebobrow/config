@@ -1,4 +1,5 @@
 local map_tele = function(key, f)
+  key = "<leader>" .. key
   local map_key = vim.api.nvim_replace_termcodes(key .. f, true, true, true)
 
   local mode = "n"
@@ -10,17 +11,16 @@ local map_tele = function(key, f)
   vim.api.nvim_set_keymap(mode, key, rhs, map_options)
 end
 
-map_tele('<leader>f', 'files')
-map_tele('<leader>b', 'buffers')
-map_tele('<leader>rg', 'live_grep')
-map_tele('<leader>rp', 'grep_prompt')
+map_tele('f', 'files')
+map_tele('b', 'buffers')
+map_tele('rg', 'live_grep')
 
-map_tele('<leader>xx', 'quickfix')
-map_tele('<leader>xd', 'diagnostics')
+map_tele('xx', 'quickfix')
+map_tele('xd', 'diagnostics')
 
-map_tele('<leader>gc', 'git_commits')
-map_tele('<leader>gg', 'git_status')
+map_tele('gc', 'git_commits')
+map_tele('gg', 'git_status')
 
-map_tele('<leader>T', 'builtin')
+map_tele('T', 'builtin')
 
 return map_tele

@@ -1,6 +1,5 @@
 ---@diagnostic disable: undefined-global
 return require"packer".startup(function()
-  -- Packer can manage itself
   use "wbthomason/packer.nvim"
 
   use "neovim/nvim-lspconfig"
@@ -13,9 +12,6 @@ return require"packer".startup(function()
       vim.opt.completeopt = { "menu", "menuone", "noinsert" }
       vim.opt.shortmess:append "c"
 
-      -- vim.cmd [[highlight link CmpDocumentation Normal]]
-      -- vim.cmd [[highlight link CmpDocumentationBorder Normal]]
-
       local cmp = require("cmp")
       local lspkind = require "lspkind"
       lspkind.init()
@@ -26,14 +22,14 @@ return require"packer".startup(function()
         },
         mapping = {
           ["<C-Space>"] = cmp.mapping.complete(),
-          ["<C-l>"] = cmp.mapping.confirm({ select = true }),
+          ["<CR>"] = cmp.mapping.confirm({ select = true }),
           ["<C-j>"] = cmp.mapping.select_next_item {
             behavior = cmp.SelectBehavior.Select
           },
           ["<C-k>"] = cmp.mapping.select_prev_item {
             behavior = cmp.SelectBehavior.Select
           },
-          ["<C-h>"] = cmp.mapping.abort()
+          ["<C-c>"] = cmp.mapping.abort()
         },
         window = { documentation = { border = "single" } },
         sources = { { name = "nvim_lsp" }, { name = "path" } },
@@ -52,48 +48,18 @@ return require"packer".startup(function()
   use {
     "hrsh7th/vim-vsnip",
     config = function()
-      vim.api.nvim_set_keymap("i", "<Tab>",
-                              "vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>'",
-                              { expr = true })
-      vim.api.nvim_set_keymap("s", "<Tab>",
-                              "vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>'",
-                              { expr = true })
-      vim.api.nvim_set_keymap("i", "<S-Tab>",
-                              "vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'",
-                              { expr = true })
-      vim.api.nvim_set_keymap("s", "<S-Tab>",
-                              "vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'",
-                              { expr = true })
-    end
-  }
-  use {
-    "tami5/lspsaga.nvim",
-    config = function()
-      require"lspsaga".init_lsp_saga {
-        use_saga_diagnostic_sign = false,
-        code_action_prompt = {
-          enable = false,
-          sign = true,
-          sign_priority = 20,
-          virtual_text = false
-        },
-        rename_prompt_prefix = ">"
-      }
-    end
-  }
-  use {
-    "simrat39/rust-tools.nvim",
-    ft = "rust",
-    config = function()
-      local on_attach = require "elliot.lsp"
-      require"rust-tools".setup {
-        tools = {
-          hover_actions = { border = 'none' },
-          inlay_hints = { highlight = "Comment" },
-          autoSetHints = false
-        },
-        server = { on_attach = on_attach }
-      }
+      vim.keymap.set("i", "<Tab>",
+                     "vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>'",
+                     { expr = true })
+      vim.keymap.set("s", "<Tab>",
+                     "vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>'",
+                     { expr = true })
+      vim.keymap.set("i", "<S-Tab>",
+                     "vsnip#jumpable(1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'",
+                     { expr = true })
+      vim.keymap.set("s", "<S-Tab>",
+                     "vsnip#jumpable(1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'",
+                     { expr = true })
     end
   }
   use {
@@ -125,72 +91,67 @@ return require"packer".startup(function()
     end
   }
   use "mkitt/tabline.vim"
-  -- use {
-  --   "ellisonleao/gruvbox.nvim",
-  --   config = function()
-  --     vim.opt.background = "dark"
-  --     vim.cmd [[colorscheme gruvbox]]
-
-  --     vim.cmd [[ hi MatchParen gui=underline guibg=none ]]
-  --     vim.cmd [[ hi LspReferenceText guibg=#504945 gui=none ]]
-  --     vim.cmd [[ hi LspReferenceRead guibg=#504945 gui=none ]]
-  --     vim.cmd [[ hi LspReferenceWrite guibg=#504945 gui=none ]]
-  --   end
-  -- }
   use {
     "navarasu/onedark.nvim",
     config = function()
       require("onedark").setup {
         style = "darker",
         toggle_style_key = "<leader>o",
-        diagnostics = { background = false }
+        diagnostics = { background = false },
+        highlights = { MatchParen = { bg = "none", fmt = "underline" } }
       }
       require("onedark").load()
     end
   }
-  use { "rrethy/vim-hexokinase", run = "make hexokinase" }
   use {
     "lewis6991/gitsigns.nvim",
     requires = { "nvim-lua/plenary.nvim" },
     config = function()
       require("gitsigns").setup {
-        keymaps = {
-          ["n ]c"] = {
-            expr = true,
-            "&diff ? ']c' : '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>'"
-          },
-          ["n [c"] = {
-            expr = true,
-            "&diff ? '[c' : '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>'"
-          },
+        on_attach = function(bufnr)
+          local gs = package.loaded.gitsigns
+          local function map(mode, l, r, opts)
+            opts = opts or {}
+            opts.buffer = bufnr
+            vim.keymap.set(mode, l, r, opts)
+          end
 
-          ["n <leader>gs"] = '<cmd>lua require "gitsigns".stage_hunk()<CR>',
-          ["n <leader>gu"] = '<cmd>lua require "gitsigns".undo_stage_hunk()<CR>',
-          ["n <leader>gr"] = '<cmd>lua require "gitsigns".reset_hunk()<CR>',
-          ["n <leader>gR"] = '<cmd>lua require "gitsigns".reset_buffer()<CR>',
-          ["n <leader>gp"] = '<cmd>lua require "gitsigns".preview_hunk()<CR>',
-          ["n <leader>gb"] = '<cmd>Gitsigns blame_line<CR>',
-          ["n <leader>gS"] = '<cmd>lua require "gitsigns".stage_buffer()<CR>',
-          ["n <leader>gU"] = '<cmd>lua require "gitsigns".reset_buffer_index()<CR>',
+          local function map_g(mode, l, r, opts)
+            map(mode, "<leader>g" .. l, r, opts)
+          end
 
-          -- Text objects
-          ["o ig"] = ':<C-U>lua require "gitsigns.actions".select_hunk()<CR>',
-          ["x ig"] = ':<C-U>lua require "gitsigns.actions".select_hunk()<CR>'
-        }
+          map('n', ']c', function()
+            if vim.wo.diff then return ']c' end
+            vim.schedule(function() gs.next_hunk() end)
+            return '<Ignore>'
+          end, { expr = true })
+
+          map('n', '[c', function()
+            if vim.wo.diff then return '[c' end
+            vim.schedule(function() gs.prev_hunk() end)
+            return '<Ignore>'
+          end, { expr = true })
+
+          map_g({ "n", "v" }, "s", gs.stage_hunk)
+          map_g({ "n", "v" }, "r", gs.reset_hunk)
+          map_g("n", "R", gs.reset_buffer)
+          map_g("n", "p", gs.preview_hunk)
+          map_g("n", "b", function() gs.blame_line { full = true } end)
+
+          map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
+        end
       }
     end
   }
-  use { "AndrewRadev/splitjoin.vim", keys = { "gJ", "gS" } }
-  use { "dstein64/vim-startuptime", cmd = "StartupTime" }
   use {
     "ThePrimeagen/harpoon",
     requires = "nvim-lua/plenary.nvim",
     config = function()
       require("harpoon").setup()
       for i = 1, 9 do
-        vim.api.nvim_set_keymap("n", "<leader>" .. i, string.format(
-                                    ":lua require('harpoon.ui').nav_file(%s)<CR>",
-                                    i), { noremap = true, silent = true })
+        vim.keymap.set("n", "<leader>" .. i, string.format(
+                           ":lua require('harpoon.ui').nav_file(%s)<CR>", i),
+                       { noremap = true, silent = true })
       end
       vim.keymap.set("n", "<leader>m", require("harpoon.mark").add_file,
                      { noremap = true })

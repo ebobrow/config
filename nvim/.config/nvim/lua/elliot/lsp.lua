@@ -14,37 +14,23 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 local on_attach = function(client)
-  vim.keymap.set("i", "<c-s>", vim.lsp.buf.signature_help)
+  local map = function(m, k, v) vim.keymap.set(m, k, v, { silent = true }) end
 
-  vim.keymap.set("n", "gd", vim.lsp.buf.definition)
-  vim.keymap.set("n", "gD", require'lspsaga.provider'.preview_definition)
-  vim.keymap.set("n", "gr", vim.lsp.buf.references)
-  vim.keymap.set("n", "gR", function() vim.cmd [[ Lspsaga rename ]] end)
-  -- buf_nnoremap { "gR", vim.lsp.buf.rename }
+  map("n", "gd", vim.lsp.buf.definition)
+  map("n", "gr", vim.lsp.buf.references)
+  map("n", "gR", vim.lsp.buf.rename)
 
-  vim.keymap.set("n", "<space>rr", "LspRestart")
+  map("n", "K", vim.lsp.buf.hover)
 
-  -- buf_nnoremap { "K", require'lspsaga.hover'.render_hover_doc }
-  vim.keymap.set("n", "K", vim.lsp.buf.hover)
-  vim.keymap.set("n", "<C-d>", function()
-    require'lspsaga.action'.smart_scroll_with_saga(1)
-  end)
-  vim.keymap.set("n", "<C-u>", function()
-    require'lspsaga.action'.smart_scroll_with_saga(-1)
-  end)
-
-  vim.keymap.set("n", "]d",
-                 function() vim.cmd [[ Lspsaga diagnostic_jump_next ]] end)
-  vim.keymap.set("n", "[d",
-                 function() vim.cmd [[ Lspsaga diagnostic_jump_prev ]] end)
-  vim.keymap.set("n", "<leader>cd",
-                 function() vim.cmd [[ Lspsaga show_line_diagnostics ]] end)
+  map("n", "]d", vim.diagnostic.goto_next)
+  map("n", "[d", vim.diagnostic.goto_prev)
+  map("n", "<leader>cd", vim.diagnostic.open_float)
 
   local map_tele = require("elliot.telescope.mappings")
-  map_tele("<leader>ca", "lsp_code_actions")
-  map_tele("<leader>r", "lsp_references")
+  map_tele("ca", "lsp_code_actions")
+  map_tele("r", "lsp_references")
 
-  vim.keymap.set("n", "<leader>F", vim.lsp.buf.formatting)
+  map("n", "<leader>F", vim.lsp.buf.formatting)
 
   vim.cmd [[
       augroup lsp_buf_format
@@ -66,18 +52,8 @@ end
 
 local nvim_lsp = require 'lspconfig'
 
--- nvim_lsp.tsserver.setup { on_attach = on_attach, capabilities = capabilities }
-nvim_lsp.rust_analyzer.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  settings = {
-    ["rust-analyzer"] = {
-      rustcSource = "discover",
-      updates = { channel = "nightly" }
-    }
-  }
-}
--- nvim_lsp.vimls.setup { on_attach = on_attach, capabilities = capabilities }
+nvim_lsp.rust_analyzer
+    .setup { on_attach = on_attach, capabilities = capabilities }
 nvim_lsp.hls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
@@ -116,7 +92,3 @@ nvim_lsp.efm.setup {
     }
   }
 }
--- nvim_lsp.texlab.setup { on_attach = on_attach, capabilities = capabilities }
-
--- return { on_attach, capabilities }
-return on_attach
