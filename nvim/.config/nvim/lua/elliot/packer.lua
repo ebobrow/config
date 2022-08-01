@@ -9,6 +9,7 @@ return require"packer".startup(function()
       "hrsh7th/cmp-path", "hrsh7th/cmp-nvim-lsp", "onsails/lspkind-nvim"
     },
     config = function()
+      require "elliot.lsp"
       vim.opt.completeopt = { "menu", "menuone", "noinsert" }
       vim.opt.shortmess:append "c"
 
@@ -96,7 +97,6 @@ return require"packer".startup(function()
     config = function()
       require("onedark").setup {
         style = "darker",
-        toggle_style_key = "<leader>o",
         diagnostics = { background = false },
         highlights = { MatchParen = { bg = "none", fmt = "underline" } }
       }

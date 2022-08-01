@@ -1,4 +1,6 @@
-" setlocal nonumber
-" setlocal norelativenumber
 setlocal scl=no
-setlocal nocul
+augroup TermLineNo
+  au!
+  au TermEnter term://* setlocal nonu nornu
+  au TermLeave term://* setlocal nu rnu
+augroup END
