@@ -81,7 +81,7 @@ settings:
     global:
     - dark.css
   fonts.default_family:
-    global: FiraCode Nerd Font
+    global: FiraCode
   tabs.position:
     global: left
   tabs.show:

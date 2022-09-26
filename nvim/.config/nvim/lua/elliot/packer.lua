@@ -92,17 +92,34 @@ return require"packer".startup(function()
     end
   }
   use "mkitt/tabline.vim"
+
+  -- use {
+  --   'folke/tokyonight.nvim',
+  --   config = function() vim.cmd [[colorscheme tokyonight-moon]] end
+  -- }
+
   use {
-    "navarasu/onedark.nvim",
+    "catppuccin/nvim",
+    as = "catppuccin",
     config = function()
-      require("onedark").setup {
-        style = "darker",
-        diagnostics = { background = false },
-        highlights = { MatchParen = { bg = "none", fmt = "underline" } }
-      }
-      require("onedark").load()
+      vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
+      require("catppuccin").setup()
+      vim.cmd [[colorscheme catppuccin]]
     end
   }
+
+  -- use {
+  --   "navarasu/onedark.nvim",
+  --   config = function()
+  --     require("onedark").setup {
+  --       style = "darker",
+  --       diagnostics = { background = false },
+  --       highlights = { MatchParen = { bg = "none", fmt = "underline" } }
+  --     }
+  --     require("onedark").load()
+  --   end
+  -- }
+
   use {
     "lewis6991/gitsigns.nvim",
     requires = { "nvim-lua/plenary.nvim" },
