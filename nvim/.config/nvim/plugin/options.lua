@@ -1,5 +1,8 @@
 local opt = vim.opt
 
+opt.guicursor = "a:block"
+opt.mouse = ""
+
 opt.number = true
 opt.relativenumber = true
 
@@ -19,7 +22,7 @@ opt.scl = "yes"
 opt.inccommand = "split"
 opt.title = true
 opt.autowriteall = true
-opt.showmode = false
+opt.showmode = true
 opt.list = true
 opt.listchars = { tab = "» ", trail = "·" }
 opt.updatetime = 100

@@ -34,7 +34,7 @@ return require"packer".startup(function()
         },
         window = { documentation = { border = "single" } },
         sources = { { name = "nvim_lsp" }, { name = "path" } },
-        experimental = { ghost_text = true, native_menu = false },
+        experimental = { ghost_text = false, native_menu = false },
         formatting = {
           format = lspkind.cmp_format {
             with_text = true,
@@ -46,30 +46,47 @@ return require"packer".startup(function()
                          { completion = { autocomplete = false } })
     end
   }
-  use {
-    "hrsh7th/vim-vsnip",
-    config = function()
-      vim.keymap.set("i", "<Tab>",
-                     "vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>'",
-                     { expr = true })
-      vim.keymap.set("s", "<Tab>",
-                     "vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>'",
-                     { expr = true })
-      vim.keymap.set("i", "<S-Tab>",
-                     "vsnip#jumpable(1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'",
-                     { expr = true })
-      vim.keymap.set("s", "<S-Tab>",
-                     "vsnip#jumpable(1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'",
-                     { expr = true })
-    end
-  }
+  use "hrsh7th/vim-vsnip"
   use {
     "nvim-treesitter/nvim-treesitter",
+    requires = "nvim-treesitter/nvim-treesitter-textobjects",
     run = ":TSUpdate",
     config = function()
       require"nvim-treesitter.configs".setup {
-        ensure_installed = { "rust", "toml", "lua", "haskell", "latex", "python" },
-        highlight = { enable = true }
+        ensure_installed = {
+          "rust", "toml", "lua", "haskell", "latex", "python", "elixir"
+        },
+        highlight = { enable = true },
+        incremental_selection = {
+          enable = true,
+          keymaps = {
+            init_selection = "<C-n>",
+            node_incremental = "<C-n>",
+            scope_incremental = "<C-s>",
+            node_decremental = "<C-p>"
+          }
+        },
+        textobjects = {
+          select = {
+            enable = true,
+            lookahead = true,
+            keymaps = { ["af"] = "@function.outer", ["if"] = "@function.inner" },
+            include_surrounding_whitespace = true
+          },
+          swap = {
+            enable = true,
+            swap_next = { ["<leader>a"] = "@parameter.inner" },
+            swap_previous = { ["<leader>A"] = "@parameter.inner" }
+          },
+          move = {
+            enable = true,
+            set_jumps = true, -- whether to set jumps in the jumplist
+            goto_next_start = { [']m'] = '@function.outer' },
+            goto_next_end = { [']M'] = '@function.outer' },
+            goto_previous_start = { ['[m'] = '@function.outer' },
+            goto_previous_end = { ['[M'] = '@function.outer' }
+          }
+        }
       }
     end
   }
@@ -103,8 +120,14 @@ return require"packer".startup(function()
     as = "catppuccin",
     config = function()
       vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
-      require("catppuccin").setup()
+      require("catppuccin").setup {
+        no_bold = true,
+        integrations = { treesitter = true }
+      }
       vim.cmd [[colorscheme catppuccin]]
+      vim.cmd [[hi clear Todo]]
+      vim.cmd [[hi link Todo Keyword]]
+      -- vim.cmd [[hi NormalFloat guibg=black]]
     end
   }
 

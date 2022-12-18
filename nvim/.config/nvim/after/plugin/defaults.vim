@@ -10,3 +10,5 @@ autocmd BufNewFile,BufRead  ~/repos/rust-clippy/*.fixed setfiletype rust
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 let g:tex_flavor = "latex"
+
+autocmd BufEnter ~/exercism/*.md setlocal wrap

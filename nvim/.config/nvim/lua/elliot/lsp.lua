@@ -10,8 +10,7 @@ vim.lsp.handlers["textDocument/references"] =
       end
     end
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 local on_attach = function(client)
   local map = function(m, k, v) vim.keymap.set(m, k, v, { silent = true }) end
@@ -35,11 +34,11 @@ local on_attach = function(client)
   vim.cmd [[
       augroup lsp_buf_format
           au! BufWritePre <buffer>
-          autocmd BufWritePre <buffer> :lua vim.lsp.buf.formatting_seq_sync()
+          autocmd BufWritePre <buffer> :lua vim.lsp.buf.format()
       augroup END
   ]]
 
-  if client.resolved_capabilities.document_highlight then
+  if client.server_capabilities.documentHighlightProvider then
     vim.cmd [[
       augroup lsp_document_highlight
         autocmd! * <buffer>
@@ -91,4 +90,9 @@ nvim_lsp.efm.setup {
       }
     }
   }
+}
+nvim_lsp.elixirls.setup {
+  cmd = { "/usr/bin/elixir-ls" },
+  on_attach = on_attach,
+  capabilities = capabilities
 }
