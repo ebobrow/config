@@ -109,6 +109,12 @@ return require"packer".startup(function()
     end
   }
   use "mkitt/tabline.vim"
+  use {
+    "mbbill/undotree",
+    config = function()
+      vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>")
+    end
+  }
 
   -- use {
   --   'folke/tokyonight.nvim',

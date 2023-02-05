@@ -96,3 +96,7 @@ nvim_lsp.elixirls.setup {
   on_attach = on_attach,
   capabilities = capabilities
 }
+nvim_lsp.racket_langserver.setup {
+  on_attach = on_attach,
+  capabilities = capabilities
+}

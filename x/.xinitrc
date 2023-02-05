@@ -42,7 +42,7 @@ clipmenud &
 # Night mode
 redshift -l 34.05223:-118.24368 -m randr &
 
-~/.fehbg &
+# ~/.fehbg &
 dwmstatus &
 picom -b
 exec startdwm
