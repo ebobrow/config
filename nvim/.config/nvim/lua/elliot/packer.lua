@@ -49,9 +49,12 @@ return require"packer".startup(function()
   use "hrsh7th/vim-vsnip"
   use {
     "nvim-treesitter/nvim-treesitter",
-    requires = "nvim-treesitter/nvim-treesitter-textobjects",
+    requires = {
+      "nvim-treesitter/nvim-treesitter-textobjects", "p00f/nvim-ts-rainbow"
+    },
     run = ":TSUpdate",
     config = function()
+      local parsers = require("nvim-treesitter.parsers")
       require"nvim-treesitter.configs".setup {
         ensure_installed = {
           "rust", "toml", "lua", "haskell", "latex", "python", "elixir"
@@ -86,6 +89,11 @@ return require"packer".startup(function()
             goto_previous_start = { ['[m'] = '@function.outer' },
             goto_previous_end = { ['[M'] = '@function.outer' }
           }
+        },
+        rainbow = {
+          enable = true,
+          disable = vim.tbl_filter(function(p) return p ~= "racket" end,
+                                   parsers.available_parsers())
         }
       }
     end
@@ -133,6 +141,7 @@ return require"packer".startup(function()
       vim.cmd [[colorscheme catppuccin]]
       vim.cmd [[hi clear Todo]]
       vim.cmd [[hi link Todo Keyword]]
+      vim.cmd [[hi MatchParen guibg=#45475a guifg=None]]
       -- vim.cmd [[hi NormalFloat guibg=black]]
     end
   }
@@ -209,3 +218,4 @@ return require"packer".startup(function()
     end
   }
 end)
+
