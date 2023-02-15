@@ -42,7 +42,7 @@ return require"packer".startup(function()
           }
         }
       }
-      cmp.setup.filetype({ "haskell", "lua" },
+      cmp.setup.filetype({ "haskell" },
                          { completion = { autocomplete = false } })
     end
   }
@@ -218,4 +218,3 @@ return require"packer".startup(function()
     end
   }
 end)
-

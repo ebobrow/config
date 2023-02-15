@@ -59,22 +59,21 @@ nvim_lsp.hls.setup {
   settings = { haskell = { formattingProvider = "fourmolu" } }
 }
 nvim_lsp.pylsp.setup { on_attach = on_attach, capabilities = capabilities }
-nvim_lsp.sumneko_lua.setup {
+nvim_lsp.lua_ls.setup {
   settings = {
     Lua = {
-      runtime = { version = 'LuaJIT', path = vim.split(package.path, ';') },
-      diagnostics = { globals = { 'vim' } },
+      runtime = {
+        version = 'LuaJIT'
+      },
+      diagnostics = {
+        globals = { 'vim' }
+      },
       workspace = {
-        library = {
-          [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-          [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true
-        }
+        library = vim.api.nvim_get_runtime_file("", true)
       },
       telemetry = { enable = false }
     }
-  },
-  on_attach = on_attach,
-  capabilities = capabilities
+  }
 }
 nvim_lsp.efm.setup {
   init_options = { documentFormatting = true },
