@@ -29,7 +29,7 @@ local on_attach = function(client)
   map_tele("ca", "lsp_code_actions")
   map_tele("r", "lsp_references")
 
-  map("n", "<leader>F", vim.lsp.buf.formatting)
+  map("n", "<leader>F", vim.lsp.buf.format)
 
   vim.cmd [[
       augroup lsp_buf_format
@@ -51,8 +51,12 @@ end
 
 local nvim_lsp = require 'lspconfig'
 
-nvim_lsp.rust_analyzer
-    .setup { on_attach = on_attach, capabilities = capabilities }
+nvim_lsp.rust_analyzer.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = { "/usr/lib/rustup/bin/rust-analyzer" },
+  settings = { ['rust-analyzer'] = { rustc = { source = "discover" } } }
+}
 nvim_lsp.hls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
@@ -62,15 +66,9 @@ nvim_lsp.pylsp.setup { on_attach = on_attach, capabilities = capabilities }
 nvim_lsp.lua_ls.setup {
   settings = {
     Lua = {
-      runtime = {
-        version = 'LuaJIT'
-      },
-      diagnostics = {
-        globals = { 'vim' }
-      },
-      workspace = {
-        library = vim.api.nvim_get_runtime_file("", true)
-      },
+      runtime = { version = 'LuaJIT' },
+      diagnostics = { globals = { 'vim' } },
+      workspace = { library = vim.api.nvim_get_runtime_file("", true) },
       telemetry = { enable = false }
     }
   }
@@ -78,6 +76,7 @@ nvim_lsp.lua_ls.setup {
 nvim_lsp.efm.setup {
   init_options = { documentFormatting = true },
   filetypes = { "lua" },
+  on_attach = on_attach,
   settings = {
     rootMarkers = { ".git/" },
     languages = {

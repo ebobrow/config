@@ -50,7 +50,8 @@ return require"packer".startup(function()
   use {
     "nvim-treesitter/nvim-treesitter",
     requires = {
-      "nvim-treesitter/nvim-treesitter-textobjects", "p00f/nvim-ts-rainbow"
+      "nvim-treesitter/nvim-treesitter-textobjects", "p00f/nvim-ts-rainbow",
+      "nvim-treesitter/nvim-treesitter-context"
     },
     run = ":TSUpdate",
     config = function()
@@ -124,39 +125,18 @@ return require"packer".startup(function()
     end
   }
 
-  -- use {
-  --   'folke/tokyonight.nvim',
-  --   config = function() vim.cmd [[colorscheme tokyonight-moon]] end
-  -- }
-
   use {
     "catppuccin/nvim",
     as = "catppuccin",
     config = function()
-      vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
-      require("catppuccin").setup {
-        no_bold = true,
-        integrations = { treesitter = true }
-      }
-      vim.cmd [[colorscheme catppuccin]]
+      require("catppuccin").setup { flavour = "mocha", no_bold = true }
+      vim.cmd.colorscheme "catppuccin"
       vim.cmd [[hi clear Todo]]
       vim.cmd [[hi link Todo Keyword]]
       vim.cmd [[hi MatchParen guibg=#45475a guifg=None]]
       -- vim.cmd [[hi NormalFloat guibg=black]]
     end
   }
-
-  -- use {
-  --   "navarasu/onedark.nvim",
-  --   config = function()
-  --     require("onedark").setup {
-  --       style = "darker",
-  --       diagnostics = { background = false },
-  --       highlights = { MatchParen = { bg = "none", fmt = "underline" } }
-  --     }
-  --     require("onedark").load()
-  --   end
-  -- }
 
   use {
     "lewis6991/gitsigns.nvim",
@@ -216,5 +196,12 @@ return require"packer".startup(function()
       vim.keymap.set("n", "<leader>Q", require('harpoon.ui').toggle_quick_menu,
                      { noremap = true, silent = true })
     end
+  }
+
+  use {
+    "isovector/cornelis",
+    requires = { "kana/vim-textobj-user", "neovimhaskell/nvim-hs.vim" },
+    run = "stack build",
+    ft = "agda"
   }
 end)
