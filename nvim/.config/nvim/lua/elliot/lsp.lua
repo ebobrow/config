@@ -98,3 +98,13 @@ nvim_lsp.racket_langserver.setup {
   on_attach = on_attach,
   capabilities = capabilities
 }
+nvim_lsp.texlab.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {
+    texlab = {
+      build = { onSave = true },
+      chktex = { onEdit = false, onOpenAndSave = false }
+    }
+  }
+}

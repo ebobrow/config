@@ -4,4 +4,4 @@ endfunction
 
 nnoremap <A-p> :call ZathuraOpenPdf()<CR>
 
-autocmd BufWritePost * !latexmk -pdf %
+" autocmd BufWritePost * silent! !latexmk -pdf %
