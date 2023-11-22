@@ -55,10 +55,6 @@ return require"packer".startup(function()
         window = { documentation = { border = "single" } },
         sources = {
           { name = "nvim_lsp" }, { name = "path" }, { name = "luasnip" }
-          -- {
-          --   name = "vsnip",
-          --   keyword_pattern = '\\%([^[:alnum:][:blank:]]\\|\\w\\+\\)'
-          -- }
         },
         experimental = { ghost_text = false, native_menu = false },
         formatting = {
@@ -71,13 +67,8 @@ return require"packer".startup(function()
       cmp.setup.filetype({ "haskell" },
                          { completion = { autocomplete = false } })
       cmp.setup.filetype("tex", {
-        sources = cmp.config.sources({
-          { name = "path" }, { name = "luasnip" }
-          -- {
-          --   name = "vsnip",
-          --   keyword_pattern = '\\%([^[:alnum:][:blank:]]\\|\\w\\+\\)'
-          -- }
-        })
+        sources = cmp.config
+            .sources({ { name = "path" }, { name = "luasnip" } })
       })
     end
   }

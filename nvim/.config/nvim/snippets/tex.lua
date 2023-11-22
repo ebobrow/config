@@ -77,5 +77,46 @@ return {
   \begin{enumerate}
       \item <>
   \end{enumerate}
-  ]], { i(1) }))
+  ]], { i(1) })),
+
+  s(".mat", fmta([[
+  \begin{bmatrix}
+      <>
+  \end{bmatrix}
+  ]], { i(1) })),
+
+  s(".eq", fmta([[
+  $$
+  <>
+  $$
+  ]], { i(1) })),
+
+  s(".bb", fmta([[
+  \mathbb{<>}
+  ]], { i(1) })),
+
+  s(".par", fmta([[
+  \partial
+  ]], {})),
+
+  s(".lr", fmta([[
+  \left(<>\right)
+  ]], { i(1) })),
+
+  s(".doc", fmta([[
+  \documentclass[12pt,letterpaper]{hmcpset}
+  \usepackage[margin=1in]{geometry}
+  \usepackage{graphicx}
+  \usepackage{float}
+  \usepackage{enumitem}
+
+  \name{Elliot Bobrow}
+  \assignment{<>}
+  \class{<>}
+  \duedate{<>}
+
+  \begin{document}
+      <>
+  \end{document}
+  ]], { i(1), i(2), i(3), i(4) })),
 }
