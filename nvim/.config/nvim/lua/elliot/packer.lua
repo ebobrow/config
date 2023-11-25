@@ -11,7 +11,7 @@ return require"packer".startup(function()
     },
     config = function()
       require "elliot.lsp"
-      vim.opt.completeopt = { "menu", "menuone", "noinsert" }
+      vim.opt.completeopt = "menu,menuone,preview"
       vim.opt.shortmess:append "c"
 
       local cmp = require("cmp")
@@ -29,7 +29,7 @@ return require"packer".startup(function()
           ["<C-Space>"] = cmp.mapping.complete(),
           ["<CR>"] = cmp.mapping({
             i = function(fallback)
-              if cmp.visible() and cmp.get_active_entry() then
+              if cmp.visible() and cmp.get_selected_entry() then
                 cmp.confirm({
                   behavior = cmp.ConfirmBehavior.Replace,
                   select = false
