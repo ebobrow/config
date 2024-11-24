@@ -1,5 +1,5 @@
 if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
-    # exec startx
+    exec startx
 fi
 
 export PATH=/home/elliotbobrow/.config/emacs/bin/:/home/elliotbobrow/.local/bin:/home/elliotbobrow/.cargo/bin:/home/elliotbobrow/go/bin:$PATH
@@ -101,6 +101,7 @@ alias cp="cp -v"
 alias mv="mv -v"
 alias x="startx"
 alias v="nvim"
+alias vh="nvim +'lua require(\"harpoon.ui\").nav_file(1)' +'call ZathuraOpenPdf()'"
 alias wifi="nmcli device wifi"
 alias swifi="sudo nmcli device wifi"
 alias ht="cabal test --test-show-details=direct"
@@ -112,3 +113,6 @@ source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.
 # [ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
 
 [ -f "/home/elliotbobrow/.ghcup/env" ] && source "/home/elliotbobrow/.ghcup/env" # ghcup-env
+
+# opam configuration
+[[ ! -r /home/elliotbobrow/.opam/opam-init/init.zsh ]] || source /home/elliotbobrow/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null

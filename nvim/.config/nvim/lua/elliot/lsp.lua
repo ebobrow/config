@@ -108,3 +108,4 @@ nvim_lsp.texlab.setup {
     }
   }
 }
+-- nvim_lsp.asm_lsp.setup { on_attach = on_attach, capabilities = capabilities }

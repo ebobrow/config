@@ -5,6 +5,8 @@ autocmd BufWritePost .Xresources !xrdb %
 autocmd BufWritePost ~/suckless/* !sudo make install
 autocmd BufWritePost packer.lua source <afile> | PackerCompile
 autocmd BufNewFile,BufRead  ~/repos/rust-clippy/*.fixed setfiletype rust
+autocmd BufWritePost ~/repos/bga/reversibobr/* !scp % ebobrow@1.studio.boardgamearena.com:reversibobr/%
+autocmd BufWritePost ~/repos/bga/pandemic/* !scp % ebobrow@1.studio.boardgamearena.com:mothersday/%
 
 " Disable autocomment
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o

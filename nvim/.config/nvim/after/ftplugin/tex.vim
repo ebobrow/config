@@ -7,3 +7,5 @@ nnoremap <A-p> :call ZathuraOpenPdf()<CR>
 set wrap
 
 " autocmd BufWritePost * silent! !latexmk -pdf %
+
+set tw=80

@@ -28,6 +28,16 @@ return {
   \end{align}
   ]], { i(1) })),
 
+  -- s(".bb", fmta([[
+  -- \begin{bmatrix}
+  --     <>
+  -- \end{bmatrix}
+  -- ]], { i(1) })),
+
+  s(".bc", fmta([[
+  \begin{bmatrix} <> \end{bmatrix}
+  ]], { i(1) })),
+
   s(".bpr", fmta([[
   \begin{problem}[<>]
       <>
@@ -54,6 +64,10 @@ return {
 
   s(".bx", fmta([[
   \boxed{<>}
+  ]], { i(1) })),
+
+  s(".tx", fmta([[
+  \text{<>}
   ]], { i(1) })),
 
   s(".tb", fmta([[
@@ -86,9 +100,9 @@ return {
   ]], { i(1) })),
 
   s(".eq", fmta([[
-  $$
+  \[
   <>
-  $$
+  \]
   ]], { i(1) })),
 
   s(".bb", fmta([[
@@ -119,4 +133,20 @@ return {
       <>
   \end{document}
   ]], { i(1), i(2), i(3), i(4) })),
+
+  s(".sum", fmta([[
+  \sum_{i=<>}^<> <>
+  ]], { i(1), i(2), i(3) })),
+
+  s(".ms", fmta([[
+  \mathscr{<>}
+  ]], { i(1) })),
+
+  s(".mc", fmta([[
+  \mathcal{<>}
+  ]], { i(1) })),
+
+  s(".tr", fmta([[
+  \trianglelefteq
+  ]], {})),
 }

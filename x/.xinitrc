@@ -32,15 +32,17 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-# Sometimes this is 11?
-# xinput set-prop 10 323 1
+# xinput set-prop "Elan Touchpad" "libinput Natural Scrolling Enabled" 1
 
 # Clipmenu
 systemctl --user import-environment DISPLAY
 clipmenud &
 
 # Night mode
+# LA
 redshift -l 34.05223:-118.24368 -m randr &
+# PA
+# redshift -l 39.9535743:-75.187736 -m randr &
 
 # Hide mouse
 unclutter &

@@ -77,7 +77,7 @@ return require"packer".startup(function()
     config = function()
       local ls = require("luasnip")
       require("luasnip.loaders.from_lua").lazy_load({
-        paths = "~/.config/nvim/snippets/"
+        paths = { "~/.config/nvim/snippets/" }
       })
 
       ls.config.set_config { enable_autosnippets = true }
@@ -90,8 +90,8 @@ return require"packer".startup(function()
   use {
     "nvim-treesitter/nvim-treesitter",
     requires = {
-      "nvim-treesitter/nvim-treesitter-textobjects", "p00f/nvim-ts-rainbow",
-      "nvim-treesitter/nvim-treesitter-context"
+      "nvim-treesitter/nvim-treesitter-textobjects", "p00f/nvim-ts-rainbow"
+      -- "nvim-treesitter/nvim-treesitter-context"
     },
     run = ":TSUpdate",
     config = function()
@@ -100,16 +100,10 @@ return require"packer".startup(function()
         ensure_installed = {
           "rust", "toml", "lua", "haskell", "latex", "python", "elixir"
         },
-        -- Install parsers synchronously (only applied to `ensure_installed`)
-        sync_install = false,
-
-        -- Automatically install missing parsers when entering buffer
-        -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
+        modules = {},
+        sync_install = true,
         auto_install = false,
-
-        -- List of parsers to ignore installing (or "all")
         ignore_install = { "all" },
-
         highlight = { enable = true },
         incremental_selection = {
           enable = true,
@@ -175,16 +169,30 @@ return require"packer".startup(function()
     end
   }
 
+  -- use {
+  --   "catppuccin/nvim",
+  --   as = "catppuccin",
+  --   config = function()
+  --     require("catppuccin").setup { flavour = "mocha", no_bold = true }
+  --     vim.cmd.colorscheme "catppuccin"
+  --     vim.cmd [[hi clear Todo]]
+  --     vim.cmd [[hi link Todo Keyword]]
+  --     vim.cmd [[hi MatchParen guibg=#45475a guifg=None]]
+  --     -- vim.cmd [[hi NormalFloat guibg=black]]
+  --   end
+  -- }
+
   use {
-    "catppuccin/nvim",
-    as = "catppuccin",
+    "ellisonleao/gruvbox.nvim",
     config = function()
-      require("catppuccin").setup { flavour = "mocha", no_bold = true }
-      vim.cmd.colorscheme "catppuccin"
-      vim.cmd [[hi clear Todo]]
-      vim.cmd [[hi link Todo Keyword]]
-      vim.cmd [[hi MatchParen guibg=#45475a guifg=None]]
-      -- vim.cmd [[hi NormalFloat guibg=black]]
+      require("gruvbox").setup { underline = false }
+      vim.cmd.colorscheme "gruvbox"
+      vim.cmd [[set background=dark]]
+
+      -- vim.cmd [[hi clear Todo]]
+      -- vim.cmd [[hi link Todo Keyword]]
+      -- vim.cmd [[hi clear Underlined]]
+      -- vim.cmd [[hi Underlined guifg=#83a598]]
     end
   }
 
@@ -194,7 +202,7 @@ return require"packer".startup(function()
     config = function()
       require("gitsigns").setup {
         on_attach = function(bufnr)
-          local gs = package.loaded.gitsigns
+          local gs = require "gitsigns"
           local function map(mode, l, r, opts)
             opts = opts or {}
             opts.buffer = bufnr
@@ -205,17 +213,22 @@ return require"packer".startup(function()
             map(mode, "<leader>g" .. l, r, opts)
           end
 
+          -- Navigation
           map('n', ']c', function()
-            if vim.wo.diff then return ']c' end
-            vim.schedule(function() gs.next_hunk() end)
-            return '<Ignore>'
-          end, { expr = true })
+            if vim.wo.diff then
+              vim.cmd.normal({ ']c', bang = true })
+            else
+              gs.nav_hunk('next')
+            end
+          end)
 
           map('n', '[c', function()
-            if vim.wo.diff then return '[c' end
-            vim.schedule(function() gs.prev_hunk() end)
-            return '<Ignore>'
-          end, { expr = true })
+            if vim.wo.diff then
+              vim.cmd.normal({ '[c', bang = true })
+            else
+              gs.nav_hunk('prev')
+            end
+          end)
 
           map_g({ "n", "v" }, "s", gs.stage_hunk)
           map_g({ "n", "v" }, "r", gs.reset_hunk)
@@ -248,6 +261,11 @@ return require"packer".startup(function()
     end
   }
 
+  use {
+    "whonore/Coqtail",
+    ft = "coq",
+    config = function() vim.cmd [[hi link coqProofDelim Identifier]] end
+  }
   -- use {
   --   "isovector/cornelis",
   --   requires = { "kana/vim-textobj-user", "neovimhaskell/nvim-hs.vim" },

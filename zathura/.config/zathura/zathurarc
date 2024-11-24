@@ -1,2 +1,3 @@
 set selection-clipboard clipboard
+set show-recent 0
 include catppuccin-mocha
