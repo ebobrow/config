@@ -1,6 +1,8 @@
 filetype plugin indent on
 syntax on
 
+" colo retrobox
+
 autocmd BufWritePost .Xresources !xrdb %
 autocmd BufWritePost ~/suckless/* !sudo make install
 autocmd BufWritePost packer.lua source <afile> | PackerCompile

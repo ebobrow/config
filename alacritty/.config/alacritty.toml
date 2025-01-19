@@ -1,7 +1,15 @@
 [general]
 import = [
-  "~/.config/gruvbox.toml"
+  "~/.config/hyper.toml"
 ]
+
+[window]
+opacity = 0.85
+
+# [colors.cursor]
+# cursor = "#F5E0DC"
+# # cursor = "#458588"
+# text = "#1E1E2E"
 
 [cursor.style]
 blinking = "Never"

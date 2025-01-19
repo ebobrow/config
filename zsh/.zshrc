@@ -20,9 +20,13 @@ zstyle ':vcs_info:*' stagedstr '+'
 zstyle ':vcs_info:git*' formats "%{${fg[cyan]}%}[%{${fg[blue]}%}%b%{${fg[yellow]}%}%m%u%c%{${fg[cyan]}%}] %{$reset_color%}"
 
 # History in cache directory:
-# HISTSIZE=10000000
-# SAVEHIST=10000000
-# HISTFILE=~/.zsh_history
+setopt APPEND_HISTORY
+setopt SHARE_HISTORY
+HISTFILE=$HOME/.zsh_history
+SAVEHIST=1000
+HISTSIZE=999
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt EXTENDED_HISTORY
 
 # Basic auto/tab complete:
 autoload -U compinit
@@ -101,6 +105,7 @@ alias cp="cp -v"
 alias mv="mv -v"
 alias x="startx"
 alias v="nvim"
+alias vv="nvim -c \"color retrobox\""
 alias vh="nvim +'lua require(\"harpoon.ui\").nav_file(1)' +'call ZathuraOpenPdf()'"
 alias wifi="nmcli device wifi"
 alias swifi="sudo nmcli device wifi"

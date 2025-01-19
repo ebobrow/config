@@ -32,7 +32,7 @@ opt.statusline = " %f %m%r" .. "%=" .. "%l:%c [%p%%]%y"
 opt.tabstop = 4
 opt.shiftwidth = 4
 opt.expandtab = true
-opt.smartindent = true
+-- opt.smartindent = true
 opt.wrap = false
 opt.cursorline = true
 
