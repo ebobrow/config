@@ -104,7 +104,15 @@ nvim_lsp.texlab.setup {
   settings = {
     texlab = {
       build = { onSave = true },
-      chktex = { onEdit = false, onOpenAndSave = false }
+      chktex = { onEdit = false, onOpenAndSave = false },
+      forwardSearch = {
+        executable = "zathura",
+        args = { "--synctex-forward", "%l:1:%f", "%p" }
+      },
+      latexformatter = "texlab",
+      latexindent = {
+        ['local'] = "/home/elliotbobrow/.config/nvim/indentconfig.yaml"
+      }
     }
   }
 }

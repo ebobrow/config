@@ -1,10 +1,10 @@
-[general]
-import = [
-  "~/.config/hyper.toml"
-]
+# [general]
+# import = [
+#   "~/.config/cyberdream.toml"
+# ]
 
 [window]
-opacity = 0.85
+opacity = 0.9
 
 # [colors.cursor]
 # cursor = "#F5E0DC"

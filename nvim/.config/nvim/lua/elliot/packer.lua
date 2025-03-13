@@ -182,19 +182,46 @@ return require"packer".startup(function()
   --   end
   -- }
 
-  --   use {
-  --     "ellisonleao/gruvbox.nvim",
-  --     config = function()
-  --       require("gruvbox").setup { underline = false }
-  --       vim.cmd.colorscheme "gruvbox"
-  --       vim.cmd [[set background=dark]]
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true },
+    config = function()
+      require"lualine".setup {
+        sections = { lualine_a = {} },
+        options = { theme = "nord" }
+      }
+    end
+  }
 
-  --       -- vim.cmd [[hi clear Todo]]
-  --       -- vim.cmd [[hi link Todo Keyword]]
-  --       -- vim.cmd [[hi clear Underlined]]
-  --       -- vim.cmd [[hi Underlined guifg=#83a598]]
-  --     end
-  --   }
+  -- use {
+  --   "scottmckendry/cyberdream.nvim",
+  --   config = function()
+  --     require"cyberdream".setup { transparent = true, borderless_pickers = true }
+  --     vim.cmd.colorscheme "cyberdream"
+  --   end
+  -- }
+
+  use {
+    'shaunsingh/nord.nvim',
+    config = function()
+      vim.g.nord_disable_background = true
+      vim.cmd.colorscheme "nord"
+    end
+  }
+
+  -- use {
+  --   "ellisonleao/gruvbox.nvim",
+  --   config = function()
+  --     require("gruvbox").setup { underline = false, transparent_mode = true }
+  --     vim.cmd.colorscheme "gruvbox"
+  --     vim.cmd [[set background=dark]]
+
+  --     -- vim.cmd [[hi clear Todo]]
+  --     -- vim.cmd [[hi link Todo Keyword]]
+  --     -- vim.cmd [[hi clear Underlined]]
+  --     -- vim.cmd [[hi Underlined guifg=#83a598]]
+  --   end
+  -- }
 
   -- use "thallada/farout.nvim"
   -- use {
@@ -211,34 +238,36 @@ return require"packer".startup(function()
   --     vim.cmd [[hi LspReferenceWrite guibg=#585858]]
   --   end
   -- }
-  use {
-    "paulo-granthon/hyper.nvim",
-    config = function()
-      require"hyper".load()
-      local no_bg = { bg = 'none' }
+  -- use {
+  --   "paulo-granthon/hyper.nvim",
+  --   config = function()
+  --     require"hyper".load()
+  --     local no_bg = { bg = 'none' }
 
-      vim.api.nvim_set_hl(0, 'Normal', no_bg)
-      vim.api.nvim_set_hl(0, 'NormalFloat', no_bg)
-      vim.api.nvim_set_hl(0, 'EndOfBuffer', no_bg)
+  --     vim.api.nvim_set_hl(0, 'Normal', no_bg)
+  --     vim.api.nvim_set_hl(0, 'NormalFloat', no_bg)
+  --     vim.api.nvim_set_hl(0, 'EndOfBuffer', no_bg)
 
-      vim.api.nvim_set_hl(0, 'TabLineFill', no_bg)
-      vim.api.nvim_set_hl(0, 'TabLine', no_bg)
-      vim.api.nvim_set_hl(0, 'TabLineSel', no_bg)
+  --     vim.api.nvim_set_hl(0, 'TabLineFill', no_bg)
+  --     vim.api.nvim_set_hl(0, 'TabLine', no_bg)
+  --     vim.api.nvim_set_hl(0, 'TabLineSel', no_bg)
 
-      vim.api.nvim_set_hl(0, 'SpecialKey', no_bg)
-      vim.api.nvim_set_hl(0, 'NonText', no_bg)
+  --     vim.api.nvim_set_hl(0, 'SpecialKey', no_bg)
+  --     vim.api.nvim_set_hl(0, 'NonText', no_bg)
 
-      -- vim.api.nvim_set_hl(0, 'LineNrAbove', line_nr_colors)
-      -- vim.api.nvim_set_hl(0, 'LineNr', { fg = 'white', bg = 'none' })
-      -- vim.api.nvim_set_hl(0, 'LineNrBelow', line_nr_colors)
+  --     -- vim.api.nvim_set_hl(0, 'LineNrAbove', line_nr_colors)
+  --     -- vim.api.nvim_set_hl(0, 'LineNr', { fg = 'white', bg = 'none' })
+  --     -- vim.api.nvim_set_hl(0, 'LineNrBelow', line_nr_colors)
 
-      -- vim.api.nvim_set_hl(0, 'SignColumn', no_bg)
+  --     -- vim.api.nvim_set_hl(0, 'SignColumn', no_bg)
 
-      vim.api.nvim_set_hl(0, 'GitSignsAdd', { fg = "#33ff00" })
-      vim.api.nvim_set_hl(0, 'GitSignsChange', { fg = "#0066ff" })
-      vim.api.nvim_set_hl(0, 'GitSignsRemoved', { fg = "#ff0000" })
-    end
-  }
+  --     vim.api.nvim_set_hl(0, 'GitSignsAdd', { fg = "#33ff00" })
+  --     vim.api.nvim_set_hl(0, 'GitSignsChange', { fg = "#0066ff" })
+  --     vim.api.nvim_set_hl(0, 'GitSignsRemoved', { fg = "#ff0000" })
+
+  --     vim.api.nvim_set_hl(0, 'CursorLine', { bg = "#222222" })
+  --   end
+  -- }
 
   use {
     "lewis6991/gitsigns.nvim",

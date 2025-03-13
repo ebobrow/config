@@ -74,6 +74,10 @@ return {
   \textbf{<>}
   ]], { i(1) })),
 
+  s(".ts", fmta([[
+  \textsf{<>}
+  ]], { i(1) })),
+
   s(".bfig", fmta([[
   \begin{figure}[H]
       \centering
@@ -118,25 +122,22 @@ return {
   ]], { i(1) })),
 
   s(".doc", fmta([[
-  \documentclass[12pt,letterpaper]{hmcpset}
-  \usepackage[margin=1in]{geometry}
-  \usepackage{graphicx}
-  \usepackage{float}
-  \usepackage{enumitem}
+  \documentclass{article}
+  \usepackage{amssymb, amsmath, amsfonts, amsthm, graphicx, enumitem}
 
-  \name{Elliot Bobrow}
-  \assignment{<>}
-  \class{<>}
-  \duedate{<>}
+  \title{<>}
+  \author{}
+  \date{}
 
   \begin{document}
-      <>
+  \maketitle
+  <>
   \end{document}
-  ]], { i(1), i(2), i(3), i(4) })),
+  ]], { i(1), i(2) })),
 
   s(".sum", fmta([[
-  \sum_{i=<>}^<> <>
-  ]], { i(1), i(2), i(3) })),
+  \sum_{i=<>}^<>
+  ]], { i(1), i(2) })),
 
   s(".ms", fmta([[
   \mathscr{<>}
@@ -148,5 +149,17 @@ return {
 
   s(".tr", fmta([[
   \trianglelefteq
+  ]], {})),
+
+  s(".ss", fmta([[
+  \subset
+  ]], {})),
+
+  s(".se", fmta([[
+  \subseteq
+  ]], {})),
+
+  s(".qs", fmta([[
+  \sqsubseteq
   ]], {})),
 }

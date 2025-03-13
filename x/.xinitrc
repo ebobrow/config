@@ -46,7 +46,8 @@ redshift -l 34.05223:-118.24368 -m randr &
 
 # Hide mouse
 unclutter &
-# ~/.fehbg &
+~/.fehbg &
 dwmstatus &
 picom -b
+wmname LG3D
 exec startdwm

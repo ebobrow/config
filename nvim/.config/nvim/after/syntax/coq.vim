@@ -37,7 +37,7 @@ syntax match coqLtac /|-/ contained conceal cchar=⊢
 " syn keyword coqKwd bool conceal cchar=𝔹
 
 " hi link coqKwd Operator
-" hi! link Conceal Operator
+hi! link Conceal coqKwd
 
 setlocal conceallevel=2
 setlocal concealcursor=nci

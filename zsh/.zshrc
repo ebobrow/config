@@ -1,6 +1,6 @@
-if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
-    exec startx
-fi
+# if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
+#     exec startx
+# fi
 
 export PATH=/home/elliotbobrow/.config/emacs/bin/:/home/elliotbobrow/.local/bin:/home/elliotbobrow/.cargo/bin:/home/elliotbobrow/go/bin:$PATH
 
@@ -9,6 +9,10 @@ autoload -U colors && colors
 # setopt autocd
 # stty stop undef
 # setopt interactive_comments
+
+# Java fix?
+export _JAVA_AWT_WM_NONREPARENTING=1
+export AWT_TOOLKIT=MToolkit
 
 # GRML
 grml_theme_add_token lambda 'λ '
@@ -105,11 +109,13 @@ alias cp="cp -v"
 alias mv="mv -v"
 alias x="startx"
 alias v="nvim"
-alias vv="nvim -c \"color retrobox\""
+alias vm="nvim main.tex"
+alias hw=". hw_script"
 alias vh="nvim +'lua require(\"harpoon.ui\").nav_file(1)' +'call ZathuraOpenPdf()'"
 alias wifi="nmcli device wifi"
 alias swifi="sudo nmcli device wifi"
 alias ht="cabal test --test-show-details=direct"
+alias rs="/usr/lib/rstudio/rstudio"
 
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 # Load syntax highlighting; should be last.

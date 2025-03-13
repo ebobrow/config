@@ -1,1 +1,1 @@
-syn keyword coqVernacCmd HB instance
+syn keyword coqVernacCmd HB instance mixin
