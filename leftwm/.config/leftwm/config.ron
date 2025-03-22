@@ -21,10 +21,10 @@
         "3",
         "4",
         "5",
-        "6",
-        "7",
-        "8",
-        "9",
+//        "6",
+//        "7",
+//        "8",
+//        "9",
     ],
     layouts: [
 //        "EvenHorizontal",
@@ -60,6 +60,7 @@
     insert_behavior: Bottom,
     scratchpad: [
         (name: "Alacritty", args: None, value: "alacritty", x: 660, y: 390, height: 400, width: 600),
+        (name: "Calc", args: ["-e", "python3"], value: "alacritty", x: 660, y: 390, height: 400, width: 600),
     ],
     window_rules: [
         (window_title: "Java", spawn_floating: true),
@@ -68,10 +69,10 @@
     disable_current_tag_swap: false,
     disable_tile_drag: false,
     disable_window_snap: true,
-    focus_behaviour: Sloppy,
+    focus_behaviour: ClickTo,
     focus_new_windows: true,
     single_window_border: false,
-    sloppy_mouse_follows_focus: true,
+    sloppy_mouse_follows_focus: false,
     create_follows_cursor: None,
     auto_derive_workspaces: true,
     disable_cursor_reposition_on_resize: false,
@@ -87,6 +88,7 @@
         (command: Execute, value: "/usr/lib/rstudio/rstudio", modifier: ["modkey"], key: "r"),
         (command: Execute, value: "isabelle jedit", modifier: ["modkey"], key: "i"),
         (command: Execute, value: "firefox", modifier: ["modkey"], key: "b"),
+        (command: Execute, value: "networkmanager_dmenu", modifier: ["modkey"], key: "n"),
 
         (command: Execute, value: "brightness inc", modifier: [], key: "XF86XK_MonBrightnessUp"),
         (command: Execute, value: "brightness dec", modifier: [], key: "XF86XK_MonBrightnessDown"),
@@ -124,7 +126,9 @@
         (command: MoveToTag, value: "9", modifier: ["modkey", "Shift"], key: "9"),
 
         (command: ToggleSticky, modifier: ["modkey"], key: "v"),
-        (command: ToggleScratchPad, value: "Alacritty", modifier: ["modkey"], key: "a")
+        (command: ToggleScratchPad, value: "Alacritty", modifier: ["modkey"], key: "a"),
+        (command: ToggleScratchPad, value: "Calc", modifier: ["modkey"], key: "q"),
+        (command: ReleaseScratchPad, modifier: ["modkey", "Shift"], key: "a"),
     ],
     state_path: None,
 )

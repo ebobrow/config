@@ -113,6 +113,22 @@ return {
   \mathbb{<>}
   ]], { i(1) })),
 
+  s(".N", fmta([[
+  \mathbb{N}
+  ]], {})),
+
+  s(".R", fmta([[
+  \mathbb{R}
+  ]], {})),
+
+  s(".Z", fmta([[
+  \mathbb{Z}
+  ]], {})),
+
+  s(".Q", fmta([[
+  \mathbb{Q}
+  ]], {})),
+
   s(".par", fmta([[
   \partial
   ]], {})),

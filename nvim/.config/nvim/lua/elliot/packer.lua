@@ -39,10 +39,7 @@ return require"packer".startup(function()
               end
             end,
             s = cmp.mapping.confirm({ select = true }),
-            c = cmp.mapping.confirm({
-              behavior = cmp.ConfirmBehavior.Replace,
-              select = true
-            })
+            c = cmp.mapping.abort()
           }),
           ["<C-j>"] = cmp.mapping.select_next_item {
             behavior = cmp.SelectBehavior.Select
@@ -161,13 +158,13 @@ return require"packer".startup(function()
       require "elliot.telescope.mappings"
     end
   }
-  use "mkitt/tabline.vim"
-  use {
-    "mbbill/undotree",
-    config = function()
-      vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>")
-    end
-  }
+  -- use "mkitt/tabline.vim"
+  -- use {
+  --   "mbbill/undotree",
+  --   config = function()
+  --     vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>")
+  --   end
+  -- }
 
   -- use {
   --   "catppuccin/nvim",
@@ -187,87 +184,48 @@ return require"packer".startup(function()
     requires = { 'nvim-tree/nvim-web-devicons', opt = true },
     config = function()
       require"lualine".setup {
-        sections = { lualine_a = {} },
-        options = { theme = "nord" }
+        sections = {
+          lualine_a = { { 'mode', fmt = function(str)
+            return str:sub(1, 1)
+          end } }
+        },
+        options = { theme = "gruvbox-material" }
       }
     end
   }
 
-  -- use {
-  --   "scottmckendry/cyberdream.nvim",
-  --   config = function()
-  --     require"cyberdream".setup { transparent = true, borderless_pickers = true }
-  --     vim.cmd.colorscheme "cyberdream"
-  --   end
-  -- }
+  --   use {
+  --     'shaunsingh/nord.nvim',
+  --     config = function()
+  --       vim.g.nord_disable_background = true
+  --       vim.cmd.colorscheme "nord"
+
+  --       vim.cmd [[hi TelescopeBorder guibg=#2e3440 guifg=#2e3440]]
+  --       vim.cmd [[hi TelescopePromptBorder guibg=#2e3440 guifg=#2e3440]]
+  --       vim.cmd [[hi TelescopeNormal guibg=#2e3440]]
+  --       vim.cmd [[hi TelescopePreviewBorder guifg=#2e3440 guibg=#2e3440]]
+  --       vim.cmd [[hi TelescopePreviewNormal guibg=#2e3440]]
+  --       vim.cmd [[hi TelescopePreviewTitle guifg=#2e3440 guibg=#A3BE8C gui=bold]]
+  --       vim.cmd [[hi TelescopeResultsBorder guifg=#2e3440 guibg=#2e3440]]
+  --       vim.cmd [[hi TelescopeResultsNormal guibg=#2e3440]]
+  --       vim.cmd [[hi TelescopePromptPrefix guifg=#5E81AC guibg=#2e3440]]
+  --       vim.cmd [[hi TelescopePromptCounter guifg=#88C0D0 guibg=#2e3440]]
+  --       vim.cmd [[hi TelescopePromptTitle guifg=#2e3440 guibg=t.blue gui=bold]]
+  --       vim.cmd [[hi TelescopeResultsTitle guifg=#5E81AC guibg=#2e3440 gui=bold]]
+  --     end
+  --   }
 
   use {
-    'shaunsingh/nord.nvim',
+    "ellisonleao/gruvbox.nvim",
     config = function()
-      vim.g.nord_disable_background = true
-      vim.cmd.colorscheme "nord"
+      require("gruvbox").setup { underline = false, transparent_mode = true }
+      vim.cmd.colorscheme "gruvbox"
+      vim.cmd [[set background=dark]]
+
+      -- vim.cmd [[hi clear Todo]]
+      -- vim.cmd [[hi link Todo Keyword]]
     end
   }
-
-  -- use {
-  --   "ellisonleao/gruvbox.nvim",
-  --   config = function()
-  --     require("gruvbox").setup { underline = false, transparent_mode = true }
-  --     vim.cmd.colorscheme "gruvbox"
-  --     vim.cmd [[set background=dark]]
-
-  --     -- vim.cmd [[hi clear Todo]]
-  --     -- vim.cmd [[hi link Todo Keyword]]
-  --     -- vim.cmd [[hi clear Underlined]]
-  --     -- vim.cmd [[hi Underlined guifg=#83a598]]
-  --   end
-  -- }
-
-  -- use "thallada/farout.nvim"
-  -- use {
-  --   "hardselius/warlock",
-  --   config = function()
-  --     vim.cmd [[colo warlock]]
-  --     vim.cmd [[hi Constant guifg=#458588]]
-  --     vim.cmd [[hi clear String]]
-  --     vim.cmd [[hi link String Constant]]
-  --     vim.cmd [[hi clear MatchParen]]
-  --     vim.cmd [[hi MatchParen guifg=#458588 guibg=#585858]]
-  --     vim.cmd [[hi LspReferenceRead guibg=#585858]]
-  --     vim.cmd [[hi LspReferenceText guibg=#585858]]
-  --     vim.cmd [[hi LspReferenceWrite guibg=#585858]]
-  --   end
-  -- }
-  -- use {
-  --   "paulo-granthon/hyper.nvim",
-  --   config = function()
-  --     require"hyper".load()
-  --     local no_bg = { bg = 'none' }
-
-  --     vim.api.nvim_set_hl(0, 'Normal', no_bg)
-  --     vim.api.nvim_set_hl(0, 'NormalFloat', no_bg)
-  --     vim.api.nvim_set_hl(0, 'EndOfBuffer', no_bg)
-
-  --     vim.api.nvim_set_hl(0, 'TabLineFill', no_bg)
-  --     vim.api.nvim_set_hl(0, 'TabLine', no_bg)
-  --     vim.api.nvim_set_hl(0, 'TabLineSel', no_bg)
-
-  --     vim.api.nvim_set_hl(0, 'SpecialKey', no_bg)
-  --     vim.api.nvim_set_hl(0, 'NonText', no_bg)
-
-  --     -- vim.api.nvim_set_hl(0, 'LineNrAbove', line_nr_colors)
-  --     -- vim.api.nvim_set_hl(0, 'LineNr', { fg = 'white', bg = 'none' })
-  --     -- vim.api.nvim_set_hl(0, 'LineNrBelow', line_nr_colors)
-
-  --     -- vim.api.nvim_set_hl(0, 'SignColumn', no_bg)
-
-  --     vim.api.nvim_set_hl(0, 'GitSignsAdd', { fg = "#33ff00" })
-  --     vim.api.nvim_set_hl(0, 'GitSignsChange', { fg = "#0066ff" })
-  --     vim.api.nvim_set_hl(0, 'GitSignsRemoved', { fg = "#ff0000" })
-
-  --     vim.api.nvim_set_hl(0, 'CursorLine', { bg = "#222222" })
-  --   end
-  -- }
 
   use {
     "lewis6991/gitsigns.nvim",
@@ -342,14 +300,4 @@ return require"packer".startup(function()
       vim.g["coqtail_imap_prefix"] = "<C-c>"
     end
   }
-  -- use {
-  --   "isovector/cornelis",
-  --   requires = { "kana/vim-textobj-user", "neovimhaskell/nvim-hs.vim" },
-  --   run = "stack build",
-  --   ft = "agda"
-  -- }
-  -- use {
-  --   'lervag/vimtex',
-  --   config = function() vim.g.vimtex_imaps_enabled = true end
-  -- }
 end)

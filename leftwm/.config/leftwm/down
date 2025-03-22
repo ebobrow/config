@@ -1,0 +1,5 @@
+#!/bin/sh
+
+pkill redshift
+pkill clipmenud
+pkill unclutter
