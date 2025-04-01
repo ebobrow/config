@@ -1,6 +1,6 @@
 # [general]
 # import = [
-#   "~/.config/cyberdream.toml"
+#   "~/.config/gruvbox.toml"
 # ]
 
 [window]

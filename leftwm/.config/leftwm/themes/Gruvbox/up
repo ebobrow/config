@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 export $(dbus-launch)
 SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P)"
 
@@ -16,6 +17,8 @@ picom &> /dev/null &
 if [ -x "$(command -v feh)" ]; then
   feh --bg-fill "$SCRIPTPATH"/wallpaper.jpg
 fi
+
+dunst -conf "$SCRIPTPATH/dunst.conf" &
 
 #set the theme.toml config
 leftwm command "LoadTheme $SCRIPTPATH/theme.toml"

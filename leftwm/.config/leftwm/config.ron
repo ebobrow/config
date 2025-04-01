@@ -59,8 +59,8 @@
     layout_mode: Tag,
     insert_behavior: Bottom,
     scratchpad: [
-        (name: "Alacritty", args: None, value: "alacritty", x: 660, y: 390, height: 400, width: 600),
-        (name: "Calc", args: ["-e", "python3"], value: "alacritty", x: 660, y: 390, height: 400, width: 600),
+        (name: "Alacritty", args: None, value: "alacritty", x: 510, y: 290, height: 500, width: 900),
+        (name: "Calc", args: ["-e", "qalc"], value: "alacritty", x: 660, y: 290, height: 500, width: 600),
     ],
     window_rules: [
         (window_title: "Java", spawn_floating: true),
@@ -79,19 +79,22 @@
     focus_on_activation: MarkUrgent,
     window_hiding_strategy: MoveOnly,
     keybind: [
-        (command: Execute, value: "dmenu_run", modifier: ["modkey"], key: "p"),
+        (command: Execute, value: "rofi -show drun", modifier: ["modkey"], key: "p"),
         (command: Execute, value: "alacritty", modifier: ["modkey"], key: "Return"),
         (command: Execute, value: "alacritty -e mux", modifier: ["modkey", "Shift"], key: "Return"),
         (command: Execute, value: "scrot --silent scrots/%Y-%m-%d_%I:%M:%S_$wx$h.png", modifier: ["modkey"], key: "s"),
         (command: Execute, value: "scrot --silent --select scrots/%Y-%m-%d_%I:%M:%S_$wx$h.png", modifier: ["modkey", "Shift"], key: "s"),
+        // (command: Execute, value: "CM_LAUNCHER=rofi clipmenu -i", modifier: ["modkey"], key: "c"),
         (command: Execute, value: "clipmenu -i", modifier: ["modkey"], key: "c"),
         (command: Execute, value: "/usr/lib/rstudio/rstudio", modifier: ["modkey"], key: "r"),
         (command: Execute, value: "isabelle jedit", modifier: ["modkey"], key: "i"),
-        (command: Execute, value: "firefox", modifier: ["modkey"], key: "b"),
+        (command: Execute, value: "vivaldi", modifier: ["modkey"], key: "b"),
         (command: Execute, value: "networkmanager_dmenu", modifier: ["modkey"], key: "n"),
 
         (command: Execute, value: "brightness inc", modifier: [], key: "XF86XK_MonBrightnessUp"),
         (command: Execute, value: "brightness dec", modifier: [], key: "XF86XK_MonBrightnessDown"),
+        (command: Execute, value: "amixer sset Master 10%+", modifier: [], key: "XF86XK_AudioRaiseVolume"),
+        (command: Execute, value: "amixer sset Master 10%-", modifier: [], key: "XF86XK_AudioLowerVolume"),
 
         (command: CloseWindow, value: "", modifier: ["modkey"], key: "w"),
         (command: SoftReload, value: "", modifier: ["modkey", "Shift"], key: "r"),

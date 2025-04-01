@@ -21,8 +21,8 @@ local on_attach = function(client)
 
   map("n", "K", vim.lsp.buf.hover)
 
-  map("n", "]d", vim.diagnostic.goto_next)
-  map("n", "[d", vim.diagnostic.goto_prev)
+  map("n", "]d", function() vim.diagnostic.jump({ count = 1 }) end)
+  map("n", "[d", function() vim.diagnostic.jump({ count = -1 }) end)
   map("n", "<leader>cd", vim.diagnostic.open_float)
 
   local map_tele = require("elliot.telescope.mappings")

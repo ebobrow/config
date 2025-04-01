@@ -117,6 +117,11 @@ alias swifi="sudo nmcli device wifi"
 alias ht="cabal test --test-show-details=direct"
 alias rs="/usr/lib/rstudio/rstudio"
 
+alias fn="fasd -fe nvim"
+
+# fasd
+eval "$(fasd --init auto)"
+
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 # Load syntax highlighting; should be last.
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
