@@ -21,6 +21,8 @@ map_tele('xd', 'diagnostics')
 map_tele('gc', 'git_commits')
 map_tele('gg', 'git_status')
 
+-- map_tele('r', 'lsp_references')
+
 map_tele('T', 'builtin')
 
 return map_tele

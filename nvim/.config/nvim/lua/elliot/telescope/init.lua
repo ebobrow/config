@@ -48,6 +48,12 @@ function M.builtin()
   require("telescope.builtin").builtin(themes.get_dropdown { previewer = false })
 end
 
+function M.lsp_references()
+  require("telescope.builtin").lsp_references(themes.get_ivy {
+    sorting_strategy = "ascending"
+  })
+end
+
 function M.live_grep() require("telescope.builtin").live_grep(themes.get_ivy {}) end
 
 function M.buffers() require("telescope.builtin").buffers() end

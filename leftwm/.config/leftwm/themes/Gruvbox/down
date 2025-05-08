@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-leftwm command "UnloadTheme"
-
-pkill dunst
-pkill polybar
-pkill compton
-pkill picom
-pkill polybar

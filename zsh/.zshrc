@@ -10,9 +10,9 @@ autoload -U colors && colors
 # stty stop undef
 # setopt interactive_comments
 
-# Java fix?
-export _JAVA_AWT_WM_NONREPARENTING=1
-export AWT_TOOLKIT=MToolkit
+# # Java fix?
+# export _JAVA_AWT_WM_NONREPARENTING=1
+# export AWT_TOOLKIT=MToolkit
 
 # GRML
 grml_theme_add_token lambda 'λ '
@@ -76,7 +76,7 @@ bindkey '^[[P' delete-char
 
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
-bindkey '^e' edit-command-line
+# bindkey '^e' edit-command-line
 
 # For title bar
 autoload -Uz add-zsh-hook
@@ -118,11 +118,16 @@ alias ht="cabal test --test-show-details=direct"
 alias rs="/usr/lib/rstudio/rstudio"
 
 alias fn="fasd -fe nvim"
+alias fz="fasd -fe zathura"
 
 # fasd
 eval "$(fasd --init auto)"
 
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
+
 # Load syntax highlighting; should be last.
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
@@ -132,3 +137,23 @@ source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.
 
 # opam configuration
 [[ ! -r /home/elliotbobrow/.opam/opam-init/init.zsh ]] || source /home/elliotbobrow/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
+# _thing() {
+#   CURRENTWORD="${LBUFFER/* /}${RBUFFER/ */}"
+#   # SEL=$(fasd -l $CURRENTWORD | compadd)
+#   compadd a b c
+# }
+# zle -C _thing complete-word _generic
+# zstyle ":completion:*" completer _thing
+# zstyle ":completion:*" menu-select
+
+print-current-word() {
+  CURRENTWORD="${LBUFFER/* /}${RBUFFER/ */}"
+  OUT=$(fasd $CURRENTWORD)
+  LBUFFER="$(echo $LBUFFER | rev | cut -d ' ' -f2- | rev) \"$OUT\""
+  RBUFFER=""
+  # print; print "The current word is: $CURRENTWORD"
+}
+zle -N print-current-word
+bindkey "^o" print-current-word
+

@@ -3,3 +3,4 @@ set show-recent 15
 # include catppuccin-mocha
 set synctex true
 set synctex-editor-command "texlab inverse-search -i %{input} -l %{line}"
+set database "sqlite"

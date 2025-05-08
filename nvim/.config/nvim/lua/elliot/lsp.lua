@@ -1,14 +1,15 @@
-local references = vim.lsp.handlers["textDocument/references"]
-vim.lsp.handlers["textDocument/references"] =
-    function(err, result, ctx, config)
-      if #result <= 2 then
-        -- Result[1] is the only reference
-        -- Result[2] is definition
-        vim.lsp.util.jump_to_location(result[1], "utf-8")
-      else
-        references(err, result, ctx, config)
-      end
-    end
+-- local references = vim.lsp.handlers["textDocument/references"]
+-- vim.lsp.handlers["textDocument/references"] =
+--     function(err, result, ctx)
+--       if #result <= 2 then
+--         -- Result[1] is the only reference
+--         -- Result[2] is definition
+--         vim.lsp.util.show_document(result[1], "utf-8", { focus = true })
+--       else
+--         references(err, result, ctx)
+--       end
+--     end
+vim.diagnostic.config({ virtual_text = true, virtual_lines = false })
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
@@ -21,8 +22,10 @@ local on_attach = function(client)
 
   map("n", "K", vim.lsp.buf.hover)
 
-  map("n", "]d", function() vim.diagnostic.jump({ count = 1 }) end)
-  map("n", "[d", function() vim.diagnostic.jump({ count = -1 }) end)
+  map("n", "]d",
+      function() vim.diagnostic.jump({ count = 1, float = false }) end)
+  map("n", "[d",
+      function() vim.diagnostic.jump({ count = -1, float = false }) end)
   map("n", "<leader>cd", vim.diagnostic.open_float)
 
   local map_tele = require("elliot.telescope.mappings")
@@ -51,11 +54,18 @@ end
 
 local nvim_lsp = require 'lspconfig'
 
-nvim_lsp.rust_analyzer.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  cmd = { "/usr/lib/rustup/bin/rust-analyzer" },
-  settings = { ['rust-analyzer'] = { rustc = { source = "discover" } } }
+-- nvim_lsp.rust_analyzer.setup {
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+--   cmd = { "/usr/lib/rustup/bin/rust-analyzer" },
+--   settings = { ['rust-analyzer'] = { rustc = { source = "discover" } } }
+-- }
+vim.g.rustaceanvim = {
+  server = { on_attach = on_attach },
+  tools = {
+    test_executor = "background",
+    float_win_config = { open_split = "vertical" }
+  }
 }
 nvim_lsp.hls.setup {
   on_attach = on_attach,

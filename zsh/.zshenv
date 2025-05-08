@@ -1,6 +1,6 @@
 export PATH=$HOME/scripts:$PATH
 export EDITOR='nvim'
-export BROWSER="qutebrowser"
+export BROWSER="vivaldi"
 export XDG_SESSION_TYPE=X11
 
 export LF_ICONS="\

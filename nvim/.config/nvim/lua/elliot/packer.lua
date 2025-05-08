@@ -4,6 +4,20 @@ return require"packer".startup(function()
 
   use "neovim/nvim-lspconfig"
   use {
+    "ray-x/lsp_signature.nvim",
+    config = function() require"lsp_signature".setup { hint_enable = false } end
+  }
+  use {
+    "hedyhli/outline.nvim",
+    config = function()
+      vim.keymap.set("n", "<leader>o", "<cmd>Outline<CR>",
+                     { desc = "Toggle Outline" })
+
+      require("outline").setup { symbols = { icon_source = "lspkind" } }
+    end
+  }
+  use "mrcjkb/rustaceanvim"
+  use {
     "hrsh7th/nvim-cmp",
     requires = {
       "hrsh7th/cmp-path", "hrsh7th/cmp-nvim-lsp", "onsails/lspkind-nvim",
@@ -222,8 +236,14 @@ return require"packer".startup(function()
       vim.cmd.colorscheme "gruvbox"
       vim.cmd [[set background=dark]]
 
-      -- vim.cmd [[hi clear Todo]]
-      -- vim.cmd [[hi link Todo Keyword]]
+      vim.cmd [[hi clear LspReferenceText]]
+      vim.cmd [[hi link LspReferenceText LspReferenceTarget]]
+      vim.cmd [[hi clear LspReferenceRead]]
+      vim.cmd [[hi link LspReferenceRead LspReferenceTarget]]
+      vim.cmd [[hi clear LspReferenceWrite]]
+      vim.cmd [[hi link LspReferenceWrite LspReferenceTarget]]
+
+      vim.cmd [[hi NormalFloat guifg=#ebdbb2 guibg=#3c3836]]
     end
   }
 
