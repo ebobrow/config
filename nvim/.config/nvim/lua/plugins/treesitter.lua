@@ -2,7 +2,8 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     dependencies = {
-      "nvim-treesitter/nvim-treesitter-textobjects", "p00f/nvim-ts-rainbow"
+      "nvim-treesitter/nvim-treesitter-textobjects"
+      -- "p00f/nvim-ts-rainbow",
       -- "nvim-treesitter/nvim-treesitter-context"
     },
     build = ":TSUpdate",
@@ -44,12 +45,12 @@ return {
           goto_previous_start = { ['[m'] = '@function.outer' },
           goto_previous_end = { ['[M'] = '@function.outer' }
         }
-      },
-      rainbow = {
-        enable = true,
-        disable = vim.tbl_filter(function(p) return p ~= "racket" end, require(
-                                     "nvim-treesitter.parsers").available_parsers())
       }
+      -- rainbow = {
+      --   enable = true,
+      --   disable = vim.tbl_filter(function(p) return p ~= "racket" end, require(
+      --                                "nvim-treesitter.parsers").available_parsers())
+      -- }
     }
   }
 }

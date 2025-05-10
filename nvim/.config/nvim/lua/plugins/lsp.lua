@@ -18,9 +18,9 @@ return {
         map("n", "K", vim.lsp.buf.hover)
 
         map("n", "]d",
-            function() vim.diagnostic.jump({ count = 1, float = false }) end)
+          function() vim.diagnostic.jump({ count = 1, float = false }) end)
         map("n", "[d",
-            function() vim.diagnostic.jump({ count = -1, float = false }) end)
+          function() vim.diagnostic.jump({ count = -1, float = false }) end)
         map("n", "<leader>cd", vim.diagnostic.open_float)
 
         map("n", "<leader>F", vim.lsp.buf.format)
@@ -43,14 +43,8 @@ return {
         end
       end
 
-      local nvim_lsp = require 'lspconfig'
-
-      -- nvim_lsp.rust_analyzer.setup {
-      --   on_attach = on_attach,
-      --   capabilities = capabilities,
-      --   cmd = { "/usr/lib/rustup/bin/rust-analyzer" },
-      --   settings = { ['rust-analyzer'] = { rustc = { source = "discover" } } }
-      -- }
+      vim.lsp
+          .config('*', { on_attach = on_attach, capabilities = capabilities })
       vim.g.rustaceanvim = {
         server = { on_attach = on_attach },
         tools = {
@@ -58,13 +52,8 @@ return {
           float_win_config = { open_split = "vertical" }
         }
       }
-      nvim_lsp.hls.setup {
-        on_attach = on_attach,
-        capabilities = capabilities,
-        settings = { haskell = { formattingProvider = "fourmolu" } }
-      }
-      nvim_lsp.pylsp.setup { on_attach = on_attach, capabilities = capabilities }
-      nvim_lsp.lua_ls.setup {
+      vim.lsp.enable('lua_ls')
+      vim.lsp.config('lua_ls', {
         settings = {
           Lua = {
             runtime = { version = 'LuaJIT' },
@@ -73,11 +62,11 @@ return {
             telemetry = { enable = false }
           }
         }
-      }
-      nvim_lsp.efm.setup {
+      })
+      vim.lsp.enable('efm')
+      vim.lsp.config('efm', {
         init_options = { documentFormatting = true },
         filetypes = { "lua" },
-        on_attach = on_attach,
         settings = {
           rootMarkers = { ".git/" },
           languages = {
@@ -89,19 +78,10 @@ return {
             }
           }
         }
-      }
-      nvim_lsp.elixirls.setup {
-        cmd = { "/usr/bin/elixir-ls" },
-        on_attach = on_attach,
-        capabilities = capabilities
-      }
-      nvim_lsp.racket_langserver.setup {
-        on_attach = on_attach,
-        capabilities = capabilities
-      }
-      nvim_lsp.texlab.setup {
-        on_attach = on_attach,
-        capabilities = capabilities,
+      })
+      vim.lsp.enable('gopls')
+      vim.lsp.enable('texlab')
+      vim.lsp.config('texlab', {
         settings = {
           texlab = {
             build = { onSave = true },
@@ -116,12 +96,11 @@ return {
             }
           }
         }
-      }
-      -- nvim_lsp.asm_lsp.setup { on_attach = on_attach, capabilities = capabilities }
+      })
     end
   }, { "ray-x/lsp_signature.nvim", opts = { hint_enable = false } }, {
-    "hedyhli/outline.nvim",
-    opts = { symbols = { icon_source = "lspkind" } },
-    keys = { { "<leader>o", "<cmd>Outline<CR>" } }
-  }, { "mrcjkb/rustaceanvim" }
+  "hedyhli/outline.nvim",
+  opts = { symbols = { icon_source = "lspkind" } },
+  keys = { { "<leader>o", "<cmd>Outline<CR>" } }
+}, { "mrcjkb/rustaceanvim" }
 }

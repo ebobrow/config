@@ -15,9 +15,13 @@ vim.keymap.set("n", "<leader>rr", function() vim.cmd.RustLsp('runnables') end,
 vim.keymap.set("n", "<leader>rt", function() vim.cmd.RustLsp('testables') end,
                { silent = true, buffer = bufnr })
 
--- vim.keymap.set("n", "]d",
---                function() vim.cmd.RustLsp({ 'renderDiagnostic', 'cycle' }) end,
---                { silent = true, buffer = bufnr })
+vim.keymap.set("n", "]d",
+               function() vim.cmd.RustLsp({ 'renderDiagnostic', 'cycle' }) end,
+               { silent = true, buffer = bufnr })
+
+vim.keymap.set("n", "[d", function()
+  vim.cmd.RustLsp({ 'renderDiagnostic', 'cycle_prev' })
+end, { silent = true, buffer = bufnr })
 
 -- vim.keymap.set("n", "]d", function()
 --   vim.diagnostic.jump { count = 1, float = false }
