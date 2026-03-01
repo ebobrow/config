@@ -16,6 +16,7 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 let g:tex_flavor = "latex"
 
 autocmd BufEnter ~/exercism/*.md setlocal wrap
+autocmd BufEnter ~/repos/blog/content/*.md setlocal tw=80
 autocmd BufEnter *.c nnoremap <silent> <leader><leader>h :exe "e " .. expand('%:r') .. ".h"<CR>
 autocmd BufEnter *.h nnoremap <silent> <leader><leader>c :exe "e " .. expand('%:r') .. ".c"<CR>
 

@@ -57,6 +57,8 @@ clipmenud &
 redshift -l 34.05223:-118.24368 -m randr &
 # PA
 # redshift -l 39.9535743:-75.187736 -m randr &
+# Lausanne
+# redshift -l 46.5218269:6.6327025 -m randr &
 
 # Hide mouse
 unclutter &
@@ -67,5 +69,11 @@ picom -b
 # DWM stuff
 wmname LG3D
 export AWT_TOOLKIT=MToolKit export _JAVA_AWT_WM_NONREPARENTING=1
+
+# Since NTP isn't working right now
+# htpdate -D pool.ntp.org
+
+# Typing diacritics
+setxkbmap -option compose:ralt
 
 exec startdwm

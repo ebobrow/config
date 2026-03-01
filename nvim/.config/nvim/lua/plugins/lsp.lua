@@ -48,7 +48,7 @@ return {
       vim.g.rustaceanvim = {
         server = { on_attach = on_attach },
         tools = {
-          test_executor = "background",
+          -- test_executor = "background",
           float_win_config = { open_split = "vertical" }
         }
       }
@@ -97,10 +97,20 @@ return {
           }
         }
       })
+      vim.lsp.config('hls', {
+        filetypes = { 'haskell', 'lhaskell', 'cabal' },
+        settings = { haskell = { formattingProvider = "stylish-haskell" } }
+      })
+      vim.lsp.enable('hls')
     end
-  }, { "ray-x/lsp_signature.nvim", opts = { hint_enable = false } }, {
-  "hedyhli/outline.nvim",
-  opts = { symbols = { icon_source = "lspkind" } },
-  keys = { { "<leader>o", "<cmd>Outline<CR>" } }
-}, { "mrcjkb/rustaceanvim" }
+  }, -- {
+  --   "ray-x/lsp_signature.nvim",
+  --   event = "InsertEnter",
+  --   opts = { hint_enable = false }
+  -- },
+  {
+    "hedyhli/outline.nvim",
+    opts = { symbols = { icon_source = "lspkind" } },
+    keys = { { "<leader>o", "<cmd>Outline<CR>" } }
+  }, { "mrcjkb/rustaceanvim" }
 }

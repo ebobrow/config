@@ -20,7 +20,7 @@ vim.opt.rtp:prepend(lazypath)
 -- loading lazy.nvim so that mappings are correct.
 -- This is also a good place to setup other settings (vim.opt)
 vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
+vim.g.maplocalleader = "  "
 
 local opt = vim.opt
 
@@ -52,6 +52,8 @@ opt.listchars = { tab = "» ", trail = "·" }
 opt.updatetime = 100
 
 opt.statusline = " %f %m%r" .. "%=" .. "%l:%c [%p%%]%y"
+
+opt.showmode = false
 
 opt.tabstop = 4
 opt.shiftwidth = 4

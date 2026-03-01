@@ -133,27 +133,19 @@ source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.
 
 # [ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
 
-[ -f "/home/elliotbobrow/.ghcup/env" ] && source "/home/elliotbobrow/.ghcup/env" # ghcup-env
 
 # opam configuration
 [[ ! -r /home/elliotbobrow/.opam/opam-init/init.zsh ]] || source /home/elliotbobrow/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
-# _thing() {
-#   CURRENTWORD="${LBUFFER/* /}${RBUFFER/ */}"
-#   # SEL=$(fasd -l $CURRENTWORD | compadd)
-#   compadd a b c
-# }
-# zle -C _thing complete-word _generic
-# zstyle ":completion:*" completer _thing
-# zstyle ":completion:*" menu-select
-
 print-current-word() {
   CURRENTWORD="${LBUFFER/* /}${RBUFFER/ */}"
   OUT=$(fasd $CURRENTWORD)
-  LBUFFER="$(echo $LBUFFER | rev | cut -d ' ' -f2- | rev) \"$OUT\""
+  LBUFFER="$(echo $LBUFFER | rev | cut -d ' ' -f2- | rev) $(printf %q "$OUT")"
   RBUFFER=""
   # print; print "The current word is: $CURRENTWORD"
 }
 zle -N print-current-word
 bindkey "^o" print-current-word
 
+
+[ -f "/home/elliotbobrow/.ghcup/env" ] && . "/home/elliotbobrow/.ghcup/env" # ghcup-env
