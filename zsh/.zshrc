@@ -142,7 +142,6 @@ print-current-word() {
   OUT=$(fasd $CURRENTWORD)
   LBUFFER="$(echo $LBUFFER | rev | cut -d ' ' -f2- | rev) $(printf %q "$OUT")"
   RBUFFER=""
-  # print; print "The current word is: $CURRENTWORD"
 }
 zle -N print-current-word
 bindkey "^o" print-current-word

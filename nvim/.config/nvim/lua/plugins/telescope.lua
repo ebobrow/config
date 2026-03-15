@@ -10,44 +10,30 @@ return {
     keys = {
       {
         "<leader>f", function()
-          if not pcall(require("telescope.builtin").git_files) then
-            require("telescope.builtin").find_files { hidden = true }
-          end
+        if not pcall(require("telescope.builtin").git_files) then
+          require("telescope.builtin").find_files { hidden = true }
         end
+      end
       }, { "<leader>b", require("telescope.builtin").buffers }, {
-        "<leader>rg", function()
-          require("telescope.builtin").live_grep(
-              require("telescope.themes").get_ivy {})
-        end
-      },
-      { "<leader>xx", function() require("telescope.builtin").quickfix() end },
+      "<leader>rg", function()
+      require("telescope.builtin").live_grep(
+        require("telescope.themes").get_ivy {})
+    end
+    },
       { "<leader>xd", function() require("telescope.builtin").diagnostics() end },
-      { "<leader>gc", function() require("telescope.builtin").git_commits() end },
-      { "<leader>gg", function() require("telescope.builtin").git_status() end },
-      { "<leader>T", function() require("telescope.builtin").builtin() end },
+      { "<leader>T",  function() require("telescope.builtin").builtin() end },
       {
         "<leader>ca",
         function() require("telescope.builtin").lsp_code_actions() end
-      }, {
-        "<leader>r", function()
-          require("telescope.builtin").lsp_references(
-              require("telescope.themes").get_ivy {
-                sorting_strategy = "ascending"
-              })
-        end
       }
     },
     config = function()
       require("telescope").setup {
         defaults = {
-          color_devicons = true,
           mappings = {
             i = {
               ["<C-j>"] = require("telescope.actions").move_selection_next,
-              ["<C-k>"] = require("telescope.actions").move_selection_previous,
-              ["<Up>"] = require("telescope.actions").cycle_history_prev,
-              ["<Down>"] = require("telescope.actions").cycle_history_next,
-              ["<C-s>"] = require("telescope.actions").select_horizontal
+              ["<C-k>"] = require("telescope.actions").move_selection_previous
             },
             n = {
               ["<C-j>"] = require("telescope.actions").move_selection_next,
@@ -70,8 +56,6 @@ return {
       }
       require("telescope").load_extension("fzy_native")
       require("telescope").load_extension("ui-select")
-      -- require "elliot.telescope"
-      -- require "elliot.telescope.mappings"
     end
   }
 }
