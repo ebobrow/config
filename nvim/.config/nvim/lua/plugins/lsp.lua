@@ -23,8 +23,6 @@ return {
           function() vim.diagnostic.jump({ count = -1, float = false }) end)
         map("n", "<leader>cd", vim.diagnostic.open_float)
 
-        map("n", "<leader>F", vim.lsp.buf.format)
-
         vim.cmd [[
         augroup lsp_buf_format
           au! BufWritePre <buffer>

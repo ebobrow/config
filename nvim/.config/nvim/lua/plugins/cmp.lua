@@ -58,7 +58,7 @@ return {
         }
       }
       cmp.setup.filetype({ "haskell" },
-                         { completion = { autocomplete = false } })
+        { completion = { autocomplete = false } })
       cmp.setup.filetype("tex", {
         sources = cmp.config
             .sources({ { name = "path" }, { name = "luasnip" } })
